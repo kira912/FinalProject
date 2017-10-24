@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div>  
     <nav class="navbar navbar-inverse bg-inverse">
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -16,8 +16,13 @@
 </template>
 
 <script>
+import Sidebar from '@/components/Sidebar'
 export default {
-  name: 'app'
+  name: 'app',
+
+  components: {
+    Sidebar
+  }
 }
 </script>
 

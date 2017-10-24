@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+// Authentication
 function errHandler (err) {
   console.error('API', err)
 }
@@ -52,6 +53,19 @@ export function logout (vm) {
 
 export function signup (userInfo) {
   return auth.post('/signup', userInfo).then(response => {
+    return response.data
+  })
+}
+
+// Entities
+export function getEntities () {
+  return auth.get('/entities').then(response => {
+    return response.data
+  })
+}
+
+export function getSingleEntity (id) {
+  return auth.get('/entities/' + id).then(response => {
     return response.data
   })
 }

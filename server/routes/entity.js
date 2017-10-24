@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const entityController = express.Router()
 const Entity = require('../models/entity')
 
@@ -6,9 +7,9 @@ entityController.get('/', (req, res, next) => {
   Entity.find((err, entitiesList) => {
     if (err) {
       res.json(err)
-      return
+    } else {
+      res.json(entitiesList)
     }
-    res.json(entitiesList)
   })
 })
 
@@ -20,12 +21,23 @@ entityController.post('/', (req, res, next) => {
   entity.save((err) => {
     if (err) {
       res.json(err)
-      return
+    } else {
+      res.json({
+        message: 'New entity created !',
+      })
     }
-    res.json({
-      message: 'New entity created !',
-      id: entity._id
-    })
+  })
+})
+entityController.get('/:id', (req, res) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({ message: 'Specified id is not valid'})
+    return
+  }
+
+  Entity.findById(req.params.id).then(entity => {
+    res.json(entity)
+  }).catch(err => {
+    res.json(err)
   })
 })
 

@@ -1,9 +1,7 @@
 <template>
-  <sidebar></sidebar>
 </template>
 
 <script>
-import Sidebar from '@/components/Sidebar'
 import { logout } from '@/api/auth'
 export default {
   data () {
@@ -19,9 +17,7 @@ export default {
     entity () {
       this.$router.push('/entity')
     }
-  },
-  components: {
-    Sidebar
   }
+
 }
 </script>
