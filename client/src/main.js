@@ -5,9 +5,13 @@ import BootstrapVue from 'bootstrap-vue'
 import App from './App'
 import { checkUser } from '@/api/auth'
 import router from './router'
+import Vuetify from 'vuetify'
+
+Vue.use(Vuetify)
 
 Vue.use(BootstrapVue)
 
+Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -27,14 +27,14 @@ if (app.get('env') === 'development') {
     })
   )
 }
-passport.initialize()
+app.use(passport.initialize())
 const strategy = new Strategy(
   {
      // this is a config we pass to the strategy
     // it needs to secret to decrypt the payload of the
     // token.
     secretOrKey: config.jwtSecret,
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   },
   (payload, done) => {
     User.findById(payload.id).then(user => {
@@ -52,9 +52,11 @@ passport.use(strategy)
 
 const authRoute = require('./routes/auth')
 const entityRoute = require('./routes/entity')
+const userRoute = require('./routes/user')
 
 app.use('/api', authRoute)
 app.use('/api/entities', entityRoute)
+app.use('/api/users', userRoute)
 
 app.get(
   "/api/secret",
@@ -77,8 +79,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   // return the error message only in development mode
   res.json({
-    message: err.message,
-    error: req.app.get('env') === 'development' ? err.message : {}
+    error: req.app.get('env') === 'development' ? err : {}
   });
 });
 

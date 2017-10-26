@@ -5,26 +5,6 @@ const jwt = require('jwt-simple')
 const passport = require('passport')
 const config = require('../configs/auth')
 
-authController.post('/signup', (req, res, next) => {
-  const {
-    username,
-    name,
-    password
-  } = req.body
-
-  const user = new User({
-    username,
-    name
-  })
-
-  User.register(user, password, (err) => {
-    if (err) {
-      return next(err)
-    }
-    res.json({ success: true })
-  })
-})
-
 const authenticate = User.authenticate()
 authController.post('/login', (req, res, next) => {
   const { username, password } = req.body
@@ -42,7 +22,7 @@ authController.post('/login', (req, res, next) => {
       if (user) {
     
         const payload = {
-          id: user.id
+          id: user.id,
         }
   
         const token = jwt.encode(payload, config.jwtSecret)

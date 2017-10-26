@@ -3,11 +3,11 @@ const passportLocalMongoose = require('passport-local-mongoose')
 const { Schema } = mongoose
 
 const userSchema = new Schema({
-  personalData: {
+  firstname: String,
+  lastname: String,
+  /* personalData: {
     civility: String,
     nationality: String,
-    firstName: String,
-    lastName: String,
     birthDate: Number,
     telNumber: Number,
     email: String,
@@ -47,7 +47,7 @@ const userSchema = new Schema({
     type: String,
     enum: ['Admin', 'Director', 'Manager', 'Seller', 'Recipient', 'Guest'],
     default: 'Guest'
-  }
+  }  */
 })
 
 userSchema.plugin(passportLocalMongoose)

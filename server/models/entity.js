@@ -2,16 +2,16 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const entitySchema = new Schema({
-  entityData: {
     name: String,
-    type: String,
+    typeEntity: String,
     entityAttachment: String,
     enseign: String,
     address: String,
+    city: String,
+    codePostal: String,
     telNumber: Number,
-    email: String  
-  },
-  legalData: {
+    email: String,
+
     rcs: String,
     tvaIntra: Number,
     siren: String,
@@ -20,19 +20,18 @@ const entitySchema = new Schema({
     financialGuarantees: String,
     status: String,
     socialCapital: Number,
-    exerciseDate: Number
-  },
-  bankData: {
+    exerciseDate: Number,
+    
     bank: String,
-    addressPostalBank: String,
+    address: String,
+    city: String,
+    codePostal: String,
     ownerCount: String,
     iban: String,
-    codeBic: Number
-  },
-  gestionData: {
+    codeBic: Number,
+
     directorEntity: String,
     userAttachment: String
-  }
 })
 
 module.exports = mongoose.model('Entity', entitySchema)

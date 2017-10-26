@@ -7,7 +7,11 @@
       </form>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-         <a class="nav-link" href="/entity">Entitée</a>
+          <router-link to="/entities" tag="button">Entités</router-link>
+        </li>
+        <li class="nav-item">
+        <router-link to="/users" tag="button">Utilisateurs</router-link>
+
         </li>
       </ul>
     </nav>

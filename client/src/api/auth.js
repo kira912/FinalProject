@@ -51,12 +51,6 @@ export function logout (vm) {
   delete axios.defaults.headers.common['Authorization']
 }
 
-export function signup (userInfo) {
-  return auth.post('/signup', userInfo).then(response => {
-    return response.data
-  })
-}
-
 // Entities
 export function getEntities () {
   return auth.get('/entities').then(response => {
@@ -64,8 +58,34 @@ export function getEntities () {
   })
 }
 
+export function newEntity (entityInfo) {
+  return auth.post('/entities/', entityInfo).then(response => {
+    return response.data
+  })
+}
+
+export function editEntity (id, entityInfo) {
+  return auth.patch('/entities/' + id, entityInfo).then(response => {
+    return response.data
+  })
+}
+
 export function getSingleEntity (id) {
   return auth.get('/entities/' + id).then(response => {
+    return response.data
+  })
+}
+
+// Users
+
+export function getUsers () {
+  return auth.get('/users').then(response => {
+    return response.data
+  })
+}
+
+export function getSingleUser (id) {
+  return auth.get('/users/' + id).then(response => {
     return response.data
   })
 }

@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './Login'
-import Signup from './Signup'
 import Dashboard from './Dashboard'
-import Entity from './Entity'
+import Entities from './Entities'
+import NewEntity from './NewEntity'
+import EntityPage from './EntityPage'
+import Users from './Users'
+import NewUser from './NewUser'
+import UserPage from './UserPage'
 // Containers
 // import Full from '@/containers/Full'
 
@@ -24,16 +28,32 @@ const router = new Router({
       }
     },
     {
-      path: '/signup',
-      component: Signup
-    },
-    {
       path: '/dashboard',
       component: Dashboard
     },
     {
-      path: '/entity',
-      component: Entity
+      path: '/entities',
+      component: Entities
+    },
+    {
+      path: '/entity/new',
+      component: NewEntity
+    },
+    {
+      path: '/entity/:id',
+      component: EntityPage
+    },
+    {
+      path: '/users',
+      component: Users
+    },
+    {
+      path: '/user/new',
+      component: NewUser
+    },
+    {
+      path: '/user/:id',
+      component: UserPage
     }
   ]
 })
