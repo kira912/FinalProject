@@ -1,33 +1,36 @@
 <template>
   <div>  
-    <nav class="navbar navbar-inverse bg-inverse">
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link to="/entities" tag="button">Entités</router-link>
-        </li>
-        <li class="nav-item">
-        <router-link to="/users" tag="button">Utilisateurs</router-link>
+    <v-toolbar dark color="primary">
+    <v-toolbar-side-icon></v-toolbar-side-icon>
+    <v-toolbar-title class="white--text">Title</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-btn icon>
+      <v-icon>search</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon>apps</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon>refresh</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon>more_vert</v-icon>
+    </v-btn>
+  </v-toolbar>
 
-        </li>
-      </ul>
-    </nav>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Sidebar from '@/components/Sidebar'
+import Sidebar from "@/components/Sidebar";
 export default {
-  name: 'app',
+  name: "app",
 
   components: {
     Sidebar
   }
-}
+};
 </script>
 
 <style>

@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App'
-import { checkUser } from '@/api/auth'
+import {
+  checkUser
+} from '@/api/auth'
 import router from './router'
 import Vuetify from 'vuetify'
 
@@ -20,7 +22,7 @@ new Vue({
   data: {
     user: null
   },
-  created () {
+  created() {
     checkUser(this.$root)
   }
 })

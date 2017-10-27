@@ -69,7 +69,7 @@
       </div>
     </div>
 
-    <div class="form-group">
+    <div class="fofefzfzfzefzrm-group">
       <label for="siren" class="col-2 col-form-label">SIREN</label>
       <div class="col-10">
         <input class="form-control" v-model='entityInfo.siren' type="text">
@@ -152,7 +152,7 @@
     <div class="form-group">
       <label for="codeBic" class="col-2 col-form-label">Code BIC / SWIFT</label>
       <div class="col-10">
-        <input class="form-control" v-model="codeBic" type="text">
+        <input class="form-control" v-model="entityInfo.codeBic" type="text">
       </div>
     </div>
     <br>
@@ -161,14 +161,14 @@
     <div class="form-group">
       <label for="director" class="col-2 col-form-label">Directeur d'entité</label>
       <div class="col-10">
-        <input class="form-control" v-model="directorEntity" type="text">
+        <input class="form-control" v-model="entityInfo.directorEntity" type="text">
       </div>
     </div>
 
     <div class="form-group">
       <label for="userAttachment" class="col-2 col-form-label">Utilisateurs rattachés</label>
       <div class="col-10">
-        <input class="form-control" v-model="userAttachment" type="text">
+        <input class="form-control" v-model="entityInfo.userAttachment" type="text">
       </div>
     </div>
     <button type="button" @click.prevent='editEntity()' class="btn btn-primary">Editer</button>

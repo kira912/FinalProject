@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const User = require('./models/user')
 const config = require('./configs/auth')
-const history = require('connect-history-api-fallback');
+const history = require('express-history-api-fallback');
 const {
   Strategy,
   ExtractJwt

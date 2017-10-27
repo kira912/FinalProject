@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/kira912/FinalProject/issues"
   },
-  "homepage": "https://github.com/kira912/FinalProject#readme"
+  "homepage": "https://github.com/kira912/FinalProject#readme",
+  "dependencies": {
+    "vuetify": "^0.16.9"
+  }
 }

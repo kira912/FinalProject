@@ -285,7 +285,7 @@ export default {
         emailUrgence: this.userInfo.emailUrgence,
         bloodGroup: this.userInfo.bloodGroup,
         allergies: this.userInfo.allergies
-      }).then(data => {
+      }).then(() => {
         this.$router.push("/users");
       });
     }

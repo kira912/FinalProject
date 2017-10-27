@@ -16,7 +16,7 @@
                 <td>{{entity.name}}</td>
                 <td>{{entity.typeEntity}}</td>
                 <td><v-expansion-panel>
-                  <v-expansion-panel-content>
+                  <v-expansion-panel-content hide-actions>
                     <div slot="header">Voir détail de l'entité</div>
                     <v-card>
                       <v-card-text class="grey lighten-3">
@@ -70,7 +70,6 @@
 
 <script>
 import { getEntities, getSingleEntity } from "@/api/auth";
-
 export default {
   data() {
     return {

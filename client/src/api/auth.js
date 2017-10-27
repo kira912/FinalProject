@@ -94,7 +94,7 @@ export function getSingleUser(id) {
 }
 
 export function editUser(id, userInfo) {
-  return auth.patch('/entities/' + id, userInfo).then(response => {
+  return auth.patch('/users/' + id, userInfo).then(response => {
     return response.data
   })
 }

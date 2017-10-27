@@ -16,7 +16,7 @@
                 <td>{{user.firstname}}</td>
                 <td>{{user.lastname}}</td>
                 <td><v-expansion-panel>
-                  <v-expansion-panel-content>
+                  <v-expansion-panel-content hide-actions>
                     <div slot="header">Voir détails de l'utilisateur</div>
                     <v-card>
                       <v-card-text class="grey lighten-3">
@@ -58,7 +58,7 @@
                 </v-expansion-panel>
                 </td>
                 <td><button type="button"
-                 @click.prevent='getSingleUser(user._id)'
+                 @click.prevent='goToEdit(user._id)'
                   class="btn btn-primary active mt-3">Editer
                   </button>
                 </td>
@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { getUsers, getSingleUser } from "@/api/auth";
+import { getUsers } from "@/api/auth";
 export default {
   data() {
     return {
@@ -87,10 +87,8 @@ export default {
   },
 
   methods: {
-    getSingleUser(_id) {
-      getSingleUser(_id).then(data => {
-        this.$router.push("/user/" + _id);
-      });
+    goToEdit(_id) {
+      this.$router.push("/user/" + _id);
     }
   }
 };
