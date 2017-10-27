@@ -8,6 +8,7 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const User = require('./models/user')
 const config = require('./configs/auth')
+const history = require('connect-history-api-fallback');
 const {
   Strategy,
   ExtractJwt
@@ -72,6 +73,11 @@ app.get(
   }
 )
 
+const clientRoot = path.join(__dirname, '../client/dist');
+app.use('/', express.static(clientRoot));
+app.use(history('index.html', {
+  root: clientRoot
+}));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
