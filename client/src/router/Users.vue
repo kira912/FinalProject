@@ -11,10 +11,52 @@
                 <th>Nom</th>
               </tr>
             </thead>
-            <tbody v-for='(user, index) in users' :key='user.id'>
+            <tbody v-for='(user, index) in users' :key='user._id'>
               <tr>
                 <td>{{user.firstname}}</td>
                 <td>{{user.lastname}}</td>
+                <td><v-expansion-panel>
+                  <v-expansion-panel-content>
+                    <div slot="header">Voir détails de l'utilisateur</div>
+                    <v-card>
+                      <v-card-text class="grey lighten-3">
+                        <h2>Données de l'utilisateur</h2>
+                        <p> <strong>Prénom: </strong> {{user.firstname}}</p>
+                        <p> <strong>Nom de famille: </strong> {{user.lastname}} </p>
+                        <p> <strong>Civilité: </strong> {{user.civility}} </p>
+                        <p> <strong>Date de Naissance: </strong> {{user.birthDate}} </p>
+                        <p> <strong>Adresse: </strong> {{user.address}} </p>
+                        <p> <strong>Ville: </strong> {{user.city}} </p>
+                        <p> <strong>Code Postal: </strong> {{user.codePostal}} </p>
+                        <p> <strong>Numéro de téléphone: </strong> {{user.telNumber}} </p>
+                        <p> <strong>Email: </strong> {{user.email}} </p>
+
+                        <h2>Données professionncelles</h2>
+                        <p> <strong>Entité de rattachement: </strong> {{entity.entityAttachment}} </p>
+                        <p> <strong>Fonction (emploi): </strong> {{user.functionJob}} </p>
+                        <p> <strong>Contrat de travail: </strong> {{user.contract}} </p>
+                        <p> <strong>Salaire annuel (brut): </strong> {{user.annualSalary}} </p>
+                        <p> <strong>Date d'entrée dans l'entreprise: </strong> {{user.entryBusiness}} </p>
+                        <p> <strong>Date de début d'activité: </strong> {{user.startActivity}} </p>
+                        <p> <strong>Date de fin de contrat: </strong> {{user.endBusiness}} </p>
+                        <p> <strong>Email professionnel: </strong> {{user.professionalEmail}} </p>
+                        <p> <strong>Dates d'exercice</strong> {{user.exerciseDate}} </p>
+                        <p> <strong>Date de fin de contrat: </strong> {{user.endBusiness}} </p>
+                        <p> <strong>Email professionnel: </strong> {{user.professionalEmail}} </p>
+                        <p> <strong>Téléphone professionnel: </strong> {{user.professionalNumber}} </p>
+                        
+                        <h2>Données bancaires</h2>
+                        <p> <strong>Banque: </strong> {{entity.bank}} </p>
+                        <p> <strong>Adresse de la banque: </strong> {{entity.address}}, {{entity.city}}, {{entity.codePostal}} </p>
+                        <p> <strong>Titulaire du compte</strong> {{entity.ownerCount}} </p>
+                        <p> <strong>IBAN: </strong> {{entity.iban}} </p>
+                        <p> <strong>Code BIC / SWIFT</strong> {{entity.codeBic}} </p>
+
+                      </v-card-text>
+                    </v-card>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+                </td>
                 <td><button type="button"
                  @click.prevent='getSingleUser(user._id)'
                   class="btn btn-primary active mt-3">Editer
