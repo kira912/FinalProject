@@ -14,7 +14,7 @@
             <tbody v-for='(entity, index) in entities' :key='entity._id'>
               <tr>
                 <td>{{entity.name}}</td>
-                <td>{{entity.type}}</td>
+                <td>{{entity.typeEntity}}</td>
                 <td><v-expansion-panel>
                   <v-expansion-panel-content>
                     <div slot="header">Voir détail de l'entité</div>
@@ -65,36 +65,32 @@
         </b-card>
       </div>
     </div>
-
-
-    
   </div>
 </template>
 
 <script>
-import {getEntities, getSingleEntity} from '@/api/auth'
+import { getEntities, getSingleEntity } from "@/api/auth";
 
 export default {
-  data () {
+  data() {
     return {
       entities: []
-    }
+    };
   },
 
-  created () {
+  created() {
     getEntities().then(entities => {
-      this.entities = entities
-    })
+      this.entities = entities;
+    });
   },
 
   methods: {
-    getSingleEntity (_id) {
+    getSingleEntity(_id) {
       getSingleEntity(_id).then(data => {
-        this.$router.push('/entity/' + _id)
-      })
+        this.$router.push("/entity/" + _id);
+      });
     }
   }
-
-}
+};
 </script>
 

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const passportLocalMongoose = require('passport-local-mongoose')
-const { Schema } = mongoose
+const {
+  Schema
+} = mongoose
 
 const userSchema = new Schema({
   firstname: String,
@@ -9,16 +11,21 @@ const userSchema = new Schema({
   nationality: String,
   birthDate: Number,
   telNumber: Number,
-  email: String,
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+    dropDups: true
+  },
   address: String,
-  codePostal: Number,
+  codePostal: String,
   city: String,
   country: String,
   vitalCard: String,
   transportTicket: String,
   profilePic: String,
   entityAttachment: String,
-  function: String,
+  functionJob: String,
   contract: String,
   annualSalary: Number,
   entryBusiness: Number,
@@ -26,21 +33,31 @@ const userSchema = new Schema({
   endBusiness: Number,
   professionalEmail: String,
   professionalNumber: Number,
-  firstName: String,
-  lastName: String,
+  firstnameUrgence: String,
+  lastnameUrgence: String,
   linkUser: String,
-  telNumber: Number,
-  email: String,
+  telNumberUrgence: Number,
+  emailUrgence: String,
   bloodGroup: String,
   allergies: String,
+
+  bank: String,
+  addressBank: String,
+  codePostalBank: String,
+  cityBank: String,
+  ownerCount: String,
+  iban: String,
+  codeBic: String,
 
   role: {
     type: String,
     enum: ['Admin', 'Director', 'Manager', 'Seller', 'Recipient', 'Guest'],
     default: 'Guest'
-  }  
+  }
 })
 
-userSchema.plugin(passportLocalMongoose)
+userSchema.plugin(passportLocalMongoose, {
+  usernameField: "email",
+})
 
 module.exports = mongoose.model('User', userSchema)

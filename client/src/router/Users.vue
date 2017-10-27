@@ -27,12 +27,13 @@
                         <p> <strong>Date de Naissance: </strong> {{user.birthDate}} </p>
                         <p> <strong>Adresse: </strong> {{user.address}} </p>
                         <p> <strong>Ville: </strong> {{user.city}} </p>
+                        <p> <strong>Pays: </strong> {{user.country}} </p>
                         <p> <strong>Code Postal: </strong> {{user.codePostal}} </p>
                         <p> <strong>Numéro de téléphone: </strong> {{user.telNumber}} </p>
                         <p> <strong>Email: </strong> {{user.email}} </p>
 
                         <h2>Données professionncelles</h2>
-                        <p> <strong>Entité de rattachement: </strong> {{entity.entityAttachment}} </p>
+                        <p> <strong>Entité de rattachement: </strong> {{user.entityAttachment}} </p>
                         <p> <strong>Fonction (emploi): </strong> {{user.functionJob}} </p>
                         <p> <strong>Contrat de travail: </strong> {{user.contract}} </p>
                         <p> <strong>Salaire annuel (brut): </strong> {{user.annualSalary}} </p>
@@ -40,17 +41,16 @@
                         <p> <strong>Date de début d'activité: </strong> {{user.startActivity}} </p>
                         <p> <strong>Date de fin de contrat: </strong> {{user.endBusiness}} </p>
                         <p> <strong>Email professionnel: </strong> {{user.professionalEmail}} </p>
-                        <p> <strong>Dates d'exercice</strong> {{user.exerciseDate}} </p>
                         <p> <strong>Date de fin de contrat: </strong> {{user.endBusiness}} </p>
                         <p> <strong>Email professionnel: </strong> {{user.professionalEmail}} </p>
                         <p> <strong>Téléphone professionnel: </strong> {{user.professionalNumber}} </p>
                         
                         <h2>Données bancaires</h2>
-                        <p> <strong>Banque: </strong> {{entity.bank}} </p>
-                        <p> <strong>Adresse de la banque: </strong> {{entity.address}}, {{entity.city}}, {{entity.codePostal}} </p>
-                        <p> <strong>Titulaire du compte</strong> {{entity.ownerCount}} </p>
-                        <p> <strong>IBAN: </strong> {{entity.iban}} </p>
-                        <p> <strong>Code BIC / SWIFT</strong> {{entity.codeBic}} </p>
+                        <p> <strong>Banque: </strong> {{user.bank}} </p>
+                        <p> <strong>Adresse de la banque: </strong> {{user.addressBank}}, {{user.cityBank}}, {{user.codePostalBank}} </p>
+                        <p> <strong>Titulaire du compte</strong> {{user.ownerCount}} </p>
+                        <p> <strong>IBAN: </strong> {{user.iban}} </p>
+                        <p> <strong>Code BIC / SWIFT</strong> {{user.codeBic}} </p>
 
                       </v-card-text>
                     </v-card>
@@ -72,31 +72,26 @@
 </template>
 
 <script>
-import {getUsers, getSingleUser} from '@/api/auth'
+import { getUsers, getSingleUser } from "@/api/auth";
 export default {
-  data () {
+  data() {
     return {
       users: []
-    }
+    };
   },
 
-  created () {
+  created() {
     getUsers().then(users => {
-      console.log('DEBUG users', users)
-      this.users = users
-    })
+      this.users = users;
+    });
   },
 
   methods: {
-    getSingleUser (_id) {
+    getSingleUser(_id) {
       getSingleUser(_id).then(data => {
-        this.$router.push('/user/' + _id)
-      })
+        this.$router.push("/user/" + _id);
+      });
     }
   }
-}
+};
 </script>
-
-<style>
-
-</style>

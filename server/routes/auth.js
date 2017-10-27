@@ -7,7 +7,10 @@ const config = require('../configs/auth')
 
 const authenticate = User.authenticate()
 authController.post('/login', (req, res, next) => {
-  const { username, password } = req.body
+  const {
+    username,
+    password
+  } = req.body
 
   if (username && password) {
     authenticate(username, password, (err, user, failed) => {
@@ -20,11 +23,11 @@ authController.post('/login', (req, res, next) => {
         })
       }
       if (user) {
-    
+
         const payload = {
           id: user.id,
         }
-  
+
         const token = jwt.encode(payload, config.jwtSecret)
         res.json({
           user: {
@@ -32,7 +35,7 @@ authController.post('/login', (req, res, next) => {
             _id: user._id
           },
           token,
-         })
+        })
       }
     })
   } else {

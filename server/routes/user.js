@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const userController = express.Router()
 const User = require('../models/user')
+const _ = require('lodash')
 
 userController.get('/', (req, res, next) => {
   User.find().then(userList => {
@@ -13,18 +14,41 @@ userController.get('/', (req, res, next) => {
 
 userController.post('/', (req, res) => {
   const user = new User({
-    firstName: req.body.firstName
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    civility: req.body.civility,
+    nationality: req.body.nationality,
+    birthDate: req.body.birthDate,
+    telNumber: req.body.telNumber,
+    email: req.body.email,
+    address: req.body.address,
+    codePostal: req.body.codePostal,
+    city: req.body.city,
+    country: req.body.country,
+    entityAttachment: req.body.entityAttachment,
+    functionJob: req.body.functionJob,
+    contract: req.body.contract,
+    annualSalary: req.body.annualSalary,
+    entryBusiness: req.body.entryBusiness,
+    startActivity: req.body.startActivity,
+    endBusiness: req.body.endBusiness,
+    professionalEmail: req.body.professionalEmail,
+    role: req.body.role
+
+
   })
 
-  user.save((err) => {
+  const password = "ih";
+
+  User.register(user, password, err => {
     if (err) {
-      res.json(err)
-    } else {
-      res.json({
-        message: 'New user created'
-      })
+      // returns the error
+      return res.status(400).json(err.message);
     }
-  })
+    res.json({
+      success: true
+    });
+  });
 })
 
 userController.get('/:id', (req, res) => {
@@ -42,7 +66,7 @@ userController.get('/:id', (req, res) => {
   })
 })
 
-userController.put('/:id', (req, res) => {
+userController.patch('/:id', (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status.json(400)({
       message: 'Specified id is not valid'
@@ -50,15 +74,52 @@ userController.put('/:id', (req, res) => {
     return
   }
 
-  const updates = {
-    username: req.body.username
-  }
+  const updates = _.pick(req.body,
+    'firstname',
+    'lastname',
+    'civility',
+    'nationality',
+    'birthDate',
+    'telNumber',
+    'email',
+    'address',
+    'codePostal',
+    'city',
+    'country',
+    'entityAttachment',
+    'functionJob',
+    'contract',
+    'annualSalary',
+    'entryBusiness',
+    'startActivity',
+    'endBusiness',
+    'professionalEmail',
+    'firstnameUrgence',
+    'lastnameUrgence',
+    'linkUser',
+    'telNumberUrgence',
+    'emailUrgence',
+    'bloodGroup',
+    'allergies',
+    'bank',
+    'addressBank',
+    'codePostalBank',
+    'cityBank',
+    'ownerCount',
+    'iban',
+    'codeBic',
 
-  User.findByIdAndUpdate(req.params.id, updates, (err) => {
+    'role')
+
+  User.findByIdAndUpdate(req.params.id, {
+    $set: updates
+  }, {
+    new: true
+  }, (err, user) => {
     if (err) {
       res.json(err)
     } else {
-      res.json(updates)
+      res.json(user)
     }
   })
 })
