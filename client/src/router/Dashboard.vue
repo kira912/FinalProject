@@ -1,23 +1,25 @@
 <template>
+<full></full>
 </template>
 
 <script>
-import { logout } from '@/api/auth'
+import { logout } from "@/api/auth";
+import Full from "@/containers/Full";
 export default {
-  data () {
+  components: { Full },
+  data() {
     return {
       navItems: []
-    }
+    };
   },
   methods: {
-    logout () {
-      logout(this.$root)
-      this.$router.push('/')
+    logout() {
+      logout(this.$root);
+      this.$router.push("/");
     },
-    entity () {
-      this.$router.push('/entity')
+    entity() {
+      this.$router.push("/entity");
     }
   }
-
-}
+};
 </script>

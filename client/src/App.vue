@@ -1,21 +1,28 @@
 <template>
-  <div>  
-    <v-toolbar dark color="primary">
-    <v-toolbar-side-icon></v-toolbar-side-icon>
-    <v-toolbar-title class="white--text">Title</v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-btn icon>
-      <v-icon>search</v-icon>
-    </v-btn>
-    <v-btn icon>
-      <v-icon>apps</v-icon>
-    </v-btn>
-    <v-btn icon>
-      <v-icon>refresh</v-icon>
-    </v-btn>
-    <v-btn icon>
-      <v-icon>more_vert</v-icon>
-    </v-btn>
+  <div>
+<!--     <v-toolbar dark color="primary" fixed app clipped-left>
+     <div class="d-flex flex-row-reverse"> 
+      <v-btn icon>
+        <v-icon>apps</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>refresh</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>more_vert</v-icon>
+      </v-btn>
+      <v-btn icon @click="seen = !seen">  
+        <v-icon>search</v-icon>
+      </v-btn>
+    <div v-if="seen === true" class="col-lg-6">
+      <div class="input-group">
+       <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button">Go!</button>
+        </span>
+      </div>
+    </div>  
+    </div> -->
   </v-toolbar>
 
     <router-view></router-view>
@@ -23,12 +30,13 @@
 </template>
 
 <script>
-import Sidebar from "@/components/Sidebar";
 export default {
   name: "app",
 
-  components: {
-    Sidebar
+  data() {
+    return {
+      seen: false
+    };
   }
 };
 </script>

@@ -20,7 +20,7 @@
                   <template v-if="childL1.children">
                     <!-- Second level dropdown -->
                     <SidebarNavDropdown :name="childL1.name" :url="childL1.url" :icon="childL1.icon">
-                      <li class="nav-item" v-for="(childL2, index) in childL1.children">
+                      <li class="nav-item" v-for="(childL2, index) in childL1.children">cvvf
                         <SidebarNavLink :name="childL2.name" :url="childL2.url" :icon="childL2.icon" :badge="childL2.badge" :variant="item.variant"/>
                       </li>
                     </SidebarNavDropdown>
@@ -48,21 +48,20 @@
   </div>
 </template>
 <script>
-
-import SidebarFooter from './SidebarFooter'
-import SidebarForm from './SidebarForm'
-import SidebarHeader from './SidebarHeader'
-import SidebarMinimizer from './SidebarMinimizer'
-import SidebarNavDropdown from './SidebarNavDropdown'
-import SidebarNavLink from './SidebarNavLink'
-import SidebarNavTitle from './SidebarNavTitle'
-import SidebarNavItem from './SidebarNavItem'
+import SidebarFooter from "./SidebarFooter";
+import SidebarForm from "./SidebarForm";
+import SidebarHeader from "./SidebarHeader";
+import SidebarMinimizer from "./SidebarMinimizer";
+import SidebarNavDropdown from "./SidebarNavDropdown";
+import SidebarNavLink from "./SidebarNavLink";
+import SidebarNavTitle from "./SidebarNavTitle";
+import SidebarNavItem from "./SidebarNavItem";
 
 export default {
-  name: 'sidebar',
+  name: "sidebar",
   props: {
     navItems: {
-      type: Object,
+      type: Array,
       required: true,
       default: () => {}
     }
@@ -78,16 +77,16 @@ export default {
     SidebarNavItem
   },
   methods: {
-    handleClick (e) {
-      e.preventDefault()
-      e.target.parentElement.classList.toggle('open')
+    handleClick(e) {
+      e.preventDefault();
+      e.target.parentElement.classList.toggle("open");
     }
   }
-}
+};
 </script>
 
 <style lang="css">
-  .nav-link {
-    cursor:pointer;
-  }
+.nav-link {
+  cursor: pointer;
+}
 </style>

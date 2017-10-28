@@ -1,5 +1,6 @@
 <template>
   <div class="animated fadeIn">
+    <full></full>
     <button type="button" class="btn btn-primary active mt-3" @click.prevent="$router.push('/user/new')">Créer utilisateur</button>
     <div class="row">
       <div class="col-lg-6">
@@ -72,6 +73,7 @@
 </template>
 
 <script>
+import Full from "@/containers/Full";
 import { getUsers } from "@/api/auth";
 export default {
   data() {

@@ -14,45 +14,42 @@
 </template>
 
 <script>
-  import isExternal from 'is-url-external'
+import isExternal from "is-url-external";
 
-  export default {
-    name: 'sidebar-nav-link',
-    props: {
-      name: {
-        type: String,
-        default: ''
-      },
-      url: {
-        type: String,
-        default: ''
-      },
-      icon: {
-        type: String,
-        default: ''
-      },
-      badge: {
-        type: Object,
-        default: () => {}
-      },
-      variant: {
-        type: String,
-        default: ''
-      }
+export default {
+  name: "sidebar-nav-link",
+  props: {
+    name: {
+      type: String,
+      default: ""
     },
-    computed: {
-      classList () {
-        return [
-          'nav-link',
-          this.linkVariant
-        ]
-      },
-      linkVariant () {
-        return this.variant ? `nav-link-${this.variant}` : ''
-      },
-      linkExternal () {
-        return isExternal(this.url)
-      }
+    url: {
+      type: String,
+      default: ""
+    },
+    icon: {
+      type: String,
+      default: ""
+    },
+    badge: {
+      type: Object,
+      default: () => {}
+    },
+    variant: {
+      type: String,
+      default: ""
+    }
+  },
+  computed: {
+    classList() {
+      return ["nav-link", this.linkVariant];
+    },
+    linkVariant() {
+      return this.variant ? `nav-link-${this.variant}` : "";
+    },
+    linkExternal() {
+      return isExternal(this.url);
     }
   }
+};
 </script>
