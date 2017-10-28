@@ -9,7 +9,7 @@ import Users from "./Users";
 import NewUser from "./NewUser";
 import UserPage from "./UserPage";
 // Containers
-import Full from "@/containers/Full";
+// import Full from "@/containers/Full";
 
 // Views
 // import Dashboard from '@/views/Dashboard'

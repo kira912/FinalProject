@@ -1,45 +1,49 @@
 <template>
-  <div>
-<!--     <v-toolbar dark color="primary" fixed app clipped-left>
-     <div class="d-flex flex-row-reverse"> 
-      <v-btn icon>
-        <v-icon>apps</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>refresh</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>more_vert</v-icon>
-      </v-btn>
-      <v-btn icon @click="seen = !seen">  
-        <v-icon>search</v-icon>
-      </v-btn>
-    <div v-if="seen === true" class="col-lg-6">
-      <div class="input-group">
-       <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
-        <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button">Go!</button>
-        </span>
+  <div id='app'>
+      <AppHeader/>
+      <div class="app-body">
+        <Sidebar :navItems="nav"/>
+<!--           <div class="container-fluid">
+          </div> -->
+        <AppAside/>
       </div>
-    </div>  
-    </div> -->
-  </v-toolbar>
-
-    <router-view></router-view>
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
+import nav from "@/_nav";
+import {
+  Header as AppHeader,
+  Sidebar,
+  Aside as AppAside,
+  Breadcrumb
+} from "@/components/";
+
 export default {
   name: "app",
-
+  components: {
+    AppHeader,
+    Sidebar,
+    AppAside,
+    Breadcrumb
+  },
   data() {
     return {
-      seen: false
+      nav: nav.items
     };
+  },
+  computed: {
+    name() {
+      return this.$route.name;
+    }
+    /*     list() {
+      return this.$route.matched;
+    } */
   }
 };
 </script>
+
 
 <style>
 /* Import Font Awesome Icons Set */

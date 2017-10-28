@@ -20,7 +20,7 @@
                   <template v-if="childL1.children">
                     <!-- Second level dropdown -->
                     <SidebarNavDropdown :name="childL1.name" :url="childL1.url" :icon="childL1.icon">
-                      <li class="nav-item" v-for="(childL2, index) in childL1.children">cvvf
+                      <li class="nav-item" v-for="(childL2, index) in childL1.children">
                         <SidebarNavLink :name="childL2.name" :url="childL2.url" :icon="childL2.icon" :badge="childL2.badge" :variant="item.variant"/>
                       </li>
                     </SidebarNavDropdown>
@@ -44,7 +44,6 @@
       <slot></slot>
     </nav>
     <SidebarFooter/>
-    <SidebarMinimizer/>
   </div>
 </template>
 <script>

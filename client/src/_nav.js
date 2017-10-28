@@ -8,6 +8,10 @@ export default {
     {
       name: "Entities",
       url: "/entities"
+    },
+    {
+      name: "Users",
+      url: "/users"
     }
   ]
 };

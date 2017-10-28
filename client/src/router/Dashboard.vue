@@ -1,5 +1,4 @@
 <template>
-<full></full>
 </template>
 
 <script>

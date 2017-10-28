@@ -1,8 +1,6 @@
-const mongoose = require('mongoose')
-const passportLocalMongoose = require('passport-local-mongoose')
-const {
-  Schema
-} = mongoose
+const mongoose = require("mongoose");
+const passportLocalMongoose = require("passport-local-mongoose");
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
   firstname: String,
@@ -51,13 +49,13 @@ const userSchema = new Schema({
 
   role: {
     type: String,
-    enum: ['Admin', 'Director', 'Manager', 'Seller', 'Recipient', 'Guest'],
-    default: 'Guest'
+    enum: ["Admin", "Director", "Manager", "Seller", "Recipient", "Guest"],
+    default: "Guest"
   }
-})
+});
 
 userSchema.plugin(passportLocalMongoose, {
-  usernameField: "email",
-})
+  usernameField: "email"
+});
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model("User", userSchema);
