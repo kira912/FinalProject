@@ -7,6 +7,7 @@ import Sidebar from "./Sidebar.vue";
 import Switch from "./Switch.vue";
 import SidebarNavDropdown from "./SidebarNavDropdown";
 import SidebarNavLink from "./SidebarNavLink";
+import WidgetsAdmin from "./WidgetsAdmin";
 
 export {
   Aside,
@@ -17,5 +18,6 @@ export {
   Sidebar,
   Switch,
   SidebarNavDropdown,
-  SidebarNavLink
+  SidebarNavLink,
+  WidgetsAdmin
 };
