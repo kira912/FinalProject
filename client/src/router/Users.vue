@@ -11,7 +11,7 @@
                 <th>Nom</th>
               </tr>
             </thead>
-            <tbody v-for='(user, index) in users' :key='user._id'>
+            <tbody v-for='(user, index) in users' :key='user._id' :user="user">
               <tr>
                 <td>{{user.firstname}}</td>
                 <td>{{user.lastname}}</td>
@@ -62,21 +62,32 @@
                   class="btn btn-primary active mt-3">Editer
                   </button>
                 </td>
+                <td>
+                  <button id="show-modal-delete" @click="showModal = true" class="btn btn-primary active mt-3">Supprimer</button>
+                </td>
               </tr>
             </tbody>
           </table>
         </b-card>
       </div>
     </div>
+    <modal-delete v-if="showModal" @close="showModal = false"></modal-delete>
   </div>
 </template>
 
 <script>
 import { getUsers } from "@/api/auth";
+import ModalDelete from "@/components/ModalDelete";
 export default {
+  components: {
+    ModalDelete
+  },
+
   data() {
     return {
-      users: []
+      props: ["users"],
+      users: [],
+      showModal: false
     };
   },
 

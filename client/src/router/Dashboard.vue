@@ -1,7 +1,7 @@
 <template>
 <div>
-  <widgets-admin v-if="admin = !admin"></widgets-admin>
-  <widgets-users v-else-if="user = !user"></widgets-users>
+  <widgets-admin v-if="admin = true"></widgets-admin>
+  <widgets-users v-else-if="user = true"></widgets-users>
 </div>
 </template>
 
@@ -29,7 +29,8 @@ export default {
       if (user.role === "Admin") {
         console.log("DEBUGG ROLE", user.role);
         this.admin = true;
-      } else if (user.role === "Guest") {
+      }
+      if (user.role === "Guest") {
         this.user = true;
       }
     });
