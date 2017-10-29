@@ -1,10 +1,8 @@
 <template>
   <div id='app'>
-      <AppHeader/>
+      <AppHeader v-if="$root.user"/>
       <div class="app-body">
-        <Sidebar :navItems="nav"/>
-<!--           <div class="container-fluid">
-          </div> -->
+        <Sidebar v-if="$root.user" :navItems="nav"/>
         <AppAside/>
       </div>
       <router-view></router-view>

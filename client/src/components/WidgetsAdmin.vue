@@ -17,6 +17,7 @@
     <div class="col-sm-6 col-lg-3">
       <div class="card">
         <div class="card-block">
+          <p>Total du business enregistré (toutes entités / utilisateurs confondus): <strong> {{totalBusinessUsers}} </strong></p>
         </div>
       </div>
     </div><!--/.col-->
@@ -36,18 +37,21 @@ export default {
 
   data() {
     return {
-      users: [],
       entities: [],
       counterUsers: 0,
-      counterEntities: 0
+      counterEntities: 0,
+      totalBusinessUsers: 0
     };
   },
 
   created() {
     getUsers().then(users => {
-      this.users = users;
       users.forEach(user => {
         this.counterUsers++;
+        if (user.totalBusiness) {
+          this.totalBusinessUsers += user.totalBusiness;
+        }
+        console.log(user.totalBusiness);
       });
     });
     getEntities().then(entities => {
