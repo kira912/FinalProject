@@ -52,7 +52,7 @@ const userSchema = new Schema({
     enum: ["Admin", "Director", "Manager", "Seller", "Recipient", "Guest"],
     default: "Guest"
   },
-  totalBusiness: String
+  totalBusiness: Number
 });
 
 userSchema.plugin(passportLocalMongoose, {

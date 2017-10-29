@@ -17,7 +17,7 @@
     <div class="col-sm-6 col-lg-3">
       <div class="card">
         <div class="card-block">
-          <p>Total du business enregistré (toutes entités / utilisateurs confondus): <strong> {{totalBusinessUsers}} </strong></p>
+          <p>Total du business enregistré (toutes entités / utilisateurs confondus): <strong> {{totalBusinessUsers}} €</strong></p>
         </div>
       </div>
     </div><!--/.col-->
