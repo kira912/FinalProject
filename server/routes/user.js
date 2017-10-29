@@ -14,7 +14,7 @@ userController.get("/", (req, res, next) => {
     });
 });
 
-userController.post("/", (req, res) => {
+userController.post("/", (req, res, next) => {
   const user = new User({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
@@ -43,7 +43,7 @@ userController.post("/", (req, res) => {
   User.register(user, password, err => {
     if (err) {
       // returns the error
-      return res.status(400).json(err.message);
+      return next(err);
     }
     res.json({
       success: true

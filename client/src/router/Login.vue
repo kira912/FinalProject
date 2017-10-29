@@ -1,5 +1,8 @@
 <template>
   <div class="app flex-row align-items-center">
+     <div v-if="error" class="alert alert-danger" role="alert">
+      {{error.message}}
+    </div>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8">
@@ -37,24 +40,31 @@
 
 
 <script>
-import { login } from '@/api/auth'
+import { login } from "@/api/auth";
 
 export default {
-  data () {
+  data() {
     return {
-      username: '',
-      password: ''
-    }
+      error: null,
+      username: "",
+      password: ""
+    };
   },
 
   methods: {
-    login () {
-      login(this.username, this.password, this.$root).then(data => {
-        this.$router.push('/dashboard')
-      })
+    login() {
+      this.error = null;
+      login(this.username, this.password, this.$root)
+        .then(data => {
+          this.$router.push("/dashboard");
+        })
+        .catch(err => {
+          this.error = err.response.data.error;
+          console.error("erreur Log in", err);
+        });
     }
   }
-}
+};
 </script>
 
 <style scoped>

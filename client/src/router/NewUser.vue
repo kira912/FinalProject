@@ -1,6 +1,9 @@
 <template>
 <div>
-  <form @submit.prevent='submit'></form>
+  <div v-if="error" class="alert alert-danger" role="alert">
+    {{error.message}}
+  </div>
+  <form @submit.prevent='newUser'>
   <h2>Données personnelles</h2>
   <fieldset class="form-group">
     <div class="form-check">
@@ -137,7 +140,7 @@
     <div class="col-10">
     </div>
   </div>
-   <button type="button" @click='submit' class="btn btn-primary">Créer</button>
+   <button type="button" @click.prevent="newUser" class="btn btn-primary">Créer</button>
   </form>
 </div>
 </template>
@@ -147,6 +150,7 @@ import { newUser } from "@/api/auth";
 export default {
   data() {
     return {
+      error: null,
       firstname: "",
       lastname: "",
       civility: "",
@@ -174,7 +178,8 @@ export default {
   },
 
   methods: {
-    submit(id) {
+    newUser() {
+      this.error = null;
       newUser({
         firstname: this.firstname,
         lastname: this.lastname,
@@ -199,9 +204,14 @@ export default {
         endBusiness: this.endBusiness,
         professionalEmail: this.professionalEmail,
         professionalNumber: this.professionalNumber
-      }).then(() => {
-        this.$router.push("/users");
-      });
+      })
+        .then(() => {
+          this.$router.push("/users");
+        })
+        .catch(err => {
+          this.error = err.response.data.error;
+          console.error("Enregistrement erreur", err);
+        });
     }
   }
 };
