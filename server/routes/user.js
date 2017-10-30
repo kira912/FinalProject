@@ -5,6 +5,7 @@ const User = require("../models/user");
 const _ = require("lodash");
 
 userController.get("/", (req, res, next) => {
+  console.log(":)");
   User.find()
     .then(userList => {
       res.json(userList);
@@ -35,7 +36,8 @@ userController.post("/", (req, res, next) => {
     startActivity: req.body.startActivity,
     endBusiness: req.body.endBusiness,
     professionalEmail: req.body.professionalEmail,
-    role: req.body.role
+    role: req.body.role,
+    totalBusiness: req.body.totalBusiness
   });
 
   const password = "ih";
@@ -113,7 +115,9 @@ userController.patch("/:id", (req, res) => {
     "iban",
     "codeBic",
 
-    "role"
+    "role",
+
+    "totalBusiness"
   );
 
   User.findByIdAndUpdate(

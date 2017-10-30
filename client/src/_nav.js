@@ -6,12 +6,20 @@ export default {
       icon: "icon-speedometer"
     },
     {
-      name: "Entities",
+      name: "Entités",
       url: "/entities"
     },
     {
-      name: "Users",
+      name: "Utilisateurs",
       url: "/users"
+    },
+    {
+      name: "Tickets",
+      url: "/tickets"
+    },
+    {
+      name: "Business",
+      url: "/business"
     }
   ]
 };

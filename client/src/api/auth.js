@@ -61,7 +61,7 @@ export function getEntities() {
 }
 
 export function newEntity(entityInfo) {
-  return auth.post("/entities/", entityInfo).then(response => {
+  return auth.post("/entities", entityInfo).then(response => {
     return response.data;
   });
 }
@@ -106,6 +106,26 @@ export function newUser(userInfo) {
 
 export function deleteUser(id) {
   return auth.delete("/users/" + id).then(response => {
+    return response.data;
+  });
+}
+
+// Tickets
+
+export function getTickets() {
+  return auth.get("/tickets").then(response => {
+    return response.data;
+  });
+}
+
+export function getSingleTicket(id) {
+  return auth.get("/tickets/" + id).then(response => {
+    return response.data;
+  });
+}
+
+export function newTicket(ticketInfo) {
+  return auth.post("/tickets", ticketInfo).then(response => {
     return response.data;
   });
 }

@@ -17,7 +17,7 @@
     <div class="col-sm-6 col-lg-3">
       <div class="card">
         <div class="card-block">
-          <p>Total du business enregistré (toutes entités / utilisateurs confondus): <strong> {{totalBusinessUsers}} €</strong></p>
+          <p>Total du business enregistré (toutes entités / utilisateurs confondus): <strong> {{totalBusiness}} €</strong></p>
         </div>
       </div>
     </div><!--/.col-->
@@ -40,7 +40,7 @@ export default {
       entities: [],
       counterUsers: 0,
       counterEntities: 0,
-      totalBusinessUsers: 0
+      totalBusiness: 0
     };
   },
 
@@ -49,15 +49,17 @@ export default {
       users.forEach(user => {
         this.counterUsers++;
         if (user.totalBusiness) {
-          this.totalBusinessUsers += user.totalBusiness;
+          this.totalBusiness += user.totalBusiness;
         }
-        console.log(user.totalBusiness);
       });
     });
     getEntities().then(entities => {
       this.entities = entities;
       entities.forEach(entity => {
         this.counterEntities++;
+        if (entity.totalBusiness) {
+          this.totalBusiness += entity.totalBusiness;
+        }
       });
     });
   }

@@ -8,6 +8,8 @@ import EntityPage from "./EntityPage";
 import Users from "./Users";
 import NewUser from "./NewUser";
 import UserPage from "./UserPage";
+import Tickets from "./Tickets";
+import BusinessUser from "./BusinessUser";
 
 Vue.use(Router);
 
@@ -49,6 +51,14 @@ const router = new Router({
     {
       path: "/user/:id",
       component: UserPage
+    },
+    {
+      path: "/tickets",
+      component: Tickets
+    },
+    {
+      path: "/business",
+      component: BusinessUser
     }
   ]
 });

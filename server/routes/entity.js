@@ -1,20 +1,20 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const entityController = express.Router()
-const Entity = require('../models/entity')
-const _ = require('lodash')
+const express = require("express");
+const mongoose = require("mongoose");
+const entityController = express.Router();
+const Entity = require("../models/entity");
+const _ = require("lodash");
 
-entityController.get('/', (req, res, next) => {
+entityController.get("/", (req, res, next) => {
   Entity.find((err, entitiesList) => {
     if (err) {
-      res.json(err)
+      res.json(err);
     } else {
-      res.json(entitiesList)
+      res.json(entitiesList);
     }
-  })
-})
+  });
+});
 
-entityController.post('/', (req, res, next) => {
+entityController.post("/", (req, res, next) => {
   const entity = new Entity({
     name: req.body.name,
     typeEntity: req.body.typeEntity,
@@ -41,98 +41,110 @@ entityController.post('/', (req, res, next) => {
     codeBic: req.body.codeBic,
 
     directorEntity: req.body.directorEntity,
-    userAttachment: req.body.userAttachment
-  })
-  entity.save((err) => {
+    userAttachment: req.body.userAttachment,
+    totalBusiness: req.body.totalBusiness
+  });
+  entity.save(err => {
     if (err) {
-      res.json(err)
+      res.json(err);
     } else {
       res.json({
-        message: 'New entity created !',
-      })
+        message: "New entity created !"
+      });
     }
-  })
-})
-entityController.get('/:id', (req, res) => {
+  });
+});
+entityController.get("/:id", (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({
-      message: 'Specified id is not valid'
-    })
-    return
+      message: "Specified id is not valid"
+    });
+    return;
   }
 
-  Entity.findById(req.params.id).then(entity => {
-    res.json(entity)
-  }).catch(err => {
-    res.json(err)
-  })
-})
+  Entity.findById(req.params.id)
+    .then(entity => {
+      res.json(entity);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
-entityController.patch('/:id', (req, res) => {
+entityController.patch("/:id", (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({
-      message: 'Specified id is not valid'
-    })
-    return
+      message: "Specified id is not valid"
+    });
+    return;
   }
-  const updates = _.pick(req.body,
-    'name',
-    'typeEntity',
-    'entityAttachment',
-    'enseign',
-    'address',
-    'telNumber',
-    'email',
-    'rcs',
-    'tvaIntra',
-    'siren',
-    'siret',
-    'license',
-    'financialGuarantees',
-    'status',
-    'socialCapital',
-    'exerciseDate',
-    'bank',
-    'addressPostalBank',
-    'ownerCount',
-    'iban',
-    'codeBic',
-    'directorEntity',
-    'userAttachment')
+  const updates = _.pick(
+    req.body,
+    "name",
+    "typeEntity",
+    "entityAttachment",
+    "enseign",
+    "address",
+    "telNumber",
+    "email",
+    "rcs",
+    "tvaIntra",
+    "siren",
+    "siret",
+    "license",
+    "financialGuarantees",
+    "status",
+    "socialCapital",
+    "exerciseDate",
+    "bank",
+    "addressPostalBank",
+    "ownerCount",
+    "iban",
+    "codeBic",
+    "directorEntity",
+    "userAttachment"
+  );
 
-  Entity.findByIdAndUpdate(req.params.id, {
-    $set: updates
-  }, {
-    new: true
-  }, (err, entity) => {
-    if (err) {
-      res.json(err)
-    } else {
-      res.json(entity)
+  Entity.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: updates
+    },
+    {
+      new: true
+    },
+    (err, entity) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(entity);
+      }
     }
-  })
-})
+  );
+});
 
-entityController.delete('/:id', (req, res) => {
+entityController.delete("/:id", (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({
-      message: 'Specified id is not valid'
-    })
-    return
+      message: "Specified id is not valid"
+    });
+    return;
   }
-  Entity.remove({
-    _id: req.params.id
-  }, (err) => {
-    if (err) {
-      res.json(err)
-      return
-    } else {
-      return res.json({
-        message: 'Entity has been removed'
-      })
+  Entity.remove(
+    {
+      _id: req.params.id
+    },
+    err => {
+      if (err) {
+        res.json(err);
+        return;
+      } else {
+        return res.json({
+          message: "Entity has been removed"
+        });
+      }
     }
-  })
-})
+  );
+});
 
-
-module.exports = entityController
+module.exports = entityController;

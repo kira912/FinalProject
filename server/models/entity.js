@@ -30,8 +30,11 @@ const entitySchema = new Schema({
   iban: String,
   codeBic: Number,
 
-  directorEntity: String,
-  userAttachment: String,
+  /*   directorEntity: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }, */
+  usersAttachment: [String],
 
   totalBusiness: Number
 });

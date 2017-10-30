@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container-fluid">
   <div v-if="error" class="alert alert-danger" role="alert">
     {{error.message}}
   </div>
@@ -165,7 +165,7 @@ export default {
       vitalCard: "",
       transportTicket: "",
       profilePic: "",
-      entityAttachment: "",
+      entityAttachment: null,
       functionJob: "",
       contract: "",
       annualSalary: "",

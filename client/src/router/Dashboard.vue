@@ -1,7 +1,7 @@
 <template>
 <div>
-  <widgets-admin v-if="admin = true"></widgets-admin>
-  <widgets-users v-else-if="user = true"></widgets-users>
+  <widgets-admin v-if="admin"></widgets-admin>
+  <widgets-users v-else-if="user"></widgets-users>
 </div>
 </template>
 
@@ -24,13 +24,12 @@ export default {
       this.$router.push("/");
     }
   },
-  created(_id) {
-    getSingleUser(_id).then(user => {
+  created() {
+    getSingleUser(this.$root.user._id).then(user => {
       if (user.role === "Admin") {
-        console.log("DEBUGG ROLE", user.role);
         this.admin = true;
       }
-      if (user.role === "Guest") {
+      if (user.role === "Vendeur") {
         this.user = true;
       }
     });

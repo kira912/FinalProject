@@ -22,7 +22,16 @@ const userSchema = new Schema({
   vitalCard: String,
   transportTicket: String,
   profilePic: String,
-  entityAttachment: String,
+  entityAttachment: {
+    type: Schema.Types.ObjectId,
+    ref: "Entity",
+    default: null
+  },
+  directorEntity: {
+    type: Schema.Types.ObjectId,
+    ref: "Entity",
+    dafault: null
+  },
   functionJob: String,
   contract: String,
   annualSalary: Number,
@@ -49,7 +58,7 @@ const userSchema = new Schema({
 
   role: {
     type: String,
-    enum: ["Admin", "Director", "Manager", "Seller", "Recipient", "Guest"],
+    enum: ["Admin", "Directeur", "Manager", "Vendeur", "Prestataire", "Guest"],
     default: "Guest"
   },
   totalBusiness: Number
