@@ -63,6 +63,8 @@ const entityRoute = require("./routes/entity");
 const userRoute = require("./routes/user");
 const ticketRoute = require("./routes/ticket");
 const profileRoute = require("./routes/profile");
+const imagesRoute = require("./routes/images");
+
 app.use(
   "/api",
   /* passport.authenticate("jwt", config.jwtSession), */ authRoute
@@ -70,7 +72,8 @@ app.use(
 app.use("/api/entities", entityRoute);
 app.use("/api/users", userRoute);
 app.use("/api/tickets", ticketRoute);
-app.use("api/users", profileRoute);
+app.use("/api/users", profileRoute);
+app.use("/api/images", imagesRoute);
 
 app.get(
   "/api/secret",

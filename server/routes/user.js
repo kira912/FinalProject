@@ -81,6 +81,7 @@ userController.patch("/:id", (req, res) => {
     req.body,
     "firstname",
     "lastname",
+    "profilePic",
     "civility",
     "nationality",
     "birthDate",
