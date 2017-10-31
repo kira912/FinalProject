@@ -1,10 +1,13 @@
 <template>
   <aside class="aside-menu">
-    <p v-for="(user, index) in users" :key="user._id"> {{user.email}} </p>
+    <ul>
+      <router-link to="" v-for="(user, index) in users" :key="user._id"> <li> {{user.email}} </li></router-link>
+    </ul>
   </aside>
 </template>
 
 <script>
+import ModalEmail from "@/components/ModalEmail";
 import { getUsers } from "@/api/auth";
 export default {
   name: "aside",
@@ -17,6 +20,10 @@ export default {
     getUsers().then(users => {
       this.users = users;
     });
+  },
+
+  components: {
+    ModalEmail
   }
 };
 </script>

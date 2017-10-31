@@ -12,6 +12,7 @@ import Tickets from "./Tickets";
 import NewTicket from "./NewTicket";
 import TicketPage from "./TicketPage";
 import BusinessUser from "./BusinessUser";
+import ProfilePage from "./ProfilePage";
 
 Vue.use(Router);
 
@@ -69,6 +70,10 @@ const router = new Router({
     {
       path: "/business",
       component: BusinessUser
+    },
+    {
+      path: "/profile/:id",
+      component: ProfilePage
     }
   ]
 });

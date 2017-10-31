@@ -70,7 +70,7 @@ app.use(
 app.use("/api/entities", entityRoute);
 app.use("/api/users", userRoute);
 app.use("/api/tickets", ticketRoute);
-app.use("api/profile", profileRoute);
+app.use("api/users", profileRoute);
 
 app.get(
   "/api/secret",

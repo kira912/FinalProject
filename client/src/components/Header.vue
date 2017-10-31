@@ -9,8 +9,8 @@
     <v-menu offset-y>
       <v-btn color="primary" dark slot="activator">Dropdown</v-btn>
       <v-list>
-        <v-list-tile v-for="item in items" :key="item.title" @click="">
-          <v-list-tile-title>{{ item.link }}</v-list-tile-title>
+        <v-list-tile v-for="item in items" :key="item.title" @click.prevent="goToProfile($root.user._id)">
+          <v-list-tile-title >{{ item.link }}</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-menu>
@@ -48,11 +48,12 @@ export default {
       e.preventDefault();
       document.body.classList.toggle("aside-menu-hidden");
     },
-    methods: {
-      logout() {
-        logout(this.$root);
-        this.$router.push("/");
-      }
+    logout() {
+      logout(this.$root);
+      this.$router.push("/");
+    },
+    goToProfile(_id) {
+      this.$router.push("/profile/" + _id);
     }
   }
 };
