@@ -15,7 +15,7 @@ export default {
     return {
       navItems: [],
       admin: false,
-      user: false
+      user: true
     };
   },
   methods: {
@@ -26,10 +26,9 @@ export default {
   },
   created() {
     getSingleUser(this.$root.user._id).then(user => {
-      if (user.role === "Admin" || "Directeur") {
+      if (user.role === "Admin" || user.role === "Directeur") {
         this.admin = true;
-      }
-      if (user.role === "Vendeur") {
+      } else if (user.role === "Vendeur") {
         this.user = true;
       }
     });

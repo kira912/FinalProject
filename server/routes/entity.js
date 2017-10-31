@@ -123,6 +123,26 @@ entityController.patch("/:id", (req, res) => {
   );
 });
 
+entityController.patch("/:id/business", (req, res) => {
+  const update = _.pick(req.body, "totalBusiness");
+  Entity.findByIdAndUpdate(
+    req.params.id,
+    {
+      $inc: update
+    },
+    {
+      new: true
+    },
+    (err, entity) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(entity);
+      }
+    }
+  );
+});
+
 entityController.delete("/:id", (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({

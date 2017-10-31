@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { editUserBusiness, getSingleUser } from "@/api/auth";
+import { editUserBusiness } from "@/api/auth";
 export default {
   data() {
     return {

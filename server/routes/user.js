@@ -116,9 +116,6 @@ userController.patch("/:id", (req, res) => {
     "codeBic",
 
     "role"
-
-    /*     "totalBusiness"
- */
   );
 
   User.findByIdAndUpdate(

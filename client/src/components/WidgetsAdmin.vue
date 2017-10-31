@@ -37,7 +37,6 @@ export default {
 
   data() {
     return {
-      entities: [],
       counterUsers: 0,
       counterEntities: 0,
       totalBusiness: 0

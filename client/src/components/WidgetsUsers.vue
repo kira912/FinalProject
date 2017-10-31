@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { getSingleUser, getSingleEntity } from "@/api/auth";
+import { getSingleUser, getUsers } from "@/api/auth";
 export default {
   name: "widgetsusers",
 
@@ -47,11 +47,13 @@ export default {
         this.totalBusinessUser += user.totalBusiness;
       }
     });
-    getSingleEntity(this.$root.user._id).then(entity => {
-      if (entity.totalBusiness) {
-        console.log("DEBUGG ENTITY", entity);
-        this.totalBusinessEntity = entity.totalBusinessEntity;
-      }
+    getUsers().then(users => {
+      // debugger;
+      users.forEach(user => {
+        if (user.totalBusiness) {
+          this.totalBusinessEntity += user.totalBusiness;
+        }
+      });
     });
   }
 };

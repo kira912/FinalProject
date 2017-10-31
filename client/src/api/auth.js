@@ -72,6 +72,14 @@ export function editEntity(id, entityInfo) {
   });
 }
 
+export function editEntityBusiness(id, editBusiness) {
+  return auth
+    .patch("/entities/" + id + "/business", editBusiness)
+    .then(response => {
+      return response.data;
+    });
+}
+
 export function getSingleEntity(id) {
   return auth.get("/entities/" + id).then(response => {
     return response.data;
@@ -134,6 +142,12 @@ export function getSingleTicket(id) {
 
 export function newTicket(ticketInfo) {
   return auth.post("/tickets", ticketInfo).then(response => {
+    return response.data;
+  });
+}
+
+export function editTicket(id, ticketInfo) {
+  return auth.patch("/tickets/" + id, ticketInfo).then(response => {
     return response.data;
   });
 }

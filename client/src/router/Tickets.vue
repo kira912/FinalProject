@@ -31,7 +31,7 @@
                 </v-expansion-panel>
                 </td>
 
-                <td><button type="button" @click.prevent='getSingleEntity(entity._id)' class="btn btn-primary active mt-3">Editer</button></td>
+                <td><button type="button" @click.prevent='gotToTicket(ticket._id)' class="btn btn-primary active mt-3">Editer</button></td>
               </tr>
             </tbody>
           </table>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { getTickets, getSingleTicket } from "@/api/auth";
+import { getTickets } from "@/api/auth";
 export default {
   data() {
     return {

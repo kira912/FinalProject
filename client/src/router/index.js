@@ -9,6 +9,8 @@ import Users from "./Users";
 import NewUser from "./NewUser";
 import UserPage from "./UserPage";
 import Tickets from "./Tickets";
+import NewTicket from "./NewTicket";
+import TicketPage from "./TicketPage";
 import BusinessUser from "./BusinessUser";
 
 Vue.use(Router);
@@ -55,6 +57,14 @@ const router = new Router({
     {
       path: "/tickets",
       component: Tickets
+    },
+    {
+      path: "/ticket/new",
+      component: NewTicket
+    },
+    {
+      path: "/ticket/:id",
+      component: TicketPage
     },
     {
       path: "/business",
