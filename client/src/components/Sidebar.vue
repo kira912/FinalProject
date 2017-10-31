@@ -16,7 +16,7 @@
             <template v-if="item.children">
               <!-- First level dropdown -->
               <SidebarNavDropdown :name="item.name" :url="item.url" :icon="item.icon">
-                <template v-for="(childL1, index) in item.children">
+                <template v-for="(childL1, index) in item.children">dsvdv
                   <template v-if="childL1.children">
                     <!-- Second level dropdown -->
                     <SidebarNavDropdown :name="childL1.name" :url="childL1.url" :icon="childL1.icon">

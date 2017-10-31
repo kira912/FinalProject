@@ -8,11 +8,14 @@
         </div>
       </div>
     </div><!--/.col-->
+
     <div class="col-sm-6 col-lg-3">
       <div class="card">
         <div class="card-block">
+          <p>Total des billets vendu pour votre compte: <strong> {{totalTicket}} </strong></p>
         </div>
       </div>
+      
     </div><!--/.col-->
     <div class="col-sm-6 col-lg-3">
       <div class="card">
@@ -30,14 +33,15 @@
 </template>
 
 <script>
-import { getSingleUser, getUsers } from "@/api/auth";
+import { getSingleUser, getUsers, getTickets } from "@/api/auth";
 export default {
   name: "widgetsusers",
 
   data() {
     return {
       totalBusinessUser: 0,
-      totalBusinessEntity: 0
+      totalBusinessEntity: 0,
+      totalTicket: 0
     };
   },
 
@@ -53,6 +57,11 @@ export default {
         if (user.totalBusiness) {
           this.totalBusinessEntity += user.totalBusiness;
         }
+      });
+    });
+    getTickets().then(ticket => {
+      ticket.forEach(ticket => {
+        this.totalTicket++;
       });
     });
   }

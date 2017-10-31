@@ -2,8 +2,7 @@ export default {
   items: [
     {
       name: "Dashboard",
-      url: "/dashboard",
-      icon: "icon-speedometer"
+      url: "/dashboard"
     },
     {
       name: "Entités",
@@ -21,5 +20,12 @@ export default {
       name: "Business",
       url: "/business"
     }
-  ]
+  ],
+
+  methods: {
+    logout() {
+      logout(this.$root);
+      this.$router.push("/");
+    }
+  }
 };

@@ -5,7 +5,6 @@ const User = require("../models/user");
 const _ = require("lodash");
 
 userController.get("/", (req, res, next) => {
-  console.log(":)");
   User.find()
     .then(userList => {
       res.json(userList);
