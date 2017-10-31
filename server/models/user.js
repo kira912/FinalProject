@@ -30,16 +30,19 @@ const userSchema = new Schema({
   directorEntity: {
     type: Schema.Types.ObjectId,
     ref: "Entity",
-    dafault: null
+    default: null
   },
   functionJob: String,
   contract: String,
+  totalBusiness: Number,
+  totalTicket: Number,
   annualSalary: Number,
   entryBusiness: Number,
   startActivity: Number,
   endBusiness: Number,
   professionalEmail: String,
   professionalNumber: Number,
+
   firstnameUrgence: String,
   lastnameUrgence: String,
   linkUser: String,
@@ -60,8 +63,7 @@ const userSchema = new Schema({
     type: String,
     enum: ["Admin", "Directeur", "Manager", "Vendeur", "Prestataire", "Guest"],
     default: "Guest"
-  },
-  totalBusiness: Number
+  }
 });
 
 userSchema.plugin(passportLocalMongoose, {

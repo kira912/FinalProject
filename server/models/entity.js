@@ -4,13 +4,14 @@ const { Schema } = mongoose;
 const entitySchema = new Schema({
   name: String,
   typeEntity: String,
-  entityAttachment: String,
   enseign: String,
   address: String,
   city: String,
   codePostal: String,
   telNumber: Number,
   email: String,
+  totalBusiness: Number,
+  totalTicket: Number,
 
   rcs: String,
   tvaIntra: Number,
@@ -30,13 +31,7 @@ const entitySchema = new Schema({
   iban: String,
   codeBic: Number,
 
-  /*   directorEntity: {
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  }, */
-  usersAttachment: [String],
-
-  totalBusiness: Number
+  usersAttachment: [String]
 });
 
 module.exports = mongoose.model("Entity", entitySchema);

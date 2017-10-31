@@ -24,6 +24,7 @@
     <div class="col-sm-6 col-lg-3">
       <div class="card">
         <div class="card-block">
+          <p>Voyageurs enregistrés: <strong> {{totalTicket}} </strong></p>
         </div>
       </div>
     </div><!--/.col-->
@@ -39,7 +40,8 @@ export default {
     return {
       counterUsers: 0,
       counterEntities: 0,
-      totalBusiness: 0
+      totalBusiness: 0,
+      totalTicket: 0
     };
   },
 
@@ -47,6 +49,9 @@ export default {
     getUsers().then(users => {
       users.forEach(user => {
         this.counterUsers++;
+        if (user.totalTicket) {
+          this.totalTicket += user.totalTicket;
+        }
         if (user.totalBusiness) {
           this.totalBusiness += user.totalBusiness;
         }
@@ -56,6 +61,9 @@ export default {
       this.entities = entities;
       entities.forEach(entity => {
         this.counterEntities++;
+        if (entity.totalTicket) {
+          this.totalTicket += entity.totalTicket;
+        }
         if (entity.totalBusiness) {
           this.totalBusiness += entity.totalBusiness;
         }

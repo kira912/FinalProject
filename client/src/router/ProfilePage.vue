@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-content-center">
     <div>
-      <img :src="user.profilePic" alt="">
+      <img :src="user.profilePic" class="img-thumbnail">
     </div>
     <div class="card" style="width: 20rem;">
       <form @submit.prevent = "uploadPicture">

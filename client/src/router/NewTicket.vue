@@ -5,7 +5,7 @@
     <div class="form-group">
       <label class="col-2 col-form-label">Départ: </label>
       <div class="col-10">
-        <input class="form-control" type="text" v-model="depart">
+        <input class="form-control" type="text" v-model="start">
       </div>
     </div>
 
@@ -26,7 +26,7 @@
     <div class="form-group">
       <label class="col-2 col-form-label">Date: </label>
       <div class="col-10">
-        <input class="form-control" type="text" v-model="date">
+        <input class="form-control" type="date" v-model="date">
       </div>
     </div>
 
@@ -37,41 +37,52 @@
       </div>
     </div> 
     
-      <div class="form-group">
+    <div class="form-group">
       <label class="col-2 col-form-label">Client: </label>
       <div class="col-10">
         <input class="form-control" type="text" v-model="client">
       </div>
     </div>
+<!-- 
+    <div class="form-group">
+      <label class="col-2 col-form-label">Vendeur: </label>
+      <div class="col-10">
+        <input class="form-control" type="text" v-model="seller">
+      </div>
+    </div>  -->
+
     <button type="button" @click.prevent="newTicket" class="btn btn-primary">Créer</button>
   </form>
   </div>
 </template>
 
 <script>
-import { newTicket } from "@/api/auth";
+import { newTicket, editUser } from "@/api/auth";
 export default {
   data() {
     return {
-      depart: "",
+      start: "",
       end: "",
       price: "",
       date: "",
       category: "",
-      client: ""
+      client: "",
+      seller: this.$root.user._id
     };
   },
 
   methods: {
     newTicket() {
       newTicket({
-        depart: this.depart,
+        start: this.start,
         end: this.end,
         price: this.price,
         date: this.date,
         category: this.category,
-        client: this.client
-      }).then(() => {
+        client: this.client,
+        seller: this.seller
+      });
+      editUser(this.$root.user._id, this.totalTicket++).then(() => {
         this.$router.push("/tickets");
       });
     }

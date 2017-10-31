@@ -1,7 +1,7 @@
 <template>
   <aside class="aside-menu">
     <ul>
-      <router-link to="" v-for="(user, index) in users" :key="user._id"> <li> {{user.email}} </li></router-link>
+      <router-link :to='"/profile/" + user._id' v-for="(user, index) in users" :key="user._id"> <li> {{user.email}} </li></router-link>
     </ul>
   </aside>
 </template>

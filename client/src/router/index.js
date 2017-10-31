@@ -63,10 +63,10 @@ const router = new Router({
       path: "/ticket/new",
       component: NewTicket
     },
-    {
+    /*     {
       path: "/ticket/:id",
       component: TicketPage
-    },
+    }, */
     {
       path: "/business",
       component: BusinessUser

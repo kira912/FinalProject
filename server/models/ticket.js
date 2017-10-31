@@ -7,7 +7,11 @@ const ticketSchema = new Schema({
   price: Number,
   date: String,
   category: String,
-  client: [String]
+  client: [String],
+  seller: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }
 });
 
 module.exports = mongoose.model("Ticket", ticketSchema);

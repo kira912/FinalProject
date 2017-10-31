@@ -3,6 +3,7 @@
     <h3>Esprit Voyage</h3>
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">&#9776;</button>
     <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto" type="button" @click="sidebarToggle">&#9776;</button>
+   
     <a @click.prevent="logout" v-if="$root.user" href="/">Déconnexion</a>
 
     <div class="text-xs-center">
@@ -32,6 +33,10 @@ export default {
   },
 
   methods: {
+    profileToggle(e) {
+      e.preventDefault();
+      document.body.classList.toggle("toggle");
+    },
     sidebarToggle(e) {
       e.preventDefault();
       document.body.classList.toggle("sidebar-hidden");

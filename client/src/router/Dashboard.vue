@@ -26,7 +26,7 @@ export default {
   },
   created() {
     getSingleUser(this.$root.user._id).then(user => {
-      if (user.role === "Admin" || user.role === "Directeur") {
+      if (user.role === "Admin") {
         this.admin = true;
       } else if (user.role === "Vendeur") {
         this.user = true;

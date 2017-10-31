@@ -21,7 +21,8 @@ ticketController.post("/", (req, res, next) => {
     price: req.body.price,
     date: req.body.date,
     category: req.body.category,
-    client: req.body.client
+    client: req.body.client,
+    seller: req.body.seller
   });
   ticket.save(err => {
     if (err) {
