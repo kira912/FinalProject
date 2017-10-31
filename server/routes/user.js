@@ -115,15 +115,36 @@ userController.patch("/:id", (req, res) => {
     "iban",
     "codeBic",
 
-    "role",
+    "role"
 
-    "totalBusiness"
+    /*     "totalBusiness"
+ */
   );
 
   User.findByIdAndUpdate(
     req.params.id,
     {
       $set: updates
+    },
+    {
+      new: true
+    },
+    (err, user) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(user);
+      }
+    }
+  );
+});
+
+userController.patch("/:id/business", (req, res) => {
+  const update = _.pick(req.body, "totalBusiness");
+  User.findByIdAndUpdate(
+    req.params.id,
+    {
+      $inc: update
     },
     {
       new: true

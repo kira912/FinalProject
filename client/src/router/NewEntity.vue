@@ -1,14 +1,9 @@
 <template>
 <div>
-  <form>
-  <input-field-text v-for="(type, index) in typesText" v-model="typesText[index]" :label="typeTextLabel[index]"> </input-field-text>
-
-<button type="button" @click='submit' class="btn btn-primary">Créer</button>
-  </form>
 
 
   <!-- {{messageError.message}} -->
- <!--  <form @submit.prevent='submit'>
+   <form @submit.prevent='submit'>
     <h2>Données d'entité</h2>
     <div class="form-group">
       <label for="name" class="col-2 col-form-label">Nom de l'entité</label>
@@ -179,7 +174,7 @@
       </div>
     </div>
     <button type="button" @click='submit' class="btn btn-primary">Créer</button>
-  </form> -->
+  </form> 
 </div>
 </template>
 
@@ -189,65 +184,7 @@ import { newEntity } from "@/api/auth";
 export default {
   data() {
     return {
-      typesText: [
-        { name: "" },
-        { typeEntity: "" },
-        { enseign: "" },
-        { address: "" },
-        { codePostal: "" },
-        { city: "" },
-        { telNumber: "" },
-        { email: "" },
-        { rcs: "" },
-        { tvaIntra: "" },
-        { siren: "" },
-        { siret: "" },
-        { license: "" },
-        { financialGuarantees: "" },
-        { status: "" },
-        { socialCapital: "" },
-        { exerciseDate: "" },
-        { bank: "" },
-        { addressBank: "" },
-        { codePostalBank: "" },
-        { cityBank: "" },
-        { ownerCount: "" },
-        { iban: "" },
-        { codeBic: "" },
-        { directorEntity: "" },
-        { userAttachment: "" },
-      ],
-
-      typeTextLabel: [
-        "Nom de l'entité",
-        "Type d'entité",
-        "Enseigne",
-        "Adresse postale",
-        "Code postal",
-        "Ville",
-        "Téléphone",
-        "Email",
-        "RCS",
-        "TVA Intracommunautaire",
-        "SIREN",
-        "SIRET",
-        "Licence",
-        "Garanties financières",
-        "Statut",
-        "Capital social",
-        "Dates d’exercice",
-        "Banque",
-        "Adresse postale banque",
-        "Code postal banque",
-        "Ville banque",
-        "Titulaire de compte",
-        "IBAN",
-        "Code BIC / SWIFT",
-        "Directeur d’entité",
-        "Utilisateurs rattachés"
-      ],
-
-      /*      name: "",
+      name: "",
       typeEntity: "",
       entityAttachment: "",
       enseign: "",
@@ -274,48 +211,46 @@ export default {
       codeBic: "",
       directorEntity: "",
       userAttachment: "",
-      messageError: null */
+      messageError: null,
       entityInfo: {}
     };
   },
 
   methods: {
-    submit(id) {
+    submit() {
       this.messageError = null;
       newEntity({
-        name: this.entityInfo.name,
-        typeEntity: this.entityInfo.typeEntity,
-        enseign: this.entityInfo.enseign,
-        address: this.entityInfo.address,
-        codePostal: this.entityInfo.codePostal,
-        city: this.entityInfo.city,
-        telNumber: this.entityInfo.telNumber,
-        email: this.entityInfo.email,
-        rcs: this.entityInfo.rcs,
-        tvaIntra: this.entityInfo.tvaIntra,
-        siren: this.entityInfo.siren,
-        siret: this.entityInfo.siret,
-        license: this.entityInfo.license,
-        financialGuarantees: this.entityInfo.financialGuarantees,
-        status: this.entityInfo.status,
-        socialCapital: this.entityInfo.socialCapital,
-        exerciseDate: this.entityInfo.exerciseDate,
-        bank: this.entityInfo.bank,
-        addressBank: this.entityInfo.addressBank,
-        codePostalBank: this.entityInfo.codePostalBank,
-        cityBank: this.entityInfo.cityBank,
-        ownerCount: this.entityInfo.ownerCount,
-        iban: this.entityInfo.iban,
-        codeBic: this.entityInfo.codeBic,
-        directorEntity: this.entityInfo.directorEntity,
-        userAttachment: this.entityInfo.userAttachment
+        name: this.name,
+        typeEntity: this.typeEntity,
+        entityAttachment: this.entityAttachment,
+        enseign: this.enseign,
+        address: this.address,
+        codePostal: this.codePostal,
+        city: this.city,
+        telNumber: this.telNumber,
+        email: this.email,
+        rcs: this.rcs,
+        tvaIntra: this.tvaIntra,
+        siren: this.siren,
+        siret: this.siret,
+        license: this.license,
+        financialGuarantees: this.financialGuarantees,
+        status: this.status,
+        socialCapital: this.socialCapital,
+        exerciseDate: this.exerciseDate,
+        bank: this.bank,
+        addressBank: this.addressBank,
+        codePostalBank: this.codePostalBank,
+        cityBank: this.cityBank,
+        ownerCount: this.ownerCount,
+        iban: this.iban,
+        codeBic: this.codeBic,
+        directorEntity: this.directorEntity,
+        userAttachment: this.userAttachment
       }).then(() => {
         this.$router.push("/entities");
       });
     }
-  },
-  components: {
-    InputFieldText
   }
 };
 </script>

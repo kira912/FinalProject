@@ -98,6 +98,14 @@ export function editUser(id, userInfo) {
   });
 }
 
+export function editUserBusiness(id, editBusiness) {
+  return auth
+    .patch("/users/" + id + "/business", editBusiness)
+    .then(response => {
+      return response.data;
+    });
+}
+
 export function newUser(userInfo) {
   return auth.post("/users", userInfo).then(response => {
     return response.data;

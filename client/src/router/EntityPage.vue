@@ -181,6 +181,33 @@ import { editEntity, getSingleEntity } from "@/api/auth";
 export default {
   data() {
     return {
+      name: "",
+      typeEntity: "",
+      entityAttachment: "",
+      enseign: "",
+      address: "",
+      codePostal: "",
+      city: "",
+      telNumber: "",
+      email: "",
+      rcs: "",
+      tvaIntra: "",
+      siren: "",
+      siret: "",
+      license: "",
+      financialGuarantees: "",
+      status: "",
+      socialCapital: "",
+      exerciseDate: "",
+      bank: "",
+      addressBank: "",
+      codePostalBank: "",
+      cityBank: "",
+      ownerCount: "",
+      iban: "",
+      codeBic: "",
+      directorEntity: "",
+      userAttachment: "",
       entityInfo: {}
     };
   },

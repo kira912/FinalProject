@@ -5,14 +5,14 @@
         <div class="col-2">
           <label class="form-check-label">Business a enregistrer pour votre compte</label>
           <input type="number" v-model="totalBusiness" class="form-control">
-          <button class="btn btn-primary" @click.prevent="editUser()">Enregistrer</button>
+          <button class="btn btn-primary" @click.prevent="editBusiness()">Enregistrer</button>
         </div>
       </form>
   </div>
 </template>
 
 <script>
-import { editUser } from "@/api/auth";
+import { editUserBusiness, getSingleUser } from "@/api/auth";
 export default {
   data() {
     return {
@@ -21,8 +21,8 @@ export default {
   },
 
   methods: {
-    editUser() {
-      editUser(this.$root.user._id, {
+    editBusiness() {
+      editUserBusiness(this.$root.user._id, {
         totalBusiness: this.totalBusiness
       }).then(() => {
         this.$router.push("/dashboard");
@@ -32,6 +32,3 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
