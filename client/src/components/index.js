@@ -9,6 +9,7 @@ import SidebarNavDropdown from "./SidebarNavDropdown";
 import SidebarNavLink from "./SidebarNavLink";
 import WidgetsAdmin from "./WidgetsAdmin";
 import InputFieldText from "./InputFieldText";
+import AutoComplete from "./AutoComplete";
 
 export {
   Aside,
@@ -21,5 +22,6 @@ export {
   SidebarNavDropdown,
   SidebarNavLink,
   WidgetsAdmin,
-  InputFieldText
+  InputFieldText,
+  AutoComplete
 };

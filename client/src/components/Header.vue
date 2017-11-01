@@ -3,18 +3,20 @@
     <h3>Esprit Voyage</h3>
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">&#9776;</button>
     <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto" type="button" @click="sidebarToggle">&#9776;</button>
-   
+
     <a @click.prevent="logout" v-if="$root.user" href="/">Déconnexion</a>
 
     <div class="text-xs-center">
-    <v-menu offset-y>
-      <v-btn color="primary" dark slot="activator">Dropdown</v-btn>
-      <v-list>
-        <v-list-tile v-for="item in items" :key="item.title" @click.prevent="goToProfile($root.user._id)">
-          <v-list-tile-title >{{ item.link }}</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-menu>
+              <b-dropdown>
+            <button class="button is-primary" slot="trigger">
+                <span>Click me!</span>
+                <b-icon icon="arrow_drop_down"></b-icon>
+            </button>
+
+            <b-dropdown-item @click.prevent="goToProfile($root.user._id)">Profil</b-dropdown-item>
+            <b-dropdown-item>Another action</b-dropdown-item>
+            <b-dropdown-item>Something else</b-dropdown-item>
+        </b-dropdown>
   </div>
 
     <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle">&#9776;</button>
@@ -22,7 +24,8 @@
 </template>
 
 <script>
-import { logout } from "@/api/auth";
+import AutoComplete from "@/components/AutoComplete";
+import { logout, getUsers } from "@/api/auth";
 export default {
   name: "header",
 
@@ -60,6 +63,14 @@ export default {
     goToProfile(_id) {
       this.$router.push("/profile/" + _id);
     }
+  },
+  created() {
+    getUsers().then(user => {
+      this.users = user;
+    });
+  },
+  components: {
+    AutoComplete
   }
 };
 </script>
