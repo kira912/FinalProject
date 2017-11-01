@@ -130,15 +130,15 @@
       <label for="city">Adresse</label>
       <input type="text" v-model='entityInfo.addressBank' class="form-control mx-sm-3">
       <label for="postal" class="col-2 col-form-label">Code Postal</label>
-      <input class="form-control" v-model="codePostalBank" type="text">
+      <input class="form-control" v-model="entityInfo.codePostalBank" type="text">
       <label for="city" class="col-2 col-form-label">Ville</label>
-      <input class="form-control" v-model="cityBank" type="text">
+      <input class="form-control" v-model="entityInfo.cityBank" type="text">
     </div>
 
     <div class="form-group">
       <label for="owner" class="col-2 col-form-label">Titulaire de compte</label>
       <div class="col-10">
-        <input class="form-control" v-model="ownerCount" type="text">
+        <input class="form-control" v-model="entityInfo.ownerCount" type="text">
       </div>
     </div>
 
@@ -181,68 +181,13 @@ import { editEntity, getSingleEntity } from "@/api/auth";
 export default {
   data() {
     return {
-      name: "",
-      typeEntity: "",
-      entityAttachment: "",
-      enseign: "",
-      address: "",
-      codePostal: "",
-      city: "",
-      telNumber: "",
-      email: "",
-      rcs: "",
-      tvaIntra: "",
-      siren: "",
-      siret: "",
-      license: "",
-      financialGuarantees: "",
-      status: "",
-      socialCapital: "",
-      exerciseDate: "",
-      bank: "",
-      addressBank: "",
-      codePostalBank: "",
-      cityBank: "",
-      ownerCount: "",
-      iban: "",
-      codeBic: "",
-      directorEntity: "",
-      userAttachment: "",
       entityInfo: {}
     };
   },
 
   methods: {
     editEntity() {
-      editEntity(this.$route.params.id, {
-        name: this.entityInfo.name,
-        typeEntity: this.entityInfo.typeEntity,
-        entityAttachment: this.entityInfo.entityAttachment,
-        enseign: this.entityInfo.enseign,
-        address: this.entityInfo.address,
-        codePostal: this.entityInfo.codePostal,
-        city: this.entityInfo.city,
-        telNumber: this.entityInfo.telNumber,
-        email: this.entityInfo.email,
-        rcs: this.entityInfo.rcs,
-        tvaIntra: this.entityInfo.tvaIntra,
-        siren: this.entityInfo.siren,
-        siret: this.entityInfo.siret,
-        license: this.entityInfo.license,
-        financialGuarantees: this.entityInfo.financialGuarantees,
-        status: this.entityInfo.status,
-        socialCapital: this.entityInfo.socialCapital,
-        exerciseDate: this.entityInfo.exerciseDate,
-        bank: this.entityInfo.bank,
-        addressBank: this.entityInfo.addressBank,
-        codePostalBank: this.entityInfo.codePostalBank,
-        cityBank: this.entityInfo.cityBank,
-        ownerCount: this.entityInfo.ownerCount,
-        iban: this.entityInfo.iban,
-        codeBic: this.entityInfo.codeBic,
-        directorEntity: this.entityInfo.directorEntity,
-        userAttachment: this.entityInfo.userAttachment
-      }).then(data => {
+      editEntity(this.$route.params.id, this.entityInfo).then(() => {
         this.$router.push("/entities");
       });
     }

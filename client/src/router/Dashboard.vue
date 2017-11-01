@@ -3,8 +3,9 @@
   <widgets-admin v-if="admin"></widgets-admin>
   <widgets-users v-else-if="employe"></widgets-users>
     <section>
-        <p class="content" v-if="selected"><b>Selected:</b> <router-link :to="'/profile/' + selected._id">{{ selected.firstname }} </router-link> </p>
-        <b-field label="Find a name">
+        <p class="content" v-if="selected"><b>Résultat pour votre recherche </b> "{{name}}": <br>
+         <router-link :to="'/profile/' + selected._id">{{ selected.firstname }} </router-link> </p>
+        <b-field label="Chercher un utilisateur, entités, billet">
             <b-autocomplete
                 v-model="name"
                 placeholder="e.g. Anne"
@@ -21,7 +22,7 @@
 <script>
 import WidgetsAdmin from "@/components/WidgetsAdmin";
 import WidgetsUsers from "@/components/WidgetsUsers";
-import { getSingleUser, getUsers } from "@/api/auth";
+import { getSingleUser, getUsers, getEntities, getTickets } from "@/api/auth";
 export default {
   components: { WidgetsAdmin, WidgetsUsers },
   data() {
@@ -32,7 +33,9 @@ export default {
       keepFirst: false,
       name: "",
       selected: null,
-      users: []
+      users: [],
+      entities: [],
+      tickets: []
     };
   },
   computed: {
@@ -57,6 +60,12 @@ export default {
     });
     getUsers().then(users => {
       this.users = users;
+    });
+    getEntities().then(entities => {
+      this.entities = entities;
+    });
+    getTickets().then(tickets => {
+      this.tickets = tickets;
     });
   }
 };

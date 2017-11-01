@@ -41,7 +41,11 @@ const router = new Router({
     },
     {
       path: "/entity/:id",
-      component: EntityPage
+      component: EntityPage,
+      beforeEnter: (to, from, next) => {
+        if (router.app.$root.user.role === "Admin") next("/entity/:id");
+        else next();
+      }
     },
     {
       path: "/users",
@@ -53,7 +57,11 @@ const router = new Router({
     },
     {
       path: "/user/:id",
-      component: UserPage
+      component: UserPage,
+      beforeEnter: (to, from, next) => {
+        if (router.app.$root.user.role === "Admin") next("/user/:id");
+        else next();
+      }
     },
     {
       path: "/tickets",
@@ -63,10 +71,6 @@ const router = new Router({
       path: "/ticket/new",
       component: NewTicket
     },
-    /*     {
-      path: "/ticket/:id",
-      component: TicketPage
-    }, */
     {
       path: "/business",
       component: BusinessUser
