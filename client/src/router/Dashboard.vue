@@ -16,15 +16,17 @@
             </b-autocomplete>
         </b-field>
     </section>
+    <classement-users :users="users"></classement-users>
 </div>
 </template>
 
 <script>
 import WidgetsAdmin from "@/components/WidgetsAdmin";
 import WidgetsUsers from "@/components/WidgetsUsers";
+import ClassementUsers from "@/components/ClassementUsers";
 import { getSingleUser, getUsers, getEntities, getTickets } from "@/api/auth";
 export default {
-  components: { WidgetsAdmin, WidgetsUsers },
+  components: { WidgetsAdmin, WidgetsUsers, ClassementUsers },
   data() {
     return {
       navItems: [],
