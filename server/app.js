@@ -64,7 +64,6 @@ const userRoute = require("./routes/user");
 const ticketRoute = require("./routes/ticket");
 const profileRoute = require("./routes/profile");
 const imagesRoute = require("./routes/images");
-const searchRoute = require("./routes/search");
 
 app.use(
   "/api",
@@ -75,7 +74,6 @@ app.use("/api/users", userRoute);
 app.use("/api/tickets", ticketRoute);
 app.use("/api/users", profileRoute);
 app.use("/api/images", imagesRoute);
-app.use("/api", searchRoute);
 
 app.get(
   "/api/secret",

@@ -9,7 +9,6 @@
     <div class="text-xs-center">
               <b-dropdown>
             <button class="button is-primary" slot="trigger">
-                <span>Click me!</span>
                 <b-icon icon="arrow_drop_down"></b-icon>
             </button>
 

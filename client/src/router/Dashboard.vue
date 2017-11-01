@@ -3,7 +3,7 @@
   <widgets-admin v-if="admin"></widgets-admin>
   <widgets-users v-else-if="employe"></widgets-users>
     <section>
-        <p class="content"><b>Selected:</b> {{ selected }}</p>
+        <p class="content" v-if="selected"><b>Selected:</b> <router-link :to="'/profile/' + selected._id">{{ selected.firstname }} </router-link> </p>
         <b-field label="Find a name">
             <b-autocomplete
                 v-model="name"
