@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
-
+require("dotenv").config();
 const Entity = require("../models/entity");
 const User = require("../models/user");
+
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
 
 function getIdFromName(array, name) {
   const el = array.find(el => el.name === name);
