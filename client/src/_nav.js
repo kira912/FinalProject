@@ -6,7 +6,8 @@ export default {
     },
     {
       name: "Entités",
-      url: "/entities"
+      url: "/entities",
+      role: "Admin"
     },
     {
       name: "Utilisateurs",

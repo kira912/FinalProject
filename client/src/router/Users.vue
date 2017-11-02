@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button type="button" class="button is-primary" @click.prevent="$router.push('/user/new')">Créer un utilisateur</button>
     <table class="table">
       <thead class="thead-default">
         <tr>
@@ -15,17 +16,18 @@
           <td> {{user.firstname}} </td>
           <td> {{user.lastname}} </td>
           <td>
-            <button class="btn btn-primary active mt-3" @click="showModalInfo = true">Détails</button>
+            <button class="button is-primary" @click="showModalInfo = true">Détails</button>
             <modal-info v-if="showModalInfo" @close="showModalInfo = false" :user="user"></modal-info>
           </td>
           <td>
             <button type="button" 
                     @click.prevent='goToEdit(user._id)'
-                    class="btn btn-primary active mt-3">Editer
+                    class="button is-primary">Editer
                     </button>
           </td>
           <td>
-            <button id="show-modal-delete" @click="showModal = true" class="btn btn-primary active mt-3">Supprimer</button>
+            <button id="show-modal-delete" @click="showModal = true" class="button is-primary">Supprimer</button>
+            <modal-delete v-if="showModal" @close="showModal = false" :user="user"></modal-delete>
           </td>
         </tr>
       </tbody>

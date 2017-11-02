@@ -6,15 +6,15 @@
 
           <div class="modal-body">
             <slot name="body">
-              Voulez-vous supprimer l'utilisateur: {{user}}
+              Voulez-vous supprimer l'utilisateur: {{user.firstname}}
             </slot>
           </div>
 
           <div class="modal-footer">
-            <button class="btn btn-primary active mt-3" @click.prevent='deleteUser(user._id)'>
+            <button class="button is-primary" @click.prevent='deleteUser(user._id)'>
                Oui
             </button>
-              <button class="btn btn-primary active mt-3" @click="$emit('close')">
+              <button class="button is-primary" @click="$emit('close')">
                 Non
               </button>
           </div>
@@ -29,9 +29,7 @@ import { deleteUser } from "@/api/auth";
 export default {
   name: "modalDelete",
 
-  props: {
-    user: Object
-  },
+  props: ["user"],
 
   methods: {
     deleteUser(id) {
@@ -51,7 +49,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   display: table;
   transition: opacity 0.3s ease;
 }

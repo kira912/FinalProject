@@ -140,7 +140,7 @@
     <div class="col-10">
     </div>
   </div>
-   <button type="button" @click.prevent="newUser" class="btn btn-primary">Créer</button>
+   <button type="button" @click.prevent="newUser()" class="btn btn-primary">Créer</button>
   </form>
 </div>
 </template>

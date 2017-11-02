@@ -17,7 +17,7 @@
                     </label>
                 </div>
                 <div class="modal-footer text-right">
-                    <button class="modal-default-button" @click="savePost()">
+                    <button class="button is-primary" @click="savePost()">
                         Save
                     </button>
                 </div>

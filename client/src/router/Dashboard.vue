@@ -16,6 +16,7 @@
             </b-autocomplete>
         </b-field>
     </section>
+    <br>
     <classement-users :users="users"></classement-users>
 </div>
 </template>
@@ -54,7 +55,6 @@ export default {
   },
   created() {
     getSingleUser(this.$root.user._id).then(user => {
-      // debugger;
       if (user.role === "Admin") {
         this.admin = true;
       } else if (user.role === "Vendeur" || user.role === "Directeur") {

@@ -13,6 +13,7 @@ import NewTicket from "./NewTicket";
 import TicketPage from "./TicketPage";
 import BusinessUser from "./BusinessUser";
 import ProfilePage from "./ProfilePage";
+import Page404 from "./Page404";
 
 Vue.use(Router);
 
@@ -21,11 +22,11 @@ const router = new Router({
   routes: [
     {
       path: "/",
-      component: Login,
-      beforeEnter: (to, from, next) => {
+      component: Login
+      /*       beforeEnter: (to, from, next) => {
         if (router.app.$root.user) next("/dashboard");
         else next();
-      }
+      } */
     },
     {
       path: "/dashboard",
@@ -44,7 +45,7 @@ const router = new Router({
       component: EntityPage,
       beforeEnter: (to, from, next) => {
         if (router.app.$root.user.role === "Admin") next("/entity/:id");
-        else next();
+        else next("/404");
       }
     },
     {
@@ -60,7 +61,7 @@ const router = new Router({
       component: UserPage,
       beforeEnter: (to, from, next) => {
         if (router.app.$root.user.role === "Admin") next("/user/:id");
-        else next();
+        else next("/404");
       }
     },
     {
@@ -78,6 +79,10 @@ const router = new Router({
     {
       path: "/profile/:id",
       component: ProfilePage
+    },
+    {
+      path: "/404",
+      component: Page404
     }
   ]
 });

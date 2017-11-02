@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button type="button" class="button is-primary" @click.prevent="$router.push('/entity/new')">Créer une entité</button>    
     <table class="table">
       <thead class="thead-default">
         <tr>
@@ -15,17 +16,17 @@
           <td> {{entity.name}} </td>
           <td> {{entity.type}} </td>
           <td>
-            <button class="btn btn-primary active mt-3" @click="showModalInfo = true">Détails</button>
+            <button class="button is-primary" @click="showModalInfo = true">Détails</button>
             <modal-info v-if="showModalInfo" @close="showModalInfo = false" :entity="entity"></modal-info>
           </td>
           <td>
             <button type="button" 
                     @click.prevent='goToEdit(entity._id)'
-                    class="btn btn-primary active mt-3">Editer
+                    class="button is-primary">Editer
                     </button>
           </td>
           <td>
-            <button id="show-modal-delete" @click="showModal = true" class="btn btn-primary active mt-3">Supprimer</button>
+            <button id="show-modal-delete" @click="showModal = true" class="button is-primary">Supprimer</button>
           </td>
         </tr>
       </tbody>
