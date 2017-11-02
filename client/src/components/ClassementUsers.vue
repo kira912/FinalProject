@@ -1,35 +1,28 @@
 <template>
-  <section>
-            <b-table
-            :data="users"
-            :default-sort-direction="defaultSortDirection"
-            default-sort="users.totalTicket">
-
-            <template scope="props">
-                <b-table-column field="users.totalTicket" label="Billet Vendu" width="40" sortable numeric>
-                    {{ props.row.totalTicket }}
-                </b-table-column>
-
-                <b-table-column field="users.firstname" label="Prénoms" sortable>
-                    {{ props.row.users.firstname }}
-                </b-table-column>
-            </template>
-        </b-table>
-  </section>
+  <div>
+  <div>
+    <b-table :sort-by.sync="sortBy"
+             :sort-desc.sync="sortDesc"
+             :items="users"
+             :fields="fields">
+    </b-table>
+  </div>
+</div>
 </template>
 
 <script>
 export default {
   props: ["users"],
-
   data() {
     return {
-      defaultSortDirection: "asc"
+      sortBy: "age",
+      sortDesc: false,
+      fields: [
+        { key: "totalTicket", sortable: true },
+        { key: "firstname", sortable: true }
+      ]
     };
   }
 };
 </script>
 
-<style>
-
-</style>
