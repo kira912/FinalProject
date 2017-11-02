@@ -1,14 +1,15 @@
 <template>
   <div>
-    <button type="button" class="button is-primary" @click.prevent="$router.push('/entity/new')">Créer une entité</button>    
+    <button type="button" class="button is-dark" @click.prevent="$router.push('/entity/new')">Créer une entité</button>    
+    <br><br>
     <table class="table">
-      <thead class="thead-default">
+      <thead class="color">
         <tr>
           <th>Nom</th>
           <th>Type</th>
           <th>Directeur</th>
-          <th>editer</th>
-          <th>supprimer</th>
+          <th>Editer</th>
+          <th>Supprimer</th>
         </tr>
       </thead>
       <tbody v-for='(entity, index) in entities' :key='entity._id'>
@@ -16,17 +17,17 @@
           <td> {{entity.name}} </td>
           <td> {{entity.type}} </td>
           <td>
-            <button class="button is-primary" @click="showModalInfo = true">Détails</button>
+            <button class="button is-dark" @click="showModalInfo = true">Détails</button>
             <modal-info v-if="showModalInfo" @close="showModalInfo = false" :entity="entity"></modal-info>
           </td>
           <td>
             <button type="button" 
                     @click.prevent='goToEdit(entity._id)'
-                    class="button is-primary">Editer
+                    class="button is-dark">Editer
                     </button>
           </td>
           <td>
-            <button id="show-modal-delete" @click="showModal = true" class="button is-primary">Supprimer</button>
+            <button id="show-modal-delete" @click="showModal = true" class="button is-dark">Supprimer</button>
           </td>
         </tr>
       </tbody>
@@ -62,3 +63,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.color {
+  background-color: #bdb76b;
+}
+</style>

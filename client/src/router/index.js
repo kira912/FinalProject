@@ -11,7 +11,6 @@ import UserPage from "./UserPage";
 import Tickets from "./Tickets";
 import NewTicket from "./NewTicket";
 import TicketPage from "./TicketPage";
-import BusinessUser from "./BusinessUser";
 import ProfilePage from "./ProfilePage";
 import Page404 from "./Page404";
 
@@ -71,10 +70,6 @@ const router = new Router({
     {
       path: "/ticket/new",
       component: NewTicket
-    },
-    {
-      path: "/business",
-      component: BusinessUser
     },
     {
       path: "/profile/:id",

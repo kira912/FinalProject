@@ -2,10 +2,10 @@
   <div>
     <h2>Enregistrement du business</h2>
       <form>
-        <div class="col-2">
+        <div class="col-2 cadre">
           <label class="form-check-label">Business a enregistrer pour votre compte</label>
           <input type="number" v-model="totalBusiness" class="form-control">
-          <button class="button is-primary" @click.prevent="editBusiness()">Enregistrer</button>
+          <button class="button is-dark" @click.prevent="editBusiness()">Enregistrer</button>
         </div>
       </form>
   </div>
@@ -31,4 +31,16 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+h2 {
+  text-align: center;
+}
+
+.cadre {
+  border: 1px solid black;
+  margin: 0 auto;
+}
+</style>
+
 

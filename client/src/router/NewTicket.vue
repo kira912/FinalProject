@@ -50,7 +50,12 @@
 </template>
 
 <script>
-import { newTicket, getSingleUser, editUserTotalTicket } from "@/api/auth";
+import {
+  newTicket,
+  getSingleUser,
+  editUserTotalTicket,
+  editUserBusiness
+} from "@/api/auth";
 export default {
   data() {
     return {
@@ -83,18 +88,15 @@ export default {
         client: this.client,
         seller: this.seller
       });
+      editUserBusiness(this.$root.user._id, {
+        totalBusiness: this.price
+      });
 
       editUserTotalTicket(this.$root.user._id, {
         totalTicket: this.totalTicket
       }).then(() => {
         this.$router.push("/tickets");
       });
-
-      /*      editUser(this.$root.user._id, this.user.totalTicket++).then(() => {
-        console.log("debugg", this.user.totalTicket);
-        debugger;
-        this.$router.push("/tickets");
-      }); */
     }
   }
 };

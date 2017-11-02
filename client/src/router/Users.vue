@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button type="button" class="button is-primary" @click.prevent="$router.push('/user/new')">Créer un utilisateur</button>
+    <button type="button" class="button is-dark" @click.prevent="$router.push('/user/new')">Créer un utilisateur</button>
     <table class="table">
-      <thead class="thead-default">
+      <thead class="color">
         <tr>
           <th>Prénom</th>
           <th>Nom</th>
@@ -16,17 +16,17 @@
           <td> {{user.firstname}} </td>
           <td> {{user.lastname}} </td>
           <td>
-            <button class="button is-primary" @click="showModalInfo = true">Détails</button>
+            <button class="button is-dark" @click="showModalInfo = true">Détails</button>
             <modal-info v-if="showModalInfo" @close="showModalInfo = false" :user="user"></modal-info>
           </td>
           <td>
             <button type="button" 
                     @click.prevent='goToEdit(user._id)'
-                    class="button is-primary">Editer
+                    class="button is-dark">Editer
                     </button>
           </td>
           <td>
-            <button id="show-modal-delete" @click="showModal = true" class="button is-primary">Supprimer</button>
+            <button id="show-modal-delete" @click="showModal = true" class="button is-dark">Supprimer</button>
             <modal-delete v-if="showModal" @close="showModal = false" :user="user"></modal-delete>
           </td>
         </tr>
@@ -66,4 +66,10 @@ export default {
   }
 };
 </script>
-                        
+
+<style>
+.color {
+  background-color: #bdb76b;
+}
+</style>
+    

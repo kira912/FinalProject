@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button type="button" class="button is-primary" @click.prevent="$router.push('/ticket/new')">Créer un billet</button>
+    <button type="button" class="button is-dark" @click.prevent="$router.push('/ticket/new')">Créer un billet</button>
     <table class="table">
-      <thead class="thead-default">
+      <thead class="color">
         <tr>
           <th>Départ</th>
           <th>Arrivée</th>
@@ -14,7 +14,7 @@
           <td> {{ticket.start}} </td>
           <td> {{ticket.end}} </td>
           <td>
-            <button class="button is-primary" @click="showModal = true">Détails</button>
+            <button class="button is-dark" @click="showModal = true">Détails</button>
             <modal-info-ticket v-if="showModal" @close="showModal = false" :ticket="ticket"></modal-info-ticket>
           </td>
         </tr>
@@ -42,11 +42,13 @@ export default {
     getTickets().then(tickets => {
       this.tickets = tickets;
     });
-  },
-  methods: {
-    gotToTicket(_id) {
-      this.$router.push("/ticket/" + _id);
-    }
   }
 };
 </script>
+
+<style>
+.color {
+  background-color: #bdb76b;
+}
+</style>
+

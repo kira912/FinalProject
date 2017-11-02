@@ -179,7 +179,6 @@
 </template>
 
 <script>
-import InputFieldText from "@/components/InputFieldText";
 import { newEntity } from "@/api/auth";
 export default {
   data() {

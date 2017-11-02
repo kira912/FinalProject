@@ -1,18 +1,18 @@
 <template>
   <div class="row">
     <div class="col-sm-6 col-lg-3">
-      <div class="card">
+      <div class="card color">
         <div class="card-block">
-          <p>Total du business enregistré (total de l'utilisateurs): <strong> {{totalBusinessUser}} €</strong></p>
-          <p>Total du business enregistré (total de l'entité): <strong> {{totalBusinessEntity}} €</strong></p>
+          <p>Total du business enregistré (total de l'utilisateurs) : <strong> {{totalBusinessUser}} €</strong></p>
+          <p>Total du business enregistré (total de l'entité) : <strong> {{totalBusinessEntity}} €</strong></p>
         </div>
       </div>
     </div><!--/.col-->
 
     <div class="col-sm-6 col-lg-3">
-      <div class="card">
+      <div class="card color">
         <div class="card-block">
-          <p>Total des billets vendu pour votre compte: <strong> {{totalTicket}} </strong></p>
+          <p>Total des billets vendu pour votre compte : <strong> {{totalTicket}} </strong></p>
         </div>
       </div>
     </div>
@@ -53,5 +53,12 @@ export default {
 </script>
 
 <style>
+.color {
+  background-color: #9b9591;
+  border: 1px solid black;
+}
 
+p {
+  color: white;
+}
 </style>

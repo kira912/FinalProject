@@ -5,7 +5,7 @@
      <section>
         <p class="content" v-if="selected"><b>Résultat pour votre recherche </b> <br>
          <router-link :to="'/profile/' + selected._id">{{ selected.firstname }} </router-link> </p>
-        <b-field label="Chercher un utilisateur, entités, billet">
+        <b-field label="Rechercher un utilisateur, entité, billet : ">
             <b-autocomplete
                 v-model="name"
                 :keep-first="keepFirst"

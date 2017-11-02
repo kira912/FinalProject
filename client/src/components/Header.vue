@@ -4,7 +4,7 @@
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">&#9776;</button>
     <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto" type="button" @click="sidebarToggle">&#9776;</button>
 
-    <button class="button is-primary" @click="logout()">Deconnexion</button>
+    <button class="button is-dark" @click="logout()">Deconnexion</button>
     <div class="text-xs-center">
               <b-dropdown>
             <button class="button is-primary" slot="trigger">

@@ -53,4 +53,8 @@ $simple-line-font-path: "~simple-line-icons/fonts/";
 <style lang="scss">
 // Import Main styles for this application
 @import "./scss/style";
+
+.app {
+  background-color: #e1dcd8;
+}
 </style>

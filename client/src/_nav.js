@@ -16,10 +16,6 @@ export default {
     {
       name: "Tickets",
       url: "/tickets"
-    },
-    {
-      name: "Business",
-      url: "/business"
     }
   ],
 

@@ -8,7 +8,6 @@ import Switch from "./Switch.vue";
 import SidebarNavDropdown from "./SidebarNavDropdown";
 import SidebarNavLink from "./SidebarNavLink";
 import WidgetsAdmin from "./WidgetsAdmin";
-import InputFieldText from "./InputFieldText";
 import ClassementUsers from "./ClassementUsers";
 import ModalInfoTicket from "./ModalInfoTicket";
 
@@ -23,7 +22,6 @@ export {
   SidebarNavDropdown,
   SidebarNavLink,
   WidgetsAdmin,
-  InputFieldText,
   ClassementUsers,
   ModalInfoTicket
 };
