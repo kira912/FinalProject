@@ -13,22 +13,7 @@
             <tbody v-for='(ticket, index) in tickets' :key='ticket._id'>
               <tr>
                 <td>{{ticket.start}}</td>
-                <td><v-expansion-panel>
-                  <v-expansion-panel-content hide-actions>
-                    <div slot="header">Voir détail du ticket</div>
-                    <v-card>
-                      <v-card-text class="grey lighten-3">
-                        <h2>Détails du ticket</h2>
-                        <p> <strong>Départ: </strong> {{ticket.start}} </p>
-                        <p><strong>Arrivée: </strong> {{ticket.end}} </p>
-                        <p><strong>Date: </strong> {{ticket.date}} </p>
-                        <p><strong>Prix: </strong> {{ticket.price}} € </p>
-                        <p><strong>Categorie: </strong> {{ticket.category}} </p>
-                        <p><strong>Client: </strong> {{ticket.client}} </p>
-                      </v-card-text>
-                    </v-card>
-                  </v-expansion-panel-content>
-                </v-expansion-panel>
+                <td>
                 </td>
 
                 <td><button type="button" @click.prevent='gotToTicket(ticket._id)' class="btn btn-primary active mt-3">Editer</button></td>
@@ -66,3 +51,12 @@ export default {
 <style>
 
 </style>
+
+
+                      <h2>Détails du ticket</h2>
+                        <p> <strong>Départ: </strong> {{ticket.start}} </p>
+                        <p><strong>Arrivée: </strong> {{ticket.end}} </p>
+                        <p><strong>Date: </strong> {{ticket.date}} </p>
+                        <p><strong>Prix: </strong> {{ticket.price}} € </p>
+                        <p><strong>Categorie: </strong> {{ticket.category}} </p>
+                        <p><strong>Client: </strong> {{ticket.client}} </p>

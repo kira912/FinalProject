@@ -7,7 +7,7 @@
 
             <template scope="props">
                 <b-table-column field="id" label="ID" width="40" sortable numeric>
-                    {{ users.totalTIcket }}
+                    {{ props.row.totalTicket }}
                 </b-table-column>
 
                 <b-table-column field="users.firstname" label="First Name" sortable>

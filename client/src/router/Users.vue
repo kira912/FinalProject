@@ -45,7 +45,6 @@ export default {
 
   data() {
     return {
-      // props: ["users"],
       users: [],
       showModal: false,
       showModalInfo: false

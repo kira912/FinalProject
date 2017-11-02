@@ -43,13 +43,6 @@
         <input class="form-control" type="text" v-model="client">
       </div>
     </div>
-<!-- 
-    <div class="form-group">
-      <label class="col-2 col-form-label">Vendeur: </label>
-      <div class="col-10">
-        <input class="form-control" type="text" v-model="seller">
-      </div>
-    </div>  -->
 
     <button type="button" @click.prevent="newTicket" class="btn btn-primary">Créer</button>
   </form>
@@ -57,18 +50,26 @@
 </template>
 
 <script>
-import { newTicket, editUser } from "@/api/auth";
+import { newTicket, getSingleUser, editUserTotalTicket } from "@/api/auth";
 export default {
   data() {
     return {
+      user: null,
       start: "",
       end: "",
       price: "",
       date: "",
       category: "",
       client: "",
-      seller: this.$root.user._id
+      seller: this.$root.user._id,
+      totalTicket: 1
     };
+  },
+
+  created() {
+    getSingleUser(this.$root.user._id).then(user => {
+      this.user = user;
+    });
   },
 
   methods: {
@@ -82,9 +83,18 @@ export default {
         client: this.client,
         seller: this.seller
       });
-      editUser(this.$root.user._id, this.totalTicket++).then(() => {
+
+      editUserTotalTicket(this.$root.user._id, {
+        totalTicket: this.totalTicket
+      }).then(() => {
         this.$router.push("/tickets");
       });
+
+      /*      editUser(this.$root.user._id, this.user.totalTicket++).then(() => {
+        console.log("debugg", this.user.totalTicket);
+        debugger;
+        this.$router.push("/tickets");
+      }); */
     }
   }
 };

@@ -34,8 +34,14 @@ const userSchema = new Schema({
   },
   functionJob: String,
   contract: String,
-  totalBusiness: Number,
-  totalTicket: Number,
+  totalBusiness: {
+    type: Number,
+    default: 0
+  },
+  totalTicket: {
+    type: Number,
+    default: 0
+  },
   annualSalary: Number,
   entryBusiness: Number,
   startActivity: Number,

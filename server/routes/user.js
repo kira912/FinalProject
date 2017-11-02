@@ -92,6 +92,7 @@ userController.patch("/:id", (req, res) => {
     "codePostal",
     "city",
     "country",
+
     "entityAttachment",
     "functionJob",
     "contract",
@@ -100,6 +101,7 @@ userController.patch("/:id", (req, res) => {
     "startActivity",
     "endBusiness",
     "professionalEmail",
+
     "firstnameUrgence",
     "lastnameUrgence",
     "linkUser",
@@ -108,6 +110,7 @@ userController.patch("/:id", (req, res) => {
     "bloodGroup",
     "allergies",
     "bank",
+
     "addressBank",
     "codePostalBank",
     "cityBank",
@@ -142,6 +145,26 @@ userController.patch("/:id/business", (req, res) => {
     req.params.id,
     {
       $inc: update
+    },
+    {
+      new: true
+    },
+    (err, user) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(user);
+      }
+    }
+  );
+});
+
+userController.patch("/:id/ticket/new", (req, res) => {
+  const updateTotalTicket = _.pick(req.body, "totalTicket");
+  User.findByIdAndUpdate(
+    req.params.id,
+    {
+      $inc: updateTotalTicket
     },
     {
       new: true

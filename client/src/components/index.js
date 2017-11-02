@@ -10,6 +10,7 @@ import SidebarNavLink from "./SidebarNavLink";
 import WidgetsAdmin from "./WidgetsAdmin";
 import InputFieldText from "./InputFieldText";
 import AutoComplete from "./AutoComplete";
+import ClassementUsers from "./ClassementUsers";
 
 export {
   Aside,
@@ -23,5 +24,6 @@ export {
   SidebarNavLink,
   WidgetsAdmin,
   InputFieldText,
-  AutoComplete
+  AutoComplete,
+  ClassementUsers
 };

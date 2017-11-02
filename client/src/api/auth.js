@@ -114,6 +114,14 @@ export function editUserBusiness(id, editBusiness) {
     });
 }
 
+export function editUserTotalTicket(id, editTicket) {
+  return auth
+    .patch("/users/" + id + "/ticket/new", editTicket)
+    .then(response => {
+      return response.data;
+    });
+}
+
 export function newUser(userInfo) {
   return auth.post("/users", userInfo).then(response => {
     return response.data;
