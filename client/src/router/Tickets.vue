@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="button" class="button is-primary" @click.prevent="$router.push('/user/new')">Créer un billet</button>
+    <button type="button" class="button is-primary" @click.prevent="$router.push('/ticket/new')">Créer un billet</button>
     <table class="table">
       <thead class="thead-default">
         <tr>
@@ -50,16 +50,3 @@ export default {
   }
 };
 </script>
-
-<style>
-
-</style>
-
-
-                      <h2>Détails du ticket</h2>
-                        <p> <strong>Départ: </strong> {{ticket.start}} </p>
-                        <p><strong>Arrivée: </strong> {{ticket.end}} </p>
-                        <p><strong>Date: </strong> {{ticket.date}} </p>
-                        <p><strong>Prix: </strong> {{ticket.price}} € </p>
-                        <p><strong>Categorie: </strong> {{ticket.category}} </p>
-                        <p><strong>Client: </strong> {{ticket.client}} </p>

@@ -4,10 +4,12 @@
       <img :src="user.profilePic" class="img-thumbnail">
     </div>
     <div class="card" style="width: 20rem;">
+      <div v-if="$root.user._id === user._id">
       <form @submit.prevent = "uploadPicture">
         <input type="file" name="image" @change="onFileChange">
         <button @click.prevent="edit()">Sauvegarder photo</button>
       </form>
+      </div>
     <img :src="image" />
   <div class="card-block">
     <h4 class="card-title">Données personnelles</h4>

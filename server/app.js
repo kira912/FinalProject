@@ -11,9 +11,9 @@ const config = require("./configs/auth");
 const history = require("express-history-api-fallback");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 
-mongoose.connect("mongodb://localhost/intranetData", {
+/* mongoose.connect("mongodb://localhost/intranetData", {
   useMongoClient: true
-});
+}); */
 
 const app = express();
 

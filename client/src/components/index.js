@@ -9,7 +9,6 @@ import SidebarNavDropdown from "./SidebarNavDropdown";
 import SidebarNavLink from "./SidebarNavLink";
 import WidgetsAdmin from "./WidgetsAdmin";
 import InputFieldText from "./InputFieldText";
-import AutoComplete from "./AutoComplete";
 import ClassementUsers from "./ClassementUsers";
 import ModalInfoTicket from "./ModalInfoTicket";
 
@@ -25,7 +24,6 @@ export {
   SidebarNavLink,
   WidgetsAdmin,
   InputFieldText,
-  AutoComplete,
   ClassementUsers,
   ModalInfoTicket
 };

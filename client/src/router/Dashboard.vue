@@ -2,8 +2,8 @@
 <div>
   <widgets-admin v-if="admin"></widgets-admin>
   <widgets-users v-else-if="employe"></widgets-users>
-    <section>
-        <p class="content" v-if="selected"><b>Résultat pour votre recherche </b> "{{name}}": <br>
+     <section>
+        <p class="content" v-if="selected"><b>Résultat pour votre recherche </b> <br>
          <router-link :to="'/profile/' + selected._id">{{ selected.firstname }} </router-link> </p>
         <b-field label="Chercher un utilisateur, entités, billet">
             <b-autocomplete
@@ -11,10 +11,11 @@
                 :keep-first="keepFirst"
                 :data="filteredDataObj"
                 field="firstname"
-                @select="option => selected = option">
+                @select="option => selected = option"
+                @keydown.enter="onHit">
             </b-autocomplete>
         </b-field>
-    </section>
+    </section> 
     <br>
     <classement-users :users="users"></classement-users>
 </div>
@@ -50,6 +51,12 @@ export default {
             .indexOf(this.name.toLowerCase()) >= 0
         );
       });
+    }
+  },
+
+  methods: {
+    onHit(user) {
+      this.$router.push("/profile/" + user._id);
     }
   },
   created() {

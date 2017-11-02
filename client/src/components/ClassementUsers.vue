@@ -15,10 +15,11 @@ export default {
   props: ["users"],
   data() {
     return {
-      sortBy: "age",
+      sortBy: "totalTicket",
       sortDesc: false,
       fields: [
         { key: "totalTicket", sortable: true },
+        { key: "totalBusiness", sortable: true },
         { key: "firstname", sortable: true }
       ]
     };

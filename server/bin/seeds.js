@@ -1,11 +1,7 @@
-console.log("mongo", process.env.MONGODB_URI);
 require("dotenv").config();
-console.log("mongo", process.env.MONGODB_URI);
 const mongoose = require("mongoose");
 const Entity = require("../models/entity");
 const User = require("../models/user");
-
-mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
 
 function getIdFromName(array, name) {
   const el = array.find(el => el.name === name);
@@ -95,21 +91,13 @@ function seedUsers(data) {
       });
     })
   );
-  /*   return User.register(users, password).then(createdUsers => {
-    return Object.assign(
-      {
-        users: createdUsers
-      },
-      data
-    );
-  }); */
 }
 
 function disconnect() {
   return mongoose.connection.close();
 }
 
-connect("mongodb://localhost/intranetData")
+connect(process.env.MONGODB_URI)
   .then(cleanup)
   .then(seedEntities)
   .then(seedUsers)

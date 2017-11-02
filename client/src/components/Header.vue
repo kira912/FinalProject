@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import AutoComplete from "@/components/AutoComplete";
 import { logout, getUsers } from "@/api/auth";
 export default {
   name: "header",
@@ -64,9 +63,6 @@ export default {
     getUsers().then(user => {
       this.users = user;
     });
-  },
-  components: {
-    AutoComplete
   }
 };
 </script>
