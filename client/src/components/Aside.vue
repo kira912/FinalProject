@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import ModalEmail from "@/components/ModalEmail";
 import { getUsers } from "@/api/auth";
 export default {
   name: "aside",
@@ -20,10 +19,6 @@ export default {
     getUsers().then(users => {
       this.users = users;
     });
-  },
-
-  components: {
-    ModalEmail
   }
 };
 </script>

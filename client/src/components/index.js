@@ -11,6 +11,7 @@ import WidgetsAdmin from "./WidgetsAdmin";
 import InputFieldText from "./InputFieldText";
 import AutoComplete from "./AutoComplete";
 import ClassementUsers from "./ClassementUsers";
+import ModalInfoTicket from "./ModalInfoTicket";
 
 export {
   Aside,
@@ -25,5 +26,6 @@ export {
   WidgetsAdmin,
   InputFieldText,
   AutoComplete,
-  ClassementUsers
+  ClassementUsers,
+  ModalInfoTicket
 };
