@@ -11,10 +11,10 @@
           </div>
 
           <div class="modal-footer">
-            <button class="button is-primary" @click.prevent='deleteUser(user._id)'>
+            <button class="button dark" @click.prevent='deleteUser(user._id)'>
                Oui
             </button>
-              <button class="button is-primary" @click="$emit('close')">
+              <button class="button dark" @click="$emit('close')">
                 Non
               </button>
           </div>

@@ -8,7 +8,8 @@
           <th>Nom</th>
           <th>Type</th>
           <th>Directeur</th>
-          <th>Editer</th>
+          <th v-if="$root.user.role === 'Admin'">Editer</th>
+          <th v-else></th>
           <th>Supprimer</th>
         </tr>
       </thead>
@@ -21,7 +22,7 @@
             <modal-info v-if="showModalInfo" @close="showModalInfo = false" :entity="entity"></modal-info>
           </td>
           <td>
-            <button type="button" 
+            <button v-if="$root.user.role === 'Admin'" type="button" 
                     @click.prevent='goToEdit(entity._id)'
                     class="button is-dark">Editer
                     </button>
@@ -64,7 +65,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .color {
   background-color: #bdb76b;
 }

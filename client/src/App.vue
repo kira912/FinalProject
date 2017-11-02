@@ -42,8 +42,9 @@ export default {
 
 <style>
 /* Import Font Awesome Icons Set */
-$fa-font-path: "~font-awesome/fonts/";
-@import "~font-awesome/css/font-awesome.min.css";
+/* $fa-font-path: "~font-awesome/fonts/";
+@import "~font-awesome/css/font-awesome.min.css"; */
+
 /* Import Simple Line Icons Set */
 $simple-line-font-path: "~simple-line-icons/fonts/";
 @import "~simple-line-icons/css/simple-line-icons.css";
@@ -55,6 +56,7 @@ $simple-line-font-path: "~simple-line-icons/fonts/";
 @import "./scss/style";
 
 .app {
+  font-family: "Encode Sans Expanded", sans-serif;
   background-color: #e1dcd8;
 }
 </style>

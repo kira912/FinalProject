@@ -7,8 +7,8 @@
           <th>Prénom</th>
           <th>Nom</th>
           <th>Détails</th>
-          <th>editer</th>
-          <th>supprimer</th>
+          <th>Editer</th>
+          <th>Supprimer</th>
         </tr>
       </thead>
       <tbody v-for='(user, index) in users' :key='user._id'>
@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .color {
   background-color: #bdb76b;
 }

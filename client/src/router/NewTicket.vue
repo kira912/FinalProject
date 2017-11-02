@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <button type="button" @click.prevent="newTicket" class="btn btn-primary">Créer</button>
+    <button type="button" @click.prevent="newTicket" class="btn btn-dark">Créer</button>
   </form>
   </div>
 </template>

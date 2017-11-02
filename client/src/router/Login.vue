@@ -22,7 +22,7 @@
                   </div>
                   <div class="row">
                     <div class="col-6">
-                      <button class="button is-primary">Connexion</button>
+                      <button class="button btn-dark">Connexion</button>
                     </div>
                   </div>
                 </form>

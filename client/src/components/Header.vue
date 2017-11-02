@@ -1,13 +1,11 @@
 <template>
   <header class="app-header navbar">
-    <h3>Esprit Voyage</h3>
-    <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">&#9776;</button>
-    <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto" type="button" @click="sidebarToggle">&#9776;</button>
-
-    <button class="button is-dark" @click="logout()">Deconnexion</button>
+    <h3 class="position-title-menu">Menu</h3>
+    <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto custom" type="button" @click="sidebarToggle"><strong>&#9776;</strong></button>
+    <h1 class="align">Esprit Voyages</h1>
     <div class="text-xs-center">
-              <b-dropdown>
-            <button class="button is-primary" slot="trigger">
+              <b-dropdown class="right-nav">
+            <button class="button is-dark" slot="trigger">
                 <b-icon icon="arrow_drop_down"></b-icon>
             </button>
 
@@ -15,7 +13,8 @@
         </b-dropdown>
   </div>
 
-    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle">&#9776;</button>
+    <button class="navbar-toggler aside-menu-toggler d-md-down-none right-nav" type="button" @click="asideToggle"><strong>&#9776;</strong></button>
+    <h3>Contacts</h3>
   </header>
 </template>
 
@@ -51,10 +50,6 @@ export default {
       e.preventDefault();
       document.body.classList.toggle("aside-menu-hidden");
     },
-    logout() {
-      logout(this.$root);
-      this.$router.push("/");
-    },
     goToProfile(_id) {
       this.$router.push("/profile/" + _id);
     }
@@ -66,3 +61,25 @@ export default {
   }
 };
 </script>
+
+
+<style scoped>
+.align {
+  padding-right: 7.5em;
+  font-family: "Lora", serif;
+}
+
+.position-title-menu {
+  padding-right: 4%;
+  padding-left: 3%;
+}
+
+.custom {
+  background-color: #20a8d8;
+}
+
+.right-nav {
+  margin-right: 3rem;
+}
+</style>
+
