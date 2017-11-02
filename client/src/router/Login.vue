@@ -24,9 +24,6 @@
                     <div class="col-6">
                       <button class="button is-primary">Connexion</button>
                     </div>
-                    <div class="col-6 text-right">
-                      <button type="button" class="btn btn-link px-0">Forgot password?</button>
-                    </div>
                   </div>
                 </form>
               </div>

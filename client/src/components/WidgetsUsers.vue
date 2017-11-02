@@ -39,6 +39,7 @@ export default {
 
   data() {
     return {
+      currentUser: null,
       totalBusinessUser: 0,
       totalBusinessEntity: 0,
       totalTicket: 0
@@ -48,22 +49,24 @@ export default {
   created() {
     getSingleUser(this.$root.user._id).then(user => {
       if (user.totalBusiness) {
+        this.currentUser = user;
         this.totalBusinessUser += user.totalBusiness;
+        this.totalTicket += user.totalTicket;
       }
     });
     getUsers().then(users => {
       // debugger;
       users.forEach(user => {
-        if (user.totalBusiness) {
+        if (user.entityAttachment === this.currentUser.entityAttachment) {
           this.totalBusinessEntity += user.totalBusiness;
         }
       });
     });
-    getTickets().then(ticket => {
+    /*     getTickets().then(ticket => {
       ticket.forEach(ticket => {
         this.totalTicket++;
       });
-    });
+    }); */
   }
 };
 </script>

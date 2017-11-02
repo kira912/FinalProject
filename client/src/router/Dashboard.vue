@@ -8,7 +8,6 @@
         <b-field label="Chercher un utilisateur, entités, billet">
             <b-autocomplete
                 v-model="name"
-                placeholder="e.g. Anne"
                 :keep-first="keepFirst"
                 :data="filteredDataObj"
                 field="firstname"
