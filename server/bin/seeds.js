@@ -1,5 +1,7 @@
-const mongoose = require("mongoose");
+console.log("mongo", process.env.MONGODB_URI);
 require("dotenv").config();
+console.log("mongo", process.env.MONGODB_URI);
+const mongoose = require("mongoose");
 const Entity = require("../models/entity");
 const User = require("../models/user");
 
