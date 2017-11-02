@@ -31,7 +31,7 @@ export default {
     return {
       navItems: [],
       admin: false,
-      employe: true,
+      employe: false,
       keepFirst: false,
       name: "",
       selected: null,
@@ -54,9 +54,10 @@ export default {
   },
   created() {
     getSingleUser(this.$root.user._id).then(user => {
+      // debugger;
       if (user.role === "Admin") {
         this.admin = true;
-      } else if (user.role === "Vendeur") {
+      } else if (user.role === "Vendeur" || user.role === "Directeur") {
         this.employe = true;
       }
     });

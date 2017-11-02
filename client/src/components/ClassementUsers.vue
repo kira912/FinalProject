@@ -6,19 +6,12 @@
             default-sort="users.totalTicket">
 
             <template scope="props">
-                <b-table-column field="id" label="ID" width="40" sortable numeric>
+                <b-table-column field="users.totalTicket" label="Billet Vendu" width="40" sortable numeric>
                     {{ props.row.totalTicket }}
                 </b-table-column>
 
-                <b-table-column field="users.firstname" label="First Name" sortable>
+                <b-table-column field="users.firstname" label="Prénoms" sortable>
                     {{ props.row.users.firstname }}
-                </b-table-column>
-
-                <b-table-column label="Gender">
-                    <b-icon pack="fa"
-                        :icon="props.row.users.civility === 'Male' ? 'mars' : 'venus'">
-                    </b-icon>
-                    {{ props.row.users.civility }}
                 </b-table-column>
             </template>
         </b-table>
