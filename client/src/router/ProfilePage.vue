@@ -5,26 +5,26 @@
     </div>
     <div class="card" style="width: 20rem;">
       <div v-if="$root.user._id === user._id">
-      <form @submit.prevent = "uploadPicture">
-        <input type="file" name="image" @change="onFileChange">
-        <b-button variant="dark" @click.prevent="edit()">Sauvegarder photo</b-button>
-      </form>
+        <form @submit.prevent = "uploadPicture">
+          <input type="file" name="image" @change="onFileChange">
+          <b-button variant="dark" @click.prevent="edit()">Sauvegarder photo</b-button>
+        </form>
       </div>
     <img :src="image" />
   <div class="card-block">
     <h4 class="card-title">Données personnelles</h4>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><strong>Nom prénom: </strong> {{user.firstname}} {{user.lastname}} </li>
-    <li class="list-group-item"><strong>Email perso: </strong> {{user.email}} </li>
-    <li class="list-group-item"><strong>Téléphone perso: </strong> {{user.telNumber}} </li>
-    <li class="list-group-item"><strong>Adresse perso: </strong> {{user.address}}, {{user.codePostal}}, {{user.city}} </li>
+    <li class="list-group-item"><strong>Nom prénom : </strong> {{user.firstname}} {{user.lastname}} </li>
+    <li class="list-group-item"><strong>Email perso : </strong> {{user.email}} </li>
+    <li class="list-group-item"><strong>Téléphone perso : </strong> {{user.telNumber}} </li>
+    <li class="list-group-item"><strong>Adresse perso : </strong> {{user.address}}, {{user.codePostal}}, {{user.city}} </li>
   </ul>
   <br>
   <h4 class="card-title">Données Professionnel</h4>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><strong>Email perso: </strong> {{user.professionalEmail}} </li>
-    <li class="list-group-item"><strong>Téléphone perso: </strong> {{user.professionalNumber}} </li>
+    <li class="list-group-item"><strong>Email perso : </strong> {{user.professionalEmail}} </li>
+    <li class="list-group-item"><strong>Téléphone perso : </strong> {{user.professionalNumber}} </li>
   </ul>
 </div>
 
@@ -38,7 +38,7 @@ import { getSingleUser, editUser } from "@/api/auth";
 export default {
   data() {
     return {
-      user: true,
+      user: [],
       image: ""
     };
   },
@@ -54,7 +54,6 @@ export default {
       let reader = new FileReader();
       let vm = this;
 
-      // debugger;
       reader.onload = e => {
         vm.image = e.target.result;
       };
@@ -80,9 +79,7 @@ export default {
 
   created() {
     getSingleUser(this.$route.params.id).then(user => {
-      if (user) {
-        this.user = user;
-      }
+      this.user = user;
     });
   }
 };

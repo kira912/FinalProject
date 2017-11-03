@@ -1,8 +1,8 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar background">
     <nav class="sidebar-nav">
       <div slot="header"></div>
-      <ul class="nav test">
+      <ul class="nav">
         <template v-for="(item, index) in navItems">
           <template v-if="item.title">
             <SidebarNavTitle :name="item.name" :classes="item.class" :wrapper="item.wrapper"/>
@@ -76,12 +76,12 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style scoped>
 .nav-link {
   cursor: pointer;
 }
 
-.test {
+.background {
   background-color: #192b41;
 }
 

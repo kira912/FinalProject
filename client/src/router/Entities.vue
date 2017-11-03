@@ -21,16 +21,16 @@
           <td> {{entity.name}} </td>
           <td> {{entity.type}} </td>
           <td>
-            <button class="btn btn-dark" @click="showModalInfo(entity)">Détails</button>
+            <b-button class="btn btn-dark" @click="showModalInfo(entity)">Détails</b-button>
           </td>
           <td>
-            <button type="button" 
+            <b-button type="button" 
                     @click.prevent='goToEdit(entity._id)'
-                    class="button is-dark">Editer
-                    </button>
+                    class="button btn-dark">Editer
+                    </b-button>
           </td>
           <td>
-            <button id="show-modal-delete" @click="showModalDelete(entity)" type="button" class="btn btn-dark">Supprimer</button>
+            <b-button id="show-modal-delete" @click="showModalDelete(entity)" class="btn btn-dark">Supprimer</b-button>
           </td>
         </tr>
       </tbody>

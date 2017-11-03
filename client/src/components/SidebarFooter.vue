@@ -1,5 +1,7 @@
 <template>
-    <button class="btn btn-dark footer-menu" @click="logout()">Deconnexion</button>
+  <div class="footer-menu">
+    <button class="btn btn-dark btn-footer" @click="logout()">Deconnexion</button>
+  </div>    
 </template>
 <script>
 import { logout } from "@/api/auth";
@@ -16,8 +18,13 @@ export default {
 </script>
 
 <style scoped>
-.footer-menu {
+.btn-footer {
   border: 1px solid white;
+}
+
+.footer-menu {
+  text-align: center;
+  margin: 20% auto;
 }
 </style>
 

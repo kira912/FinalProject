@@ -28,7 +28,6 @@
       </div>
         <div class="h5 text-warning mb-0 mt-h">{{totalBusiness}} €</div>
         <div class="text-muted text-uppercase font-weight-bold font-xs">Total du business enregistré (toutes entités / utilisateurs confondus)</div>
-        
       </div>
     </div>
   </div><!--/.col-->
@@ -88,11 +87,8 @@ export default {
 </script>
 
 <style scoped>
-.max {
-}
-
 .height {
-  border: 1px solid black;
+  border: 3px solid black;
   padding: 10%;
   background-color: #5f686b;
 }
