@@ -10,7 +10,6 @@ import NewUser from "./NewUser";
 import UserPage from "./UserPage";
 import Tickets from "./Tickets";
 import NewTicket from "./NewTicket";
-import TicketPage from "./TicketPage";
 import ProfilePage from "./ProfilePage";
 import Page404 from "./Page404";
 

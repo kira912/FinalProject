@@ -129,7 +129,7 @@
   <div class="form-group">
     <label for="dateEnd" class="col-2 col-form-label">Date de fin de contrat</label>
     <div class="col-10">
-      <input class="form-control" type="text" v-model="userInfo.endBusiness">
+      <input class="form-control" type="date" v-model="userInfo.endBusiness">
     </div>
   </div>
 
@@ -190,7 +190,7 @@
     <label for="role" class="col-2 col-form-label">Droit d'accès</label>
     <div class="col-10">
       <select class="form-control" v-model="userInfo.role">
-        <option disabled value="">Choisir un role</option>
+        <option >Choisir un role</option>
         <option>Directeur</option>
         <option>Manager</option>
         <option>Vendeur</option>
@@ -198,7 +198,7 @@
       </select>
     </div>
   </div>
-  <button type="button" @click.prevent='editUser()' class="btn btn-dark">Editer</button>
+  <button type="button" @click.prevent='editUser($route.params.id)' class="btn btn-dark">Editer</button>
   </form>
 </div>
 </template>
