@@ -2,7 +2,7 @@
   <aside class="aside-menu">
     <ul>
       <router-link :to='"/profile/" + user._id' v-for="(user, index) in users" :key="user._id">
-        <li> <h3>{{user.firstname}} </h3>
+        <li> <h4>{{user.firstname}} </h4>
           <img :src="user.profilePic" class="rounded-circle" width="30%"> 
         </li>
       </router-link>
