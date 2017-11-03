@@ -5,17 +5,14 @@
   <auto-complete :options="users"   @select="onOptionSelect">
     <template slot="item" scope="option">
       <article class="media">
-      <figure class="media-left">
-        <p class="image is-64x64">
-          <img :src="option.profilePic">
-        </p>
-      </figure>
+         <router-link :to="'/profile/' + option._id">
       <p>
         <strong>{{ option.firstname }}</strong>
-        <br>
         {{ option.lastname }}
-      </p>
-    </article>
+        </p>
+        <img class="rounded-circle" :src="option.profilePic" width="20%" />
+         </router-link>
+      </article>
     </template>
   </auto-complete>
 
@@ -38,24 +35,10 @@ export default {
       admin: false,
       employe: false,
       keepFirst: false,
-      name: "",
-      selected: null,
       users: [],
       entities: [],
       tickets: []
     };
-  },
-  computed: {
-    filteredDataObj() {
-      return this.users.filter(option => {
-        return (
-          option.firstname
-            .toString()
-            .toLowerCase()
-            .indexOf(this.name.toLowerCase()) >= 0
-        );
-      });
-    }
   },
 
   methods: {
@@ -98,22 +81,3 @@ export default {
   border-radius: 5px;
 }
 </style>
-
-     <section>
-        <div class="result-search" v-if="selected">
-        <p class="content" ><b>Résultat pour votre recherche </b> <br>
-          <router-link :to="'/profile/' + selected._id">{{ selected.firstname }} </router-link> </p>
-          <img class="rounded-circle" :src="selected.profilePic" v-if="selected.profilePic" alt="test" width="30%" />
-        </div>
-        <b-field label="Rechercher un utilisateur, entité, billet : ">
-            <b-autocomplete
-                v-model="name"
-                :keep-first="keepFirst"
-                :data="filteredDataObj"
-                field="firstname"
-                @select="option => selected = option"
-                @keydown.enter="onHit">
-            </b-autocomplete>
-        </b-field>
-    </section> 
-    <br>

@@ -3,27 +3,27 @@
     <p class="control has-icon has-icon-right">
       <input 
       v-model="keyword"
-      class="input is-large"
-      placeholder="Search..."
       @input="onInput($event.target.value)"
       @keyup.esc="isOpen = false"
       @blur="isOpen = false"
       @keydown.down="moveDown"
       @keydown.up="moveUp"
       @keydown.enter="select"
+      placeholder="Search..."
+      class="form-control"
+      aria-describedby="sizing-addon1"
       >
-      <i class="fa fa-angle-down"></i>
     </p>
-    <ul v-show="isOpen" class="options-list">
-      <li v-for="(option, index) in fOptions"
+    <b-list-group v-show="isOpen" class="options-list">
+      <b-list-group-item v-for="(option, index) in fOptions" :key="option._id"
         :class="{
           'highlighted': index === highlightedPosition
         }">
         <slot name="item"
-          :firstname="option.firstname">
-        </slot>
-      </li>
-    </ul>
+          :firstname="option.firstname" :lastname="option.lastname" :profilePic="option.profilePic">
+        </slot></router-link>
+      </b-list-group-item>
+    </b-list-group>
   </div>
 </template>
 
@@ -80,6 +80,4 @@ export default {
 };
 </script>
 
-<style>
 
-</style>
