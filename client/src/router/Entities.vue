@@ -1,5 +1,8 @@
 <template>
   <div>
+  <modal-info v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :entity="modalEntity"></modal-info>
+  <modal-delete v-if="isModalDeleteOpen" @close="isModalDeleteOpen = false" :entity="modalEntity"></modal-delete>
+
     <b-button variant="dark" @click.prevent="$router.push('/entity/new')">Créer une entité</b-button>    
     <br><br>
     <table class="table">
@@ -18,8 +21,7 @@
           <td> {{entity.name}} </td>
           <td> {{entity.type}} </td>
           <td>
-            <button class="btn btn-dark" @click="showModalInfo = true">Détails</button>
-            <modal-info v-if="showModalInfo" @close="showModalInfo = false" :entity="entity"></modal-info>
+            <button class="btn btn-dark" @click="showModalInfo(entity)">Détails</button>
           </td>
           <td>
             <button type="button" 
@@ -28,8 +30,7 @@
                     </button>
           </td>
           <td>
-            <button id="show-modal-delete" @click="showModal = true" type="button" class="btn btn-dark">Supprimer</button>
-            <modal-delete v-if="showModal" @close="showModal = false" :entity="entity"></modal-delete>
+            <button id="show-modal-delete" @click="showModalDelete(entity)" type="button" class="btn btn-dark">Supprimer</button>
           </td>
         </tr>
       </tbody>
@@ -48,8 +49,9 @@ export default {
   data() {
     return {
       entities: [],
-      showModal: false,
-      showModalInfo: false
+      modalEntity: null,
+      isModalInfoOpen: false,
+      isModalDeleteOpen: false
     };
   },
 
@@ -62,6 +64,14 @@ export default {
   methods: {
     goToEdit(_id) {
       this.$router.push("/entity/" + _id);
+    },
+    showModalInfo(entity) {
+      this.modalEntity = entity;
+      this.isModalInfoOpen = true;
+    },
+    showModalDelete(entity) {
+      this.modalEntity = entity;
+      this.isModalDeleteOpen = true;
     }
   }
 };
