@@ -3,8 +3,11 @@
   <widgets-admin v-if="admin"></widgets-admin>
   <widgets-users v-else-if="employe"></widgets-users>
      <section>
-        <p class="content" v-if="selected"><b>Résultat pour votre recherche </b> <br>
-         <router-link :to="'/profile/' + selected._id">{{ selected.firstname }} </router-link> </p>
+        <div class="result-search" v-if="selected">
+        <p class="content" ><b>Résultat pour votre recherche </b> <br>
+          <router-link :to="'/profile/' + selected._id">{{ selected.firstname }} </router-link> </p>
+          <img class="rounded-circle" :src="selected.profilePic" v-if="selected.profilePic" alt="test" width="30%" />
+        </div>
         <b-field label="Rechercher un utilisateur, entité, billet : ">
             <b-autocomplete
                 v-model="name"
@@ -79,3 +82,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.result-search {
+  border: 1px solid black;
+  text-align: center;
+  background-color: #192b41;
+  color: white;
+  width: 20%;
+}
+</style>
+

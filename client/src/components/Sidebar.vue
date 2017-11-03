@@ -82,6 +82,10 @@ export default {
 }
 
 .test {
-  background-color: black;
+  background-color: #192b41;
+}
+
+li {
+  color: white;
 }
 </style>

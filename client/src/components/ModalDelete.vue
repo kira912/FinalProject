@@ -1,9 +1,10 @@
 <template>
+
+<!-- Modal delete for User -->
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <div class="modal-container">
-
+        <div class="modal-container" v-if="user">
           <div class="modal-body">
             <slot name="body">
               Voulez-vous supprimer l'utilisateur: {{user.firstname}}
@@ -11,10 +12,29 @@
           </div>
 
           <div class="modal-footer">
-            <button class="button dark" @click.prevent='deleteUser(user._id)'>
+            <button class="button btn-dark" @click.prevent='deleteUser()'>
                Oui
             </button>
-              <button class="button dark" @click="$emit('close')">
+              <button class="button btn-dark" @click="$emit('close')">
+                Non
+              </button>
+          </div>
+        </div>
+
+        <!-- Modal delete for Entity -->
+        <div class="modal-container" v-else-if="entity">
+
+          <div class="modal-body">
+            <slot name="body">
+              Voulez-vous supprimer l'entité: {{entity.name}}
+            </slot>
+          </div>
+
+          <div class="modal-footer">
+            <button class="button btn-dark" @click.prevent='deleteEntity()'>
+               Oui
+            </button>
+              <button class="button btn-dark" @click="$emit('close')">
                 Non
               </button>
           </div>
@@ -22,19 +42,25 @@
       </div>
     </div>
   </transition>
+  
 </template>
 
 <script>
-import { deleteUser } from "@/api/auth";
+import { deleteUser, deleteEntity } from "@/api/auth";
 export default {
   name: "modalDelete",
 
-  props: ["user"],
+  props: ["user", "entity"],
 
   methods: {
-    deleteUser(id) {
-      deleteUser(id).then(user => {
-        this.$router.push("/users");
+    deleteUser() {
+      deleteUser(this.user._id).then(() => {
+        this.$router.push("/dashboard");
+      });
+    },
+    deleteEntity() {
+      deleteEntity(this.entity._id).then(() => {
+        this.$router.push("/dashboard");
       });
     }
   }

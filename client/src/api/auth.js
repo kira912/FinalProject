@@ -86,6 +86,12 @@ export function getSingleEntity(id) {
   });
 }
 
+export function deleteEntity(id) {
+  return auth.delete("/entities/" + id).then(response => {
+    return response.data;
+  });
+}
+
 // Users
 
 export function getUsers() {

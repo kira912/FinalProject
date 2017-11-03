@@ -3,10 +3,10 @@
     <h3 class="position-title-menu">Menu</h3>
     <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto custom" type="button" @click="sidebarToggle"><strong>&#9776;</strong></button>
     <h1 class="align">Esprit Voyages</h1>
+    <img class="rounded-circle" :src="user.profilePic" alt="test" width="5%" />
     <div class="text-xs-center">
               <b-dropdown class="right-nav">
             <button class="button is-dark" slot="trigger">
-                <b-icon icon="arrow_drop_down"></b-icon>
             </button>
 
             <b-dropdown-item @click.prevent="goToProfile($root.user._id)">Profil</b-dropdown-item>
@@ -19,13 +19,14 @@
 </template>
 
 <script>
-import { logout, getUsers } from "@/api/auth";
+import { logout, getSingleUser } from "@/api/auth";
 export default {
   name: "header",
 
   data() {
     return {
-      items: [{ link: "Profil" }]
+      items: [{ link: "Profil" }],
+      user: []
     };
   },
 
@@ -55,8 +56,8 @@ export default {
     }
   },
   created() {
-    getUsers().then(user => {
-      this.users = user;
+    getSingleUser(this.$root.user._id).then(user => {
+      this.user = user;
     });
   }
 };

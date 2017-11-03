@@ -32,7 +32,7 @@ li {
   border: 1px solid black;
   text-align: center;
   margin: 10%;
-  background-color: black;
+  background-color: #192b41;
   color: white;
 }
 </style>

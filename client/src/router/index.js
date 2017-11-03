@@ -57,11 +57,11 @@ const router = new Router({
     },
     {
       path: "/user/:id",
-      component: UserPage,
-      beforeEnter: (to, from, next) => {
+      component: UserPage
+      /*       beforeEnter: (to, from, next) => {
         if (router.app.$root.user.role === "Admin") next("/user/:id");
         else next("/404");
-      }
+      } */
     },
     {
       path: "/tickets",

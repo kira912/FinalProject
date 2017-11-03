@@ -29,6 +29,7 @@
           </td>
           <td>
             <button id="show-modal-delete" @click="showModal = true" class="button is-dark">Supprimer</button>
+            <modal-delete v-if="showModal" @close="showModal = false" :entity="entity"></modal-delete>
           </td>
         </tr>
       </tbody>
@@ -41,7 +42,8 @@ import ModalInfo from "@/components/ModalInfo";
 import ModalDelete from "@/components/ModalDelete";
 export default {
   components: {
-    ModalInfo
+    ModalInfo,
+    ModalDelete
   },
   data() {
     return {
