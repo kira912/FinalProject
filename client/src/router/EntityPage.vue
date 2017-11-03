@@ -171,7 +171,7 @@
         <input class="form-control" v-model="entityInfo.userAttachment" type="text">
       </div>
     </div>
-    <button type="button" @click.prevent='editEntity()' class="btn btn-primary">Editer</button>
+    <button type="button" @click.prevent='editEntity()' class="btn btn-dark">Editer</button>
   </form>
 </div>
 </template>

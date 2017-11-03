@@ -17,7 +17,7 @@
             <p> <strong>Clients: </strong> {{ticket.client}} </p>
           </div>
           <div class="modal-footer">
-            <button class="button dark" @click="$emit('close')">
+            <button class="btn btn-dark"@click="$emit('close')">
               Retour
             </button>
           </div>

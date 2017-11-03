@@ -52,7 +52,7 @@
             <p> <strong>Code BIC / SWIFT</strong> {{user.codeBic}} </p>
           </div>
           <div class="modal-footer">
-              <button class="button dark" @click="$emit('close')">
+              <button class="btn btn-dark" @click="$emit('close')">
                 Retour
               </button>
           </div>
@@ -114,7 +114,7 @@
             <p> <strong>Utilisateurs rattachés: </strong> {{entity.userAttachement}} </p>
           </div>
           <div class="modal-footer">
-              <button class="button btn-  dark" @click="$emit('close')">
+              <button class="btn btn-dark" @click="$emit('close')">
                 Retour
               </button>
           </div>

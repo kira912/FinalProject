@@ -7,7 +7,7 @@
       <div v-if="$root.user._id === user._id">
       <form @submit.prevent = "uploadPicture">
         <input type="file" name="image" @change="onFileChange">
-        <button @click.prevent="edit()">Sauvegarder photo</button>
+        <b-button variant="dark" @click.prevent="edit()">Sauvegarder photo</b-button>
       </form>
       </div>
     <img :src="image" />

@@ -59,4 +59,8 @@ $simple-line-font-path: "~simple-line-icons/fonts/";
   font-family: "Encode Sans Expanded", sans-serif;
   background-color: #e1dcd8;
 }
+
+button {
+  border-radius: 5px;
+}
 </style>

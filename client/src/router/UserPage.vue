@@ -198,7 +198,7 @@
       </select>
     </div>
   </div>
-  <button type="button" @click.prevent='editUser()' class="btn btn-primary">Editer</button>
+  <button type="button" @click.prevent='editUser()' class="btn btn-dark">Editer</button>
   </form>
 </div>
 </template>

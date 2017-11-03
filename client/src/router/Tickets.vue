@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="button" class="button is-dark" @click.prevent="$router.push('/ticket/new')">Créer un billet</button>
+    <button type="button" class="btn btn-dark" @click.prevent="$router.push('/ticket/new')">Créer un billet</button>
     <table class="table">
       <thead class="color">
         <tr>
@@ -14,7 +14,7 @@
           <td> {{ticket.start}} </td>
           <td> {{ticket.end}} </td>
           <td>
-            <button class="button is-dark" @click="showModal = true">Détails</button>
+            <button class="btn btn-dark" @click="showModal = true">Détails</button>
             <modal-info-ticket v-if="showModal" @close="showModal = false" :ticket="ticket"></modal-info-ticket>
           </td>
         </tr>

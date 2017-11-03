@@ -6,7 +6,7 @@
     <img class="rounded-circle" :src="user.profilePic" alt="test" width="5%" />
     <div class="text-xs-center">
               <b-dropdown class="right-nav">
-            <button class="button is-dark" slot="trigger">
+            <button class="btn btn-dark" slot="trigger">
             </button>
 
             <b-dropdown-item @click.prevent="goToProfile($root.user._id)">Profil</b-dropdown-item>

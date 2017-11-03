@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="button" class="button is-dark" @click.prevent="$router.push('/entity/new')">Créer une entité</button>    
+    <b-button variant="dark" @click.prevent="$router.push('/entity/new')">Créer une entité</b-button>    
     <br><br>
     <table class="table">
       <thead class="color">
@@ -18,7 +18,7 @@
           <td> {{entity.name}} </td>
           <td> {{entity.type}} </td>
           <td>
-            <button class="button is-dark" @click="showModalInfo = true">Détails</button>
+            <button class="btn btn-dark" @click="showModalInfo = true">Détails</button>
             <modal-info v-if="showModalInfo" @close="showModalInfo = false" :entity="entity"></modal-info>
           </td>
           <td>
@@ -28,7 +28,7 @@
                     </button>
           </td>
           <td>
-            <button id="show-modal-delete" @click="showModal = true" class="button is-dark">Supprimer</button>
+            <button id="show-modal-delete" @click="showModal = true" type="button" class="btn btn-dark">Supprimer</button>
             <modal-delete v-if="showModal" @close="showModal = false" :entity="entity"></modal-delete>
           </td>
         </tr>
@@ -70,5 +70,9 @@ export default {
 <style scoped>
 .color {
   background-color: #bdb76b;
+}
+
+button {
+  border-radius: 5px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="button" class="button is-dark" @click.prevent="$router.push('/user/new')">Créer un utilisateur</button>
+    <b-button variant="dark" @click.prevent="$router.push('/user/new')">Créer un utilisateur</b-button>
     <table class="table">
       <thead class="color">
         <tr>
@@ -16,17 +16,17 @@
           <td> {{user.firstname}} </td>
           <td> {{user.lastname}} </td>
           <td>
-            <button class="button is-dark" @click="showModalInfo = true">Détails</button>
+            <b-button variant="dark" @click="showModalInfo = true">Détails</b-button>
             <modal-info v-if="showModalInfo" @close="showModalInfo = false" :user="user"></modal-info>
           </td>
           <td>
-            <button type="button" 
-                    @click.prevent='goToEdit(user._id)'
-                    class="button is-dark">Editer
-                    </button>
+            <b-button 
+              @click.prevent='goToEdit(user._id)'
+              variant="dark">Editer
+            </b-button>
           </td>
           <td>
-            <button id="show-modal-delete" @click="showModal = true" class="button is-dark">Supprimer</button>
+            <b-button id="show-modal-delete" @click="showModal = true" variant="dark">Supprimer</b-button>
             <modal-delete v-if="showModal" @close="showModal = false" :user="user"></modal-delete>
           </td>
         </tr>

@@ -1,5 +1,5 @@
 <template>
-    <button class="button is-dark footer-menu" @click="logout()">Deconnexion</button>
+    <button class="btn btn-dark footer-menu" @click="logout()">Deconnexion</button>
 </template>
 <script>
 import { logout } from "@/api/auth";
