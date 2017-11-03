@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
@@ -11,9 +12,7 @@ const config = require("./configs/auth");
 const history = require("express-history-api-fallback");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 
-mongoose.connect("mongodb://localhost/intranetData", {
-  useMongoClient: true
-});
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
 
 const app = express();
 
