@@ -1,34 +1,45 @@
 <template>
-  <div class="row">
-    <div class="col-sm-6 col-lg-3">
-      <div class="card">
-        <div class="card-block">
-          <p>Nombres total d'utilisateurs: <strong>{{counterUsers}}</strong> </p>
-        </div>
+<div class="row">
+  <div class="col-6 col-lg-3">
+    <div class="card">
+      <div class="card-block p-1 clearfix">
+        <i class="fa fa-cogs bg-primary p-1 font-2xl mr-1 float-left"></i>
+        <div class="h5 text-primary mb-0 mt-h">{{counterUsers}}</div>
+        <div class="text-muted text-uppercase font-weight-bold font-xs">Nombres total d'utilisateurs</div>
       </div>
-    </div><!--/.col-->
-    <div class="col-sm-6 col-lg-3">
-      <div class="card">
-        <div class="card-block">
-          <p>Nombres total d'entitées: <strong> {{counterEntities}} </strong></p>
-        </div>
+    </div>
+  </div><!--/.col-->
+
+  <div class="col-6 col-lg-3">
+    <div class="card">
+      <div class="card-block p-1 clearfix">
+        <i class="fa fa-laptop bg-info p-1 font-2xl mr-1 float-left"></i>
+        <div class="h5 text-info mb-0 mt-h">{{counterEntities}}</div>
+        <div class="text-muted text-uppercase font-weight-bold font-xs">Nombres total d'entitées</div>
       </div>
-    </div><!--/.col-->
-    <div class="col-sm-6 col-lg-3">
-      <div class="card">
-        <div class="card-block">
-          <p>Total du business enregistré (toutes entités / utilisateurs confondus): <strong> {{totalBusiness}} €</strong></p>
-        </div>
+    </div>
+  </div><!--/.col-->
+
+  <div class="col-6 col-lg-3">
+    <div class="card">
+      <div class="card-block p-1 clearfix">
+        <i class="fa fa-moon-o bg-warning p-1 font-2xl mr-1 float-left"></i>
+        <div class="h5 text-warning mb-0 mt-h">{{totalBusiness}} €</div>
+        <div class="text-muted text-uppercase font-weight-bold font-xs">Total du business enregistré (toutes entités / utilisateurs confondus)</div>
       </div>
-    </div><!--/.col-->
-    <div class="col-sm-6 col-lg-3">
-      <div class="card">
-        <div class="card-block">
-          <p>Voyageurs enregistrés: <strong> {{totalTicket}} </strong></p>
-        </div>
+    </div>
+  </div><!--/.col-->
+
+  <div class="col-6 col-lg-3">
+    <div class="card">
+      <div class="card-block p-1 clearfix">
+        <i class="fa fa-bell bg-danger p-1 font-2xl mr-1 float-left"></i>
+        <div class="h5 text-danger mb-0 mt-h">{{totalTicket}}</div>
+        <div class="text-muted text-uppercase font-weight-bold font-xs">Voyageurs enregistrés</div>
       </div>
-    </div><!--/.col-->
-  </div><!--/.row-->
+    </div>
+  </div><!--/.col-->
+</div><!--/.row-->
 </template>
 
 <script>

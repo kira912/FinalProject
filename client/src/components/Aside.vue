@@ -34,5 +34,6 @@ li {
   margin: 10%;
   background-color: #192b41;
   color: white;
+  border-radius: 5px;
 }
 </style>

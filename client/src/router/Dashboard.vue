@@ -41,7 +41,8 @@ export default {
       selected: null,
       users: [],
       entities: [],
-      tickets: []
+      tickets: [],
+      allData: []
     };
   },
   computed: {
@@ -90,6 +91,7 @@ export default {
   background-color: #192b41;
   color: white;
   width: 20%;
+  border-radius: 5px;
 }
 </style>
 

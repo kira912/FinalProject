@@ -1,26 +1,39 @@
 <template>
-  <div class="row">
-    <div class="col-sm-6 col-lg-3">
-      <div class="card color">
-        <div class="card-block">
-          <p>Total du business enregistré (total de l'utilisateurs) : <strong> {{totalBusinessUser}} €</strong></p>
-          <p>Total du business enregistré (total de l'entité) : <strong> {{totalBusinessEntity}} €</strong></p>
-        </div>
-      </div>
-    </div><!--/.col-->
-
-    <div class="col-sm-6 col-lg-3">
-      <div class="card color">
-        <div class="card-block">
-          <p>Total des billets vendu pour votre compte : <strong> {{totalTicket}} </strong></p>
-        </div>
+<div class="row gt">
+  <div class="col-6 col-lg-3">
+    <div class="card">
+      <div class="card-block p-1 clearfix">
+        <i class="fa fa-cogs bg-primary p-1 font-2xl mr-1 float-left"></i>
+        <div class="h5 text-primary mb-0 mt-h">{{totalBusinessUser}} €</div>
+        <div class="text-muted text-uppercase font-weight-bold font-xs">Total du business enregistré (total de votre compte)</div>
       </div>
     </div>
-  </div>
+  </div><!--/.col-->
+
+  <div class="col-6 col-lg-3">
+    <div class="card">
+      <div class="card-block p-1 clearfix">
+        <i class="fa fa-laptop bg-info p-1 font-2xl mr-1 float-left"></i>
+        <div class="h5 text-info mb-0 mt-h">{{totalBusinessEntity}} €</div>
+        <div class="text-muted text-uppercase font-weight-bold font-xs">Total du chiffre enregistré (total de votre entité)</div>
+      </div>
+    </div>
+  </div><!--/.col-->
+
+  <div class="col-6 col-lg-3">
+    <div class="card">
+      <div class="card-block p-1 clearfix">
+        <i class="fa fa-moon-o bg-warning p-1 font-2xl mr-1 float-left"></i>
+        <div class="h5 text-warning mb-0 mt-h">{{currentUser.totalTicket}}</div>
+        <div class="text-muted text-uppercase font-weight-bold font-xs">Total des billets vendu (pour votre compte)</div>
+      </div>
+    </div>
+  </div><!--/.col-->
+</div><!--/.row-->
 </template>
 
 <script>
-import { getSingleUser, getUsers, getTickets } from "@/api/auth";
+import { getSingleUser, getUsers } from "@/api/auth";
 export default {
   name: "widgetsusers",
 
@@ -28,17 +41,15 @@ export default {
     return {
       currentUser: [],
       totalBusinessUser: 0,
-      totalBusinessEntity: 0,
-      totalTicket: 0
+      totalBusinessEntity: 0
     };
   },
 
   created() {
     getSingleUser(this.$root.user._id).then(user => {
+      this.currentUser = user;
       if (user.totalBusiness) {
-        this.currentUser = user;
         this.totalBusinessUser += user.totalBusiness;
-        this.totalTicket += user.totalTicket;
       }
     });
     getUsers().then(users => {
