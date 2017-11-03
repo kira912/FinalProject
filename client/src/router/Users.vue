@@ -1,5 +1,7 @@
 <template>
   <div>
+    <modal-info v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :user="modalUser"></modal-info>
+    <modal-delete v-if="isModalDeleteOpen" @close="isModalDeleteOpen = false" :user="modalUser"></modal-delete>
     <b-button variant="dark" @click.prevent="$router.push('/user/new')">Créer un utilisateur</b-button>
     <table class="table">
       <thead class="color">
@@ -16,18 +18,16 @@
           <td> {{user.firstname}} </td>
           <td> {{user.lastname}} </td>
           <td>
-            <b-button variant="dark" @click="showModalInfo = true">Détails</b-button>
-            <modal-info v-if="showModalInfo" @close="showModalInfo = false" :user="user"></modal-info>
+            <b-button variant="dark" @click="showModalInfo(user)">Détails</b-button>
           </td>
           <td>
-            <b-button 
+            <b-button  variant="dark"
               @click.prevent='goToEdit(user._id)'
-              variant="dark">Editer
+              >Editer
             </b-button>
           </td>
           <td>
-            <b-button id="show-modal-delete" @click="showModal = true" variant="dark">Supprimer</b-button>
-            <modal-delete v-if="showModal" @close="showModal = false" :user="user"></modal-delete>
+            <b-button id="show-modal-delete" @click="showModalDelete(user)" variant="dark">Supprimer</b-button>
           </td>
         </tr>
       </tbody>
@@ -48,20 +48,29 @@ export default {
   data() {
     return {
       users: [],
-      showModal: false,
-      showModalInfo: false
+      modalUser: null,
+      isModalInfoOpen: false,
+      isModalDeleteOpen: false
     };
   },
 
   created() {
-    getUsers().then(users => {
-      this.users = users;
+    getUsers().then(user => {
+      this.users = user;
     });
   },
 
   methods: {
     goToEdit(_id) {
       this.$router.push("/user/" + _id);
+    },
+    showModalInfo(user) {
+      this.modalUser = user;
+      this.isModalInfoOpen = true;
+    },
+    showModalDelete(user) {
+      this.modalUser = user;
+      this.isModalDeleteOpen = true;
     }
   }
 };

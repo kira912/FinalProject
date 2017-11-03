@@ -1,6 +1,7 @@
 <template>
   <transition name="modal">
     <div class="modal-mask">
+      <div @click="$emit('close')" class="modal-overlay"></div>
       <div class="modal-wrapper">
         <!-- Modal for Users -->
         <div class="modal-container" v-if="user">

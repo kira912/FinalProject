@@ -3,6 +3,7 @@
 <!-- Modal delete for User -->
   <transition name="modal">
     <div class="modal-mask">
+      <div @click="$emit('close')" class="modal-overlay"></div>
       <div class="modal-wrapper">
         <div class="modal-container" v-if="user">
           <div class="modal-body">

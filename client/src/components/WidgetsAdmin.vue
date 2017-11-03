@@ -23,9 +23,12 @@
   <div class="col-6 col-lg-3">
     <div class="card">
       <div class="card-block p-1 clearfix">
-        <i class="fa fa-moon-o bg-warning p-1 font-2xl mr-1 float-left"></i>
+      <div class="h1 text-muted text-right mb-2">
+        <i class="icon-pie-chart"></i>
+      </div>
         <div class="h5 text-warning mb-0 mt-h">{{totalBusiness}} €</div>
         <div class="text-muted text-uppercase font-weight-bold font-xs">Total du business enregistré (toutes entités / utilisateurs confondus)</div>
+        
       </div>
     </div>
   </div><!--/.col-->

@@ -18,6 +18,8 @@
 
 
     <classement-users :users="users"></classement-users>
+    <canvas id="myChart" width="400" height="400"></canvas>
+
 </div>
 </template>
 

@@ -63,4 +63,15 @@ $simple-line-font-path: "~simple-line-icons/fonts/";
 button {
   border-radius: 5px;
 }
+
+.modal-overlay {
+  background-color: black;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
 </style>

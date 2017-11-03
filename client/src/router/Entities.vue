@@ -22,7 +22,7 @@
             <modal-info v-if="showModalInfo" @close="showModalInfo = false" :entity="entity"></modal-info>
           </td>
           <td>
-            <button v-if="$root.user.role === 'Admin'" type="button" 
+            <button type="button" 
                     @click.prevent='goToEdit(entity._id)'
                     class="button is-dark">Editer
                     </button>

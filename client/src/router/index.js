@@ -41,11 +41,11 @@ const router = new Router({
     },
     {
       path: "/entity/:id",
-      component: EntityPage,
-      beforeEnter: (to, from, next) => {
+      component: EntityPage
+      /*       beforeEnter: (to, from, next) => {
         if (router.app.$root.user.role === "Admin") next("/entity/:id");
         else next("/404");
-      }
+      } */
     },
     {
       path: "/users",
