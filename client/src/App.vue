@@ -42,8 +42,8 @@ export default {
 
 <style>
 /* Import Font Awesome Icons Set */
-/* $fa-font-path: "~font-awesome/fonts/";
-@import "~font-awesome/css/font-awesome.min.css"; */
+$fa-font-path: "~font-awesome/fonts/";
+@import "~font-awesome/css/font-awesome.min.css";
 
 /* Import Simple Line Icons Set */
 $simple-line-font-path: "~simple-line-icons/fonts/";

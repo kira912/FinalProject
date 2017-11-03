@@ -2,35 +2,36 @@
 <div>
   <widgets-admin v-if="admin"></widgets-admin>
   <widgets-users v-else-if="employe"></widgets-users>
-     <section>
-        <div class="result-search" v-if="selected">
-        <p class="content" ><b>Résultat pour votre recherche </b> <br>
-          <router-link :to="'/profile/' + selected._id">{{ selected.firstname }} </router-link> </p>
-          <img class="rounded-circle" :src="selected.profilePic" v-if="selected.profilePic" alt="test" width="30%" />
-        </div>
-        <b-field label="Rechercher un utilisateur, entité, billet : ">
-            <b-autocomplete
-                v-model="name"
-                :keep-first="keepFirst"
-                :data="filteredDataObj"
-                field="firstname"
-                @select="option => selected = option"
-                @keydown.enter="onHit">
-            </b-autocomplete>
-        </b-field>
-    </section> 
-    <br>
+  <auto-complete :options="users"   @select="onOptionSelect">
+    <template slot="item" scope="option">
+      <article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img :src="option.profilePic">
+        </p>
+      </figure>
+      <p>
+        <strong>{{ option.firstname }}</strong>
+        <br>
+        {{ option.lastname }}
+      </p>
+    </article>
+    </template>
+  </auto-complete>
+
+
     <classement-users :users="users"></classement-users>
 </div>
 </template>
 
 <script>
+import AutoComplete from "@/components/AutoComplete";
 import WidgetsAdmin from "@/components/WidgetsAdmin";
 import WidgetsUsers from "@/components/WidgetsUsers";
 import ClassementUsers from "@/components/ClassementUsers";
 import { getSingleUser, getUsers, getEntities, getTickets } from "@/api/auth";
 export default {
-  components: { WidgetsAdmin, WidgetsUsers, ClassementUsers },
+  components: { WidgetsAdmin, WidgetsUsers, ClassementUsers, AutoComplete },
   data() {
     return {
       navItems: [],
@@ -41,8 +42,7 @@ export default {
       selected: null,
       users: [],
       entities: [],
-      tickets: [],
-      allData: []
+      tickets: []
     };
   },
   computed: {
@@ -59,8 +59,12 @@ export default {
   },
 
   methods: {
-    onHit(user) {
-      this.$router.push("/profile/" + user._id);
+    onOptionSelect(option) {
+      console.log("Selected option:", option);
+    },
+    onInput(value) {
+      this.isOpen = !!value;
+      this.highlightedPosition = 0;
     }
   },
   created() {
@@ -95,3 +99,21 @@ export default {
 }
 </style>
 
+     <section>
+        <div class="result-search" v-if="selected">
+        <p class="content" ><b>Résultat pour votre recherche </b> <br>
+          <router-link :to="'/profile/' + selected._id">{{ selected.firstname }} </router-link> </p>
+          <img class="rounded-circle" :src="selected.profilePic" v-if="selected.profilePic" alt="test" width="30%" />
+        </div>
+        <b-field label="Rechercher un utilisateur, entité, billet : ">
+            <b-autocomplete
+                v-model="name"
+                :keep-first="keepFirst"
+                :data="filteredDataObj"
+                field="firstname"
+                @select="option => selected = option"
+                @keydown.enter="onHit">
+            </b-autocomplete>
+        </b-field>
+    </section> 
+    <br>
