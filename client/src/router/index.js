@@ -20,11 +20,11 @@ const router = new Router({
   routes: [
     {
       path: "/",
-      component: Login
-      /*       beforeEnter: (to, from, next) => {
+      component: Login,
+      beforeEnter: (to, from, next) => {
         if (router.app.$root.user) next("/dashboard");
         else next();
-      } */
+      }
     },
     {
       path: "/dashboard",
@@ -40,11 +40,11 @@ const router = new Router({
     },
     {
       path: "/entity/:id",
-      component: EntityPage
-      /*       beforeEnter: (to, from, next) => {
+      component: EntityPage,
+      beforeEnter: (to, from, next) => {
         if (router.app.$root.user.role === "Admin") next("/entity/:id");
         else next("/404");
-      } */
+      }
     },
     {
       path: "/users",
@@ -56,11 +56,11 @@ const router = new Router({
     },
     {
       path: "/user/:id",
-      component: UserPage
-      /*       beforeEnter: (to, from, next) => {
+      component: UserPage,
+      beforeEnter: (to, from, next) => {
         if (router.app.$root.user.role === "Admin") next("/user/:id");
         else next("/404");
-      } */
+      }
     },
     {
       path: "/tickets",

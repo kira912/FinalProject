@@ -5,13 +5,11 @@
   <auto-complete :options="users"   @select="onOptionSelect">
     <template slot="item" scope="option">
       <article class="media">
-         <router-link :to="'/profile/' + option._id">
       <p>
         <strong>{{ option.firstname }}</strong>
         {{ option.lastname }}
         </p>
         <img class="rounded-circle" :src="option.profilePic" width="20%" />
-         </router-link>
       </article>
     </template>
   </auto-complete>

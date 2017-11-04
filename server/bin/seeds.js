@@ -8,8 +8,6 @@ function getIdFromName(array, name) {
   return el._id;
 }
 
-mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
-
 function cleanup() {
   return Entity.remove({}).then(() => User.remove({}));
 }

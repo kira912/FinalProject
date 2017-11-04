@@ -10,10 +10,11 @@
         <tr>
           <th>Nom</th>
           <th>Type</th>
-          <th>Directeur</th>
-          <th v-if="$root.user.role === 'Admin'">Editer</th>
+          <th>Détails</th>
+          <th v-if="currentUser === 'Admin'">Editer</th>
           <th v-else></th>
-          <th>Supprimer</th>
+          <th v-if="currentUser === 'Admin'">Supprimer</th>
+          <th v-else></th>
         </tr>
       </thead>
       <tbody v-for='(entity, index) in entities' :key='entity._id'>
@@ -24,13 +25,13 @@
             <b-button class="btn btn-dark" @click="showModalInfo(entity)">Détails</b-button>
           </td>
           <td>
-            <b-button type="button" 
+            <b-button v-if="currentUser.role === 'Admin'" type="button" 
                     @click.prevent='goToEdit(entity._id)'
                     class="button btn-dark">Editer
                     </b-button>
           </td>
           <td>
-            <b-button id="show-modal-delete" @click="showModalDelete(entity)" class="btn btn-dark">Supprimer</b-button>
+            <b-button v-if="currentUser.role === 'Admin'" id="show-modal-delete" @click="showModalDelete(entity)" class="btn btn-dark">Supprimer</b-button>
           </td>
         </tr>
       </tbody>
@@ -38,7 +39,7 @@
   </div>
 </template>
 <script>
-import { getEntities } from "@/api/auth";
+import { getEntities, getSingleUser } from "@/api/auth";
 import ModalInfo from "@/components/ModalInfo";
 import ModalDelete from "@/components/ModalDelete";
 export default {
@@ -50,6 +51,7 @@ export default {
     return {
       entities: [],
       modalEntity: null,
+      currentUser: null,
       isModalInfoOpen: false,
       isModalDeleteOpen: false
     };
@@ -58,6 +60,9 @@ export default {
   created() {
     getEntities().then(entities => {
       this.entities = entities;
+    });
+    getSingleUser(this.$root.user._id).then(user => {
+      this.currentUser = user;
     });
   },
 

@@ -12,20 +12,14 @@
 
 <script>
 import nav from "@/_nav";
-import {
-  Header as AppHeader,
-  Sidebar,
-  Aside as AppAside,
-  Breadcrumb
-} from "@/components/";
+import { Header as AppHeader, Sidebar, Aside as AppAside } from "@/components/";
 
 export default {
   name: "app",
   components: {
     AppHeader,
     Sidebar,
-    AppAside,
-    Breadcrumb
+    AppAside
   },
   data() {
     return {

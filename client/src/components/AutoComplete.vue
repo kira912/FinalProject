@@ -18,7 +18,7 @@
       <b-list-group-item v-for="(option, index) in fOptions" :key="option._id"
         :class="{
           'highlighted': index === highlightedPosition
-        }">
+        }"><router-link :to="'/profile/' + option._id">
         <slot name="item"
           :firstname="option.firstname" :lastname="option.lastname" :profilePic="option.profilePic">
         </slot></router-link>

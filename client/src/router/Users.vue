@@ -9,8 +9,10 @@
           <th>Prénom</th>
           <th>Nom</th>
           <th>Détails</th>
-          <th>Editer</th>
-          <th>Supprimer</th>
+          <th v-if="currentUser.role === 'Admin'">Editer</th>
+          <th v-else></th>
+          <th v-if="currentUser.role === 'Admin'">Supprimer</th>
+          <th v-else></th>
         </tr>
       </thead>
       <tbody v-for='(user, index) in users' :key='user._id'>
@@ -21,13 +23,13 @@
             <b-button variant="dark" @click="showModalInfo(user)">Détails</b-button>
           </td>
           <td>
-            <b-button  variant="dark"
+            <b-button v-if="currentUser.role === 'Admin'"  variant="dark"
               @click.prevent='goToEdit(user._id)'
               >Editer
             </b-button>
           </td>
           <td>
-            <b-button id="show-modal-delete" @click="showModalDelete(user)" variant="dark">Supprimer</b-button>
+            <b-button v-if="currentUser.role === 'Admin'" id="show-modal-delete" @click="showModalDelete(user)" variant="dark">Supprimer</b-button>
           </td>
         </tr>
       </tbody>
@@ -36,7 +38,7 @@
 </template>
 
 <script>
-import { getUsers } from "@/api/auth";
+import { getUsers, getSingleUser } from "@/api/auth";
 import ModalDelete from "@/components/ModalDelete";
 import ModalInfo from "@/components/ModalInfo";
 export default {
@@ -49,6 +51,7 @@ export default {
     return {
       users: [],
       modalUser: null,
+      currentUser: null,
       isModalInfoOpen: false,
       isModalDeleteOpen: false
     };
@@ -57,6 +60,9 @@ export default {
   created() {
     getUsers().then(user => {
       this.users = user;
+    });
+    getSingleUser(this.$root.user._id).then(actualUser => {
+      this.currentUser = actualUser;
     });
   },
 
