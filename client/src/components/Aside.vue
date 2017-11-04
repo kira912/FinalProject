@@ -1,12 +1,11 @@
 <template>
   <aside class="aside-menu">
-    <ul>
-      <router-link :to='"/profile/" + user._id' v-for="(user, index) in users" :key="user._id">
-        <li> <h4>{{user.firstname}} </h4>
+   <b-list-group>
+          <b-list-group-item :to="'/profile/' + user._id" v-for="(user, index) in users" :key="user._id"> <h4>{{user.firstname}} </h4>
           <img :src="user.profilePic" class="rounded-circle" width="30%"> 
-        </li>
-      </router-link>
-    </ul>
+        </b-list-group-item>
+    </b-list-group>
+
   </aside>
 </template>
 
@@ -23,6 +22,12 @@ export default {
     getUsers().then(users => {
       this.users = users;
     });
+  },
+
+  methods: {
+    goToProfile(_id) {
+      this.$router.push("/profile/" + _id);
+    }
   }
 };
 </script>
