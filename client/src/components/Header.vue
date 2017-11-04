@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded height">
+  <header class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded height">
     <h3 class="">Menu</h3>
     <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" @click="sidebarToggle" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
     </div>
     <button class="navbar-toggler navbar-toggler-right navbar-brand" type="button" @click="asideToggle"><strong>&#9776;</strong></button>
     <h3>Contacts</h3>
-  </nav>
+  </header>
 </template>
 
 <script>

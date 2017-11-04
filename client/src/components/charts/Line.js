@@ -32,7 +32,7 @@ export default {
       type: Number
     },
     height: {
-      default: 400,
+      default: 700,
       type: Number
     },
     cssClasses: {

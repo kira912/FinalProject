@@ -27,7 +27,6 @@
 
 <script>
 import LineCharts from "@/components/charts/LineCharts";
-
 import AutoComplete from "@/components/AutoComplete";
 import WidgetsAdmin from "@/components/WidgetsAdmin";
 import WidgetsUsers from "@/components/WidgetsUsers";
@@ -80,38 +79,12 @@ export default {
     },
     fillData() {
       this.dataPoints = {
-        labels: [
-          "January" + this.getRandomInt(),
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December"
-        ],
+        labels: [],
         datasets: [
           {
-            label: "Data One",
+            label: "Business",
             backgroundColor: "#f87979",
-            data: [
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt(),
-              this.getRandomInt()
-            ]
+            data: []
           }
         ]
       };
@@ -157,7 +130,6 @@ export default {
 }
 
 .container {
-  max-width: 800px;
   margin: 0 auto;
 }
 h1 {

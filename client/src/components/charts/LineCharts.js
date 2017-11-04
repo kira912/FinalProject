@@ -6,14 +6,20 @@ export default {
   mixins: [reactiveData],
   data() {
     return {
-      businessUsers: [],
-      chartData: ""
+      businessUsers: 0,
+      chartData: "",
+      totalUsers: 0
     };
   },
   created() {
     this.fillData();
     getUsers().then(users => {
-      this.businessUsers = users.totalBusiness;
+      users.forEach(user => {
+        this.totalUsers++;
+        if (user.totalBusiness) {
+          this.businessUsers += user.totalBusiness;
+        }
+      });
     });
   },
 
@@ -32,35 +38,31 @@ export default {
     fillData() {
       this.chartData = {
         labels: [
-          "Lundi" + this.getRandomInt(),
-          "Mardi",
-          "Mercredi",
-          "Jeudi",
-          "Vendredi",
-          "Samedi",
-          "Dimanche"
+          new Date(Date.now()),
+          new Date(Date.now()),
+          new Date(Date.now()),
+          new Date(Date.now()),
+          new Date(Date.now()),
+          new Date(Date.now()),
+          new Date(Date.now())
         ],
         datasets: [
           {
-            label: "Data One",
+            label: "Business",
             backgroundColor: "#f87979",
             data: [
               {
                 x: new Date(),
-                y: 1
+                y: 0
               },
               {
                 t: new Date(),
-                y: 10
+                y: this.businessUsers / this.totalUsers
               }
             ]
           }
         ]
       };
-    },
-
-    getRandomInt() {
-      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
     }
   }
 };

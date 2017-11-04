@@ -3,8 +3,8 @@
   <div class="col-6 col-lg-3">
     <div class="card height">
       <div class="card-block p-1 clearfix">
-        <i class="fa fa-cogs bg-primary p-1 font-2xl mr-1 float-left"></i>
-        <div class="h5 text-primary mb-0 mt-h">{{totalBusinessUser}} €</div>
+        <i class="fa fa-cogs bg-info p-1 font-2xl mr-1 float-left"></i>
+        <div class="h5 text-warning mb-0 mt-h">{{totalBusinessUser}} €</div>
         <div class="text-muted text-uppercase font-weight-bold font-xs">Total du business enregistré (total de votre compte)</div>
       </div>
     </div>
@@ -17,7 +17,7 @@
       <div class="h1 text-muted text-right mb-2">
       </div>
         <div class="h5 text-warning mb-0 mt-h">{{totalBusinessEntity}} €</div>
-        <div class="text-muted text-uppercase font-weight-bold font-xs">Total du business enregistré (toutes entités / utilisateurs confondus)</div>
+        <div class="text-muted text-uppercase font-weight-bold font-xs">Total du business enregistré (pour votre entité)</div>
       </div>
     </div>
   </div><!--/.col-->
@@ -25,7 +25,7 @@
   <div class="col-6 col-lg-3">
     <div class="card height">
       <div class="card-block p-1 clearfix">
-        <i class="fa fa-moon-o bg-warning p-1 font-2xl mr-1 float-left"></i>
+        <i class="fa fa-bell bg-danger p-1 font-2xl mr-1 float-left"></i>
         <div class="h5 text-warning mb-0 mt-h">{{currentUser.totalTicket}}</div>
         <div class="text-muted text-uppercase font-weight-bold font-xs">Total des billets vendu (pour votre compte)</div>
       </div>

@@ -2,7 +2,7 @@
   <div>
     <modal-info v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :user="modalUser"></modal-info>
     <modal-delete v-if="isModalDeleteOpen" @close="isModalDeleteOpen = false" :user="modalUser"></modal-delete>
-    <b-button variant="dark" @click.prevent="$router.push('/user/new')">Créer un utilisateur</b-button>
+    <b-button variant="dark" class="position" @click.prevent="$router.push('/user/new')">Créer un utilisateur</b-button>
     <table class="table">
       <thead class="color">
         <tr>
@@ -85,6 +85,10 @@ export default {
 <style scoped>
 .color {
   background-color: #bdb76b;
+}
+
+.position {
+  margin-top: 2em;
 }
 </style>
     
