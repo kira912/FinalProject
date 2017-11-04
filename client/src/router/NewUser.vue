@@ -53,7 +53,14 @@
     <div class="form-group">
       <label for="email" class="col-2 col-form-label">Email : </label>
       <div class="col-10">
-        <input class="form-control" v-model="email" type="email">
+            <b-form-input v-model.trim="email"
+                  type="email"
+                  :state="email"
+                  aria-describedby="input-help input-feeback"
+                  ></b-form-input>
+    <b-form-feedback id="input-feedback">
+      Enter at least 3 letters
+    </b-form-feedback>
       </div>
     </div>
 
@@ -228,6 +235,11 @@ export default {
           this.error = err.response.data.error;
           console.error("Enregistrement erreur", err);
         });
+    },
+    computed: {
+      email() {
+        return this.email.length > 2 ? null : false;
+      }
     }
   }
 };
