@@ -6,7 +6,20 @@
         <AppAside/>
       </div>
       <router-view></router-view>
-      </div>
+            <footer class="footer-center">
+			<div class="container">
+				<div class="content has-text-centered">
+					<p> &copy;
+						<strong>Intranet</strong> by
+            <a href="https://www.linkedin.com/in/valentin-perot/" target="_blank">
+              Valentin Perot</a>. The source code is available on
+						<a href="https://github.com/kira912/FinalProject" target="_blank">
+              <i class="fa fa-github" aria-hidden="true"></i>GitHub
+            </a>
+					</p>
+				</div>
+			</div>
+		</footer>
   </div>
 </template>
 
@@ -68,5 +81,9 @@ button {
   bottom: 0;
   right: 0;
   z-index: -1;
+}
+
+.footer-center {
+  text-align: center;
 }
 </style>

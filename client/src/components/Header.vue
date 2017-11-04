@@ -1,21 +1,21 @@
 <template>
-  <header class="app-header navbar">
-    <h3 class="position-title-menu">Menu</h3>
-    <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto custom" type="button" @click="sidebarToggle"><strong>&#9776;</strong></button>
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded height">
+    <h3 class="">Menu</h3>
+    <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" @click="sidebarToggle" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <h1 class="align">Esprit Voyages</h1>
-    <img class="rounded-circle" :src="user.profilePic" alt="test" width="5%" />
+    <img class="rounded-circle" :src="user.profilePic" alt="test" />
     <div class="text-xs-center">
-              <b-dropdown class="right-nav">
-            <button class="btn btn-dark" slot="trigger">
-            </button>
-
-            <b-dropdown-item @click.prevent="goToProfile($root.user._id)">Profil</b-dropdown-item>
-        </b-dropdown>
-  </div>
-
-    <button class="navbar-toggler aside-menu-toggler d-md-down-none right-nav" type="button" @click="asideToggle"><strong>&#9776;</strong></button>
+      <b-dropdown class="right-nav">
+        <button class="btn btn-dark" slot="trigger">
+        </button>
+        <b-dropdown-item @click.prevent="goToProfile($root.user._id)">Profil</b-dropdown-item>
+      </b-dropdown>
+    </div>
+    <button class="navbar-toggler navbar-toggler-right navbar-brand" type="button" @click="asideToggle"><strong>&#9776;</strong></button>
     <h3>Contacts</h3>
-  </header>
+  </nav>
 </template>
 
 <script>
@@ -63,24 +63,20 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .align {
-  padding-right: 7.5em;
   font-family: "Lora", serif;
-}
-
-.position-title-menu {
-  padding-right: 4%;
-  padding-left: 3%;
 }
 
 .custom {
   background-color: #20a8d8;
 }
 
-.right-nav {
-  margin-right: 3rem;
+.height {
+}
+
+img {
+  width: 5em;
 }
 </style>
 
