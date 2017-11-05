@@ -146,6 +146,13 @@
           </div>
 
           <div class="form-group">
+            <label class="col-2 col-form-label">Si directeur d'entité : </label>
+            <div class="col-10">
+              <input class="form-control" type="text" v-model='directorEntity'>
+            </div>
+          </div>
+
+          <div class="form-group">
           <label for="role" class="col-2 col-form-label">Droit d'accès</label>
             <div class="col-10">
               <select class="form-control" v-model="role">
@@ -212,6 +219,7 @@ export default {
         country: this.country,
         profilePic: this.profilePic,
         entityAttachment: this.entityAttachment,
+        directorEntity: this.directorEntity,
         functionJob: this.functionJob,
         contract: this.contract,
         annualSalary: this.annualSalary,

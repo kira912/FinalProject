@@ -21,7 +21,7 @@ const entitySchema = new Schema({
   financialGuarantees: String,
   status: String,
   socialCapital: String,
-  exerciseDate: Number,
+  exerciseDate: String,
 
   bank: String,
   addressBank: String,
@@ -31,6 +31,7 @@ const entitySchema = new Schema({
   iban: String,
   codeBic: String,
 
+  directorEntity: String,
   usersAttachment: [String]
 });
 

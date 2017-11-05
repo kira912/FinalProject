@@ -6,21 +6,11 @@ export default {
   mixins: [reactiveData],
   data() {
     return {
-      businessUsers: 0,
-      chartData: "",
-      totalUsers: 0
+      chartData: ""
     };
   },
   created() {
     this.fillData();
-    getUsers().then(users => {
-      users.forEach(user => {
-        this.totalUsers++;
-        if (user.totalBusiness) {
-          this.businessUsers += user.totalBusiness;
-        }
-      });
-    });
   },
 
   mounted() {
@@ -38,31 +28,39 @@ export default {
     fillData() {
       this.chartData = {
         labels: [
-          new Date(Date.now()),
-          new Date(Date.now()),
-          new Date(Date.now()),
-          new Date(Date.now()),
-          new Date(Date.now()),
-          new Date(Date.now()),
-          new Date(Date.now())
+          "Lunid",
+          "Mardi",
+          "Mercredi",
+          "Jeudi",
+          "Vendredi",
+          "Samedi",
+          "Dimanche"
         ],
         datasets: [
           {
-            label: "Business",
+            label: "Data One",
             backgroundColor: "#f87979",
             data: [
-              {
-                x: new Date(),
-                y: 0
-              },
-              {
-                t: new Date(),
-                y: this.businessUsers / this.totalUsers
-              }
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt()
             ]
           }
         ]
       };
+    },
+
+    getRandomInt() {
+      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
     }
   }
 };

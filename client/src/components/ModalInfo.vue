@@ -88,7 +88,7 @@
             <p> <strong>SIRET: </strong> {{entity.siret}} </p>
             <p> <strong>Licence: </strong> {{entity.license}} </p>
             <p> <strong>Garanties finacières: </strong> {{entity.financialGuarantees}} </p>
-            <p> <strong>Statut: </strong> {{entity.statut}} </p>
+            <p> <strong>Statut: </strong> {{entity.status}} </p>
             <p> <strong>Capital social: </strong> {{entity.socialCapital}} </p>
             <p> <strong>Dates d'exercice</strong> {{entity.exerciseDate}} </p>
           </div>

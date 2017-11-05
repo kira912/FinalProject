@@ -79,6 +79,7 @@ export default {
 
   created() {
     getSingleUser(this.$route.params.id).then(user => {
+      // debugger;
       this.user = user;
     });
   }

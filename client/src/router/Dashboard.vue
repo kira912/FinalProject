@@ -17,7 +17,7 @@
     <div class="container">
           <div class="Chart">
       <h1 style="text-align:center;">Linechart</h1>
-      <line-charts></line-charts>
+      <line-charts :chart-data="datacollection"></line-charts>
     </div>
       <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
     </div>
@@ -50,14 +50,13 @@ export default {
       entities: [],
       tickets: [],
       dataPoints: null,
-      height: 20
+      height: 20,
+      datacollection: null
     };
   },
 
   mounted() {
-    setInterval(() => {
-      this.fillData();
-    }, 2000);
+    this.fillData();
   },
 
   methods: {
@@ -71,33 +70,35 @@ export default {
     },
 
     // Charts
-    increaseHeight() {
-      this.height += 10;
-    },
-    getRandomInt() {
-      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
-    },
     fillData() {
-      this.dataPoints = {
-        labels: [],
+      this.datacollection = {
+        labels: [this.getRandomInt(), this.getRandomInt()],
         datasets: [
           {
-            label: "Business",
+            label: "Data One",
             backgroundColor: "#f87979",
-            data: []
+            data: [this.getRandomInt(), this.getRandomInt()]
+          },
+          {
+            label: "Data One",
+            backgroundColor: "#f87979",
+            data: [this.getRandomInt(), this.getRandomInt()]
           }
         ]
       };
+    },
+    getRandomInt() {
+      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
     }
   },
-  computed: {
+  /*   computed: {
     myStyles() {
       return {
         height: `${this.height}px`,
         position: "relative"
       };
     }
-  },
+  }, */
   created() {
     getSingleUser(this.$root.user._id).then(user => {
       if (user.role === "Admin") {

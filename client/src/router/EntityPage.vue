@@ -164,7 +164,7 @@
         <input class="form-control" v-model="entityInfo.usersAttachment" type="text">
       </div>
     </div>
-    <button type="button" @click.prevent='editEntity($route.params.id, entityInfo)' class="btn btn-dark">Editer</button>
+    <button type="button" @click.prevent='editEntity()' class="btn btn-dark">Editer</button>
   </form>
 </div>
 </template>
@@ -179,8 +179,8 @@ export default {
   },
 
   methods: {
-    editEntity(_id, entityInfo) {
-      editEntity(_id, entityInfo).then(() => {
+    editEntity() {
+      editEntity(this.$route.params.id, this.entityInfo).then(() => {
         this.$router.push("/entities");
       });
     }

@@ -87,6 +87,8 @@ entityController.patch("/:id", (req, res) => {
     "typeEntity",
     "enseign",
     "address",
+    "city",
+    "codePostal",
     "telNumber",
     "email",
     "rcs",

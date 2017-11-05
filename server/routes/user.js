@@ -29,6 +29,7 @@ userController.post("/", (req, res, next) => {
     city: req.body.city,
     country: req.body.country,
     entityAttachment: req.body.entityAttachment,
+    directorEntity: req.body.directorEntity,
     functionJob: req.body.functionJob,
     contract: req.body.contract,
     annualSalary: req.body.annualSalary,
@@ -95,6 +96,7 @@ userController.patch("/:id", (req, res) => {
     "country",
 
     "entityAttachment",
+    "directorEntity",
     "functionJob",
     "contract",
     "annualSalary",
