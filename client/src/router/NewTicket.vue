@@ -30,12 +30,18 @@
       </div>
     </div>
 
-      <div class="form-group">
-      <label class="col-2 col-form-label">Catégorie: </label>
+    <div class="form-group">
+     <label for="role" class="col-2 col-form-label">Catégorie</label>
       <div class="col-10">
-        <input class="form-control" type="text" v-model="category">
+        <select class="form-control" v-model="category">
+         <option disabled value="">Choisir une catégories</option>
+         <option>Classe économique </option>
+          <option>Premium économique</option>
+          <option>Classe affaires</option>
+          <option>Première classe</option>
+        </select>
       </div>
-    </div> 
+    </div>
     
     <div class="form-group">
       <label class="col-2 col-form-label">Client: </label>

@@ -69,7 +69,6 @@
           <div v-if="entity" class="modal-body">
             <p> <strong>Nom de l'entité: </strong> {{entity.name}}</p>
             <p> <strong>Type de l'entité: </strong> {{entity.typeEntity}} </p>
-            <p> <strong>Entité d'attachement: </strong> {{entity.entityAttachment}} </p>
             <p> <strong>Enseigne: </strong> {{entity.enseign}} </p>
             <p> <strong>Adresse: </strong> {{entity.address}} </p>
             <p> <strong>Ville: </strong> {{entity.city}} </p>
@@ -100,7 +99,7 @@
           </div>
           <div class="modal-body">
             <p> <strong>Banque: </strong> {{entity.bank}} </p>
-            <p> <strong>Adresse de la banque: </strong> {{entity.address}}, {{entity.city}}, {{entity.codePostal}} </p>
+            <p> <strong>Adresse de la banque: </strong> {{entity.addressBank}}, {{entity.cityBank}}, {{entity.codePostalBank}} </p>
             <p> <strong>Titulaire du compte</strong> {{entity.ownerCount}} </p>
             <p> <strong>IBAN: </strong> {{entity.iban}} </p>
             <p> <strong>Code BIC / SWIFT</strong> {{entity.codeBic}} </p>
@@ -112,7 +111,7 @@
           </div>
           <div class="modal-body">
             <p> <strong>Directeur d'entité</strong> {{entity.directorEntity}} </p>
-            <p> <strong>Utilisateurs rattachés: </strong> {{entity.userAttachement}} </p>
+            <p> <strong>Utilisateurs rattachés: </strong> {{entity.usersAttachment}} </p>
           </div>
           <div class="modal-footer">
               <button class="btn btn-dark" @click="$emit('close')">

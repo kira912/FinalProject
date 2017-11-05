@@ -20,7 +20,7 @@
       <tbody v-for='(entity, index) in entities' :key='entity._id'>
         <tr>
           <td> {{entity.name}} </td>
-          <td> {{entity.type}} </td>
+          <td> {{entity.typeEntity}} </td>
           <td>
             <b-button class="btn btn-dark" @click="showModalInfo(entity)">Détails</b-button>
           </td>
@@ -51,7 +51,7 @@ export default {
     return {
       entities: [],
       modalEntity: null,
-      currentUser: null,
+      currentUser: true,
       isModalInfoOpen: false,
       isModalDeleteOpen: false
     };

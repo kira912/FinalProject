@@ -18,9 +18,10 @@ entityController.post("/", (req, res, next) => {
   const entity = new Entity({
     name: req.body.name,
     typeEntity: req.body.typeEntity,
-    entityAttachment: req.body.entityAttachment,
     enseign: req.body.enseign,
     address: req.body.address,
+    codePostal: req.body.codePostal,
+    city: req.body.city,
     telNumber: req.body.telNumber,
     email: req.body.email,
 
@@ -35,13 +36,15 @@ entityController.post("/", (req, res, next) => {
     exerciseDate: req.body.exerciseDate,
 
     bank: req.body.bank,
-    addressPostalBank: req.body.addressPostalBank,
+    addressBank: req.body.addressBank,
+    cityBank: req.body.cityBank,
+    codePostalBank: req.body.codePostalBank,
     ownerCount: req.body.ownerCount,
     iban: req.body.iban,
     codeBic: req.body.codeBic,
 
     directorEntity: req.body.directorEntity,
-    userAttachment: req.body.userAttachment,
+    usersAttachment: req.body.usersAttachment,
     totalBusiness: req.body.totalBusiness
   });
   entity.save(err => {
@@ -82,7 +85,6 @@ entityController.patch("/:id", (req, res) => {
     req.body,
     "name",
     "typeEntity",
-    "entityAttachment",
     "enseign",
     "address",
     "telNumber",
@@ -97,12 +99,14 @@ entityController.patch("/:id", (req, res) => {
     "socialCapital",
     "exerciseDate",
     "bank",
-    "addressPostalBank",
+    "addressBank",
+    "cityBank",
+    "codePostalBank",
     "ownerCount",
     "iban",
     "codeBic",
     "directorEntity",
-    "userAttachment"
+    "usersAttachment"
   );
 
   Entity.findByIdAndUpdate(

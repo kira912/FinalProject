@@ -51,7 +51,7 @@ export default {
     return {
       users: [],
       modalUser: null,
-      currentUser: null,
+      currentUser: true,
       isModalInfoOpen: false,
       isModalDeleteOpen: false
     };

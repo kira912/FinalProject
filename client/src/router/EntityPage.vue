@@ -18,13 +18,6 @@
     </div>
 
     <div class="form-group">
-      <label for="rattachement" class="col-2 col-form-label">Entité de rattachement</label>
-      <div class="col-10">
-        <input class="form-control" v-model='entityInfo.entityAttachment' type="text">
-      </div>
-    </div>
-
-    <div class="form-group">
       <label for="enseigne" class="col-2 col-form-label">Enseigne</label>
       <div class="col-10">
         <input class="form-control" v-model='entityInfo.enseign' type="text">
@@ -34,10 +27,10 @@
     <div class="form-inline">
       <label for="address">Adresse</label>
       <input type="text" v-model='entityInfo.address' class="form-control mx-sm-3">
-      <label for="postal" class="col-2 col-form-label">Code Postal</label>
-      <input class="form-control" v-model='entityInfo.codePostal' type="text">
       <label for="city" class="col-2 col-form-label">Ville</label>
       <input class="form-control" v-model='entityInfo.city' type="text">
+      <label class="col-2 col-form-label">Code Postal</label>
+      <input class="form-control" v-model='entityInfo.codePostal' type="text">
     </div>
 
     <div class="form-group">
@@ -100,7 +93,7 @@
     <div class="form-group">
       <label for="statut" class="col-2 col-form-label">Statut</label>
       <div class="col-10">
-        <input class="form-control" v-model='entityInfo.statut' type="text">
+        <input class="form-control" v-model='entityInfo.status' type="text">
       </div>
     </div>
 
@@ -168,10 +161,10 @@
     <div class="form-group">
       <label for="userAttachment" class="col-2 col-form-label">Utilisateurs rattachés</label>
       <div class="col-10">
-        <input class="form-control" v-model="entityInfo.userAttachment" type="text">
+        <input class="form-control" v-model="entityInfo.usersAttachment" type="text">
       </div>
     </div>
-    <button type="button" @click.prevent='editEntity()' class="btn btn-dark">Editer</button>
+    <button type="button" @click.prevent='editEntity($route.params.id, entityInfo)' class="btn btn-dark">Editer</button>
   </form>
 </div>
 </template>
@@ -186,8 +179,8 @@ export default {
   },
 
   methods: {
-    editEntity() {
-      editEntity(this.$route.params.id, this.entityInfo).then(() => {
+    editEntity(_id, entityInfo) {
+      editEntity(_id, entityInfo).then(() => {
         this.$router.push("/entities");
       });
     }
@@ -195,6 +188,7 @@ export default {
 
   created() {
     getSingleEntity(this.$route.params.id).then(entityInfo => {
+      // debugger;
       this.entityInfo = entityInfo;
     });
   }

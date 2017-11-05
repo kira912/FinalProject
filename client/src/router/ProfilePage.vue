@@ -38,7 +38,7 @@ import { getSingleUser, editUser } from "@/api/auth";
 export default {
   data() {
     return {
-      user: [],
+      user: true,
       image: ""
     };
   },

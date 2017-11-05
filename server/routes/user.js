@@ -16,13 +16,14 @@ userController.get("/", (req, res, next) => {
 
 userController.post("/", (req, res, next) => {
   const user = new User({
+    email: req.body.email,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     civility: req.body.civility,
     nationality: req.body.nationality,
     birthDate: req.body.birthDate,
     telNumber: req.body.telNumber,
-    email: req.body.email,
+    username: req.body.username,
     address: req.body.address,
     codePostal: req.body.codePostal,
     city: req.body.city,
@@ -35,13 +36,13 @@ userController.post("/", (req, res, next) => {
     startActivity: req.body.startActivity,
     endBusiness: req.body.endBusiness,
     professionalEmail: req.body.professionalEmail,
-    role: req.body.role,
-    totalBusiness: req.body.totalBusiness
+    professionalNumber: req.body.professionalNumber,
+    role: req.body.role
   });
 
   const password = "ih";
 
-  User.register(user, password, err => {
+  user.save(err => {
     if (err) {
       // returns the error
       return next(err);
@@ -101,6 +102,7 @@ userController.patch("/:id", (req, res) => {
     "startActivity",
     "endBusiness",
     "professionalEmail",
+    "professionalNumber",
 
     "firstnameUrgence",
     "lastnameUrgence",

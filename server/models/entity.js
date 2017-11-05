@@ -14,22 +14,22 @@ const entitySchema = new Schema({
   totalTicket: Number,
 
   rcs: String,
-  tvaIntra: Number,
+  tvaIntra: String,
   siren: String,
   siret: String,
   license: String,
   financialGuarantees: String,
   status: String,
-  socialCapital: Number,
+  socialCapital: String,
   exerciseDate: Number,
 
   bank: String,
-  address: String,
-  city: String,
-  codePostal: String,
+  addressBank: String,
+  cityBank: String,
+  codePostalBank: String,
   ownerCount: String,
   iban: String,
-  codeBic: Number,
+  codeBic: String,
 
   usersAttachment: [String]
 });

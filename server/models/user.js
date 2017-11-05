@@ -7,7 +7,7 @@ const userSchema = new Schema({
   lastname: String,
   civility: String,
   nationality: String,
-  birthDate: Number,
+  birthDate: String,
   telNumber: Number,
   email: {
     type: String,
@@ -19,8 +19,6 @@ const userSchema = new Schema({
   codePostal: String,
   city: String,
   country: String,
-  vitalCard: String,
-  transportTicket: String,
   profilePic: String,
   entityAttachment: {
     type: Schema.Types.ObjectId,
@@ -42,10 +40,10 @@ const userSchema = new Schema({
     type: Number,
     default: 0
   },
-  annualSalary: Number,
-  entryBusiness: Number,
-  startActivity: Number,
-  endBusiness: Number,
+  annualSalary: String,
+  entryBusiness: String,
+  startActivity: String,
+  endBusiness: String,
   professionalEmail: String,
   professionalNumber: Number,
 

@@ -5,7 +5,6 @@
           <img :src="user.profilePic" class="rounded-circle" width="30%"> 
         </b-list-group-item>
     </b-list-group>
-
   </aside>
 </template>
 
