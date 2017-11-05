@@ -5,8 +5,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <h1 class="align">Esprit Voyages</h1>
-    <img class="rounded-circle" :src="user.profilePic" alt="test" />
     <div class="text-xs-center">
+    <img class="rounded-circle" :src="user.profilePic" alt="test" />
       <b-dropdown class="right-nav">
         <button class="btn btn-dark" slot="trigger">
         </button>

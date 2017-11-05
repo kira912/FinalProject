@@ -9,7 +9,7 @@
         <strong>{{ option.firstname }}</strong>
         {{ option.lastname }}
         </p>
-        <img class="rounded-circle" :src="option.profilePic" width="20%" />
+        <img class="rounded-circle" :src="option.profilePic" width="5%" />
       </article>
     </template>
   </auto-complete>
@@ -19,7 +19,6 @@
       <h1 style="text-align:center;">Linechart</h1>
       <line-charts :chart-data="datacollection"></line-charts>
     </div>
-      <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
     </div>
 
 </div>
