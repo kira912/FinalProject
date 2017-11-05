@@ -192,7 +192,7 @@
 </template>
 
 <script>
-import { newEntity } from "@/api/auth";
+import { newEntity, checkUser } from "@/api/auth";
 export default {
   data() {
     return {
@@ -225,6 +225,11 @@ export default {
       userAttachment: "",
       messageError: null
     };
+  },
+
+  created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/404");
   },
 
   methods: {

@@ -187,6 +187,8 @@ export default {
   },
 
   created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/404");
     getSingleEntity(this.$route.params.id).then(entityInfo => {
       // debugger;
       this.entityInfo = entityInfo;

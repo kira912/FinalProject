@@ -60,7 +60,8 @@ import {
   newTicket,
   getSingleUser,
   editUserTotalTicket,
-  editUserBusiness
+  editUserBusiness,
+  checkUser
 } from "@/api/auth";
 export default {
   data() {
@@ -78,6 +79,8 @@ export default {
   },
 
   created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/404");
     getSingleUser(this.$root.user._id).then(user => {
       this.user = user;
     });

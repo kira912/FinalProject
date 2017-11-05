@@ -34,7 +34,7 @@
 
 <script>
 import axios from "axios";
-import { getSingleUser, editUser } from "@/api/auth";
+import { getSingleUser, editUser, checkUser } from "@/api/auth";
 export default {
   data() {
     return {
@@ -78,6 +78,8 @@ export default {
   },
 
   created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/404");
     getSingleUser(this.$route.params.id).then(user => {
       // debugger;
       this.user = user;

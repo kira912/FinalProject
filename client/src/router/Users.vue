@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { getUsers, getSingleUser } from "@/api/auth";
+import { getUsers, getSingleUser, checkUser } from "@/api/auth";
 import ModalDelete from "@/components/ModalDelete";
 import ModalInfo from "@/components/ModalInfo";
 export default {
@@ -58,6 +58,8 @@ export default {
   },
 
   created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/404");
     getUsers().then(user => {
       this.users = user;
     });

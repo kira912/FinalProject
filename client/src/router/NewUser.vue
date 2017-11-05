@@ -172,7 +172,7 @@
 </template>
 
 <script>
-import { newUser } from "@/api/auth";
+import { newUser, checkUser } from "@/api/auth";
 export default {
   data() {
     return {
@@ -200,6 +200,10 @@ export default {
       professionalNumber: "",
       role: ""
     };
+  },
+  created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/404");
   },
 
   methods: {

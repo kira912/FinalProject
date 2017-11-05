@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import { editTicket } from "@/api/auth";
+import { editTicket, checkUser } from "@/api/auth";
 export default {
   data() {
     return {
@@ -70,6 +70,11 @@ export default {
       client: "",
       seller: ""
     };
+  },
+
+  created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/404");
   },
 
   methods: {

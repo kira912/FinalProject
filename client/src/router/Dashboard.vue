@@ -30,7 +30,13 @@ import AutoComplete from "@/components/AutoComplete";
 import WidgetsAdmin from "@/components/WidgetsAdmin";
 import WidgetsUsers from "@/components/WidgetsUsers";
 import ClassementUsers from "@/components/ClassementUsers";
-import { getSingleUser, getUsers, getEntities, getTickets } from "@/api/auth";
+import {
+  getSingleUser,
+  getUsers,
+  getEntities,
+  getTickets,
+  checkUser
+} from "@/api/auth";
 export default {
   components: {
     WidgetsAdmin,
@@ -90,15 +96,9 @@ export default {
       return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
     }
   },
-  /*   computed: {
-    myStyles() {
-      return {
-        height: `${this.height}px`,
-        position: "relative"
-      };
-    }
-  }, */
   created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/404");
     getSingleUser(this.$root.user._id).then(user => {
       if (user.role === "Admin") {
         this.admin = true;

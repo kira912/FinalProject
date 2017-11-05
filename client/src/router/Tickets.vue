@@ -25,7 +25,7 @@
 
 <script>
 import ModalInfoTicket from "@/components/ModalInfoTicket";
-import { getTickets } from "@/api/auth";
+import { getTickets, checkUser } from "@/api/auth";
 export default {
   components: {
     ModalInfoTicket
@@ -39,6 +39,8 @@ export default {
   },
 
   created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/404");
     getTickets().then(tickets => {
       this.tickets = tickets;
     });

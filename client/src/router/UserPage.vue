@@ -220,7 +220,7 @@
 </template>
 
 <script>
-import { editUser, getSingleUser } from "@/api/auth";
+import { editUser, getSingleUser, checkUser } from "@/api/auth";
 export default {
   data() {
     return {
@@ -237,6 +237,8 @@ export default {
   },
 
   created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/");
     getSingleUser(this.$route.params.id).then(userInfo => {
       this.userInfo = userInfo;
     });

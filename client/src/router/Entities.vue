@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import { getEntities, getSingleUser } from "@/api/auth";
+import { getEntities, getSingleUser, checkUser } from "@/api/auth";
 import ModalInfo from "@/components/ModalInfo";
 import ModalDelete from "@/components/ModalDelete";
 export default {
@@ -58,6 +58,8 @@ export default {
   },
 
   created() {
+    checkUser(this.$root);
+    if (!this.$root.user) this.$router.push("/404");
     getEntities().then(entities => {
       this.entities = entities;
     });
