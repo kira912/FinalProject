@@ -45,7 +45,6 @@ const strategy = new Strategy(
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
   },
   (payload, done) => {
-    console.log("fd:)");
     User.findById(payload.id).then(user => {
       if (user) {
         done(null, user);
@@ -66,14 +65,11 @@ const ticketRoute = require("./routes/ticket");
 const profileRoute = require("./routes/profile");
 const imagesRoute = require("./routes/images");
 
-app.use(
-  "/api",
-  /* passport.authenticate("jwt", config.jwtSession), */ authRoute
-);
+app.use("/api", passport.authenticate("jwt", config.jwtSession), authRoute);
 app.use("/api/entities", entityRoute);
 app.use("/api/users", userRoute);
 app.use("/api/tickets", ticketRoute);
-app.use("/api/users", profileRoute);
+app.use("/api/profile", profileRoute);
 app.use("/api/images", imagesRoute);
 
 app.get(

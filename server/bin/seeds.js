@@ -89,7 +89,6 @@ function seedUsers(data) {
 function disconnect() {
   return mongoose.connection.close();
 }
-
 cleanup()
   .then(seedEntities)
   .then(seedUsers)
