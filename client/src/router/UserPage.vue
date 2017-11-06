@@ -84,10 +84,6 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="nationality">Photocopie document d'identitée</label>
-      <input type="file" class="form-control-file">
-    </div>
     <br>
 
     <h2>Données professionnelles</h2>

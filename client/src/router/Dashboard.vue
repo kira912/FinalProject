@@ -2,17 +2,6 @@
 <div>
   <widgets-admin v-if="admin"></widgets-admin>
   <widgets-users v-else-if="employe"></widgets-users>
-  <auto-complete :options="users"   @select="onOptionSelect">
-    <template slot="item" scope="option">
-      <article class="media">
-      <p>
-        <strong>{{ option.firstname }}</strong>
-        {{ option.lastname }}
-        </p>
-        <img class="rounded-circle" :src="option.profilePic" width="5%" />
-      </article>
-    </template>
-  </auto-complete>
   <classement-users :users="users"></classement-users>
     <div class="container">
           <div class="Chart">
@@ -26,7 +15,6 @@
 
 <script>
 import LineCharts from "@/components/charts/LineCharts";
-import AutoComplete from "@/components/AutoComplete";
 import WidgetsAdmin from "@/components/WidgetsAdmin";
 import WidgetsUsers from "@/components/WidgetsUsers";
 import ClassementUsers from "@/components/ClassementUsers";
@@ -42,7 +30,6 @@ export default {
     WidgetsAdmin,
     WidgetsUsers,
     ClassementUsers,
-    AutoComplete,
     LineCharts
   },
   data() {
@@ -65,16 +52,6 @@ export default {
   },
 
   methods: {
-    // Autocomplete
-    onOptionSelect(option) {
-      console.log("Selected option:", option);
-    },
-    onInput(value) {
-      this.isOpen = !!value;
-      this.highlightedPosition = 0;
-    },
-
-    // Charts
     fillData() {
       this.datacollection = {
         labels: [this.getRandomInt(), this.getRandomInt()],

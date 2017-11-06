@@ -113,7 +113,7 @@ input {
 
 .autocomplete-input {
   position: relative;
-  height: 300px;
+  width: 400px;
 }
 
 ul.options-list {

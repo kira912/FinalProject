@@ -6,8 +6,8 @@
           <div class="card-group mb-0">
             <div class="card p-4">
               <div class="card-body">
-                <div v-if="error" class="alert alert-danger" role="alert">
-                  {{error}}
+                <div v-if="messageError" class="alert alert-danger" role="alert">
+                  {{messageError.message}}
                 </div>
                 <h1>Login</h1>
                 <p class="text-muted">Connecté vous avec vos identifiants</p>
@@ -42,7 +42,7 @@ import { login } from "@/api/auth";
 export default {
   data() {
     return {
-      error: null,
+      messageError: null,
       username: "",
       password: ""
     };
@@ -50,14 +50,13 @@ export default {
 
   methods: {
     login() {
-      this.error = null;
+      this.messageError = null;
       login(this.username, this.password, this.$root)
         .then(() => {
           this.$router.push("/dashboard");
         })
         .catch(err => {
-          this.error = err.response.data.error;
-          console.error("erreur Log in", err);
+          this.messageError = err.response.data.error;
         });
     }
   }

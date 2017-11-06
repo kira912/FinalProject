@@ -11,16 +11,16 @@
             </slot>
           </div>
           <div class="modal-body">
-            <p> <strong>Prénom: </strong> {{user.firstname}}</p>
-            <p> <strong>Nom de famille: </strong> {{user.lastname}} </p>
-            <p> <strong>Civilité: </strong> {{user.civility}} </p>
-            <p> <strong>Date de Naissance: </strong> {{user.birthDate}} </p>
-            <p> <strong>Adresse: </strong> {{user.address}} </p>
-            <p> <strong>Ville: </strong> {{user.city}} </p>
-            <p> <strong>Pays: </strong> {{user.country}} </p>
-            <p> <strong>Code Postal: </strong> {{user.codePostal}} </p>
-            <p> <strong>Numéro de téléphone: </strong> {{user.telNumber}} </p>
-            <p> <strong>Email: </strong> {{user.email}} </p>
+            <p> <strong>Prénom : </strong> {{user.firstname}}</p>
+            <p> <strong>Nom de famille : </strong> {{user.lastname}} </p>
+            <p> <strong>Civilité : </strong> {{user.civility}} </p>
+            <p> <strong>Date de Naissance : </strong> {{user.birthDate}} </p>
+            <p> <strong>Adresse : </strong> {{user.address}} </p>
+            <p> <strong>Ville : </strong> {{user.city}} </p>
+            <p> <strong>Pays : </strong> {{user.country}} </p>
+            <p> <strong>Code Postal : </strong> {{user.codePostal}} </p>
+            <p> <strong>Numéro de téléphone : </strong> {{user.telNumber}} </p>
+            <p> <strong>Email : </strong> {{user.email}} </p>
           </div>
           <div class="modal-header">
             <slot name="header">
@@ -28,17 +28,17 @@
             </slot>
           </div>
           <div class="modal-body">
-            <p> <strong>Entité de rattachement: </strong> {{user.entityAttachment}} </p>
-            <p> <strong>Fonction (emploi): </strong> {{user.functionJob}} </p>
-            <p> <strong>Contrat de travail: </strong> {{user.contract}} </p>
-            <p> <strong>Salaire annuel (brut): </strong> {{user.annualSalary}} </p>
-            <p> <strong>Date d'entrée dans l'entreprise: </strong> {{user.entryBusiness}} </p>
-            <p> <strong>Date de début d'activité: </strong> {{user.startActivity}} </p>
-            <p> <strong>Date de fin de contrat: </strong> {{user.endBusiness}} </p>
-            <p> <strong>Email professionnel: </strong> {{user.professionalEmail}} </p>
-            <p> <strong>Date de fin de contrat: </strong> {{user.endBusiness}} </p>
-            <p> <strong>Email professionnel: </strong> {{user.professionalEmail}} </p>
-            <p> <strong>Téléphone professionnel: </strong> {{user.professionalNumber}} </p>
+            <p> <strong>Entité de rattachement : </strong> {{user.entityAttachment}} </p>
+            <p> <strong>Fonction (emploi) : </strong> {{user.functionJob}} </p>
+            <p> <strong>Contrat de travail : </strong> {{user.contract}} </p>
+            <p> <strong>Salaire annuel (brut) : </strong> {{user.annualSalary}} </p>
+            <p> <strong>Date d'entrée dans l'entreprise : </strong> {{user.entryBusiness}} </p>
+            <p> <strong>Date de début d'activité : </strong> {{user.startActivity}} </p>
+            <p> <strong>Date de fin de contrat : </strong> {{user.endBusiness}} </p>
+            <p> <strong>Email professionnel : </strong> {{user.professionalEmail}} </p>
+            <p> <strong>Date de fin de contrat : </strong> {{user.endBusiness}} </p>
+            <p> <strong>Email professionnel : </strong> {{user.professionalEmail}} </p>
+            <p> <strong>Téléphone professionnel : </strong> {{user.professionalNumber}} </p>
           </div>
           <div class="modal-header">
             <slot name="header">
@@ -46,11 +46,11 @@
             </slot>
           </div>
           <div class="modal-body">
-            <p> <strong>Banque: </strong> {{user.bank}} </p>
-            <p> <strong>Adresse de la banque: </strong> {{user.addressBank}}, {{user.cityBank}}, {{user.codePostalBank}} </p>
-            <p> <strong>Titulaire du compte</strong> {{user.ownerCount}} </p>
-            <p> <strong>IBAN: </strong> {{user.iban}} </p>
-            <p> <strong>Code BIC / SWIFT</strong> {{user.codeBic}} </p>
+            <p> <strong>Banque : </strong> {{user.bank}} </p>
+            <p> <strong>Adresse de la banque : </strong> {{user.addressBank}}, {{user.cityBank}}, {{user.codePostalBank}} </p>
+            <p> <strong>Titulaire du compte : </strong> {{user.ownerCount}} </p>
+            <p> <strong>IBAN : </strong> {{user.iban}} </p>
+            <p> <strong>Code BIC / SWIFT : </strong> {{user.codeBic}} </p>
           </div>
           <div class="modal-footer">
               <button class="btn btn-dark" @click="$emit('close')">
@@ -67,14 +67,14 @@
             </slot>
           </div>
           <div v-if="entity" class="modal-body">
-            <p> <strong>Nom de l'entité: </strong> {{entity.name}}</p>
-            <p> <strong>Type de l'entité: </strong> {{entity.typeEntity}} </p>
-            <p> <strong>Enseigne: </strong> {{entity.enseign}} </p>
-            <p> <strong>Adresse: </strong> {{entity.address}} </p>
-            <p> <strong>Ville: </strong> {{entity.city}} </p>
-            <p> <strong>Code Postal: </strong> {{entity.codePostal}} </p>
-            <p> <strong>Numéro de téléphone: </strong> {{entity.telNumber}} </p>
-            <p> <strong>Email: </strong> {{entity.email}} </p>
+            <p> <strong>Nom de l'entité : </strong> {{entity.name}}</p>
+            <p> <strong>Type de l'entité : </strong> {{entity.typeEntity}} </p>
+            <p> <strong>Enseigne : </strong> {{entity.enseign}} </p>
+            <p> <strong>Adresse : </strong> {{entity.address}} </p>
+            <p> <strong>Ville : </strong> {{entity.city}} </p>
+            <p> <strong>Code Postal : </strong> {{entity.codePostal}} </p>
+            <p> <strong>Numéro de téléphone : </strong> {{entity.telNumber}} </p>
+            <p> <strong>Email : </strong> {{entity.email}} </p>
           </div>
            <div class="modal-header">
             <slot name="header">
@@ -82,15 +82,15 @@
             </slot>
           </div>
           <div class="modal-body">
-            <p> <strong>RCS: </strong> {{entity.rcs}} </p>
-            <p> <strong>TVA Intracommunautaire: </strong> {{entity.tvaIntra}} </p>
-            <p> <strong>SIREN: </strong> {{entity.siren}} </p>
-            <p> <strong>SIRET: </strong> {{entity.siret}} </p>
-            <p> <strong>Licence: </strong> {{entity.license}} </p>
-            <p> <strong>Garanties finacières: </strong> {{entity.financialGuarantees}} </p>
-            <p> <strong>Statut: </strong> {{entity.status}} </p>
-            <p> <strong>Capital social: </strong> {{entity.socialCapital}} </p>
-            <p> <strong>Dates d'exercice</strong> {{entity.exerciseDate}} </p>
+            <p> <strong>RCS : </strong> {{entity.rcs}} </p>
+            <p> <strong>TVA Intracommunautaire : </strong> {{entity.tvaIntra}} </p>
+            <p> <strong>SIREN : </strong> {{entity.siren}} </p>
+            <p> <strong>SIRET : </strong> {{entity.siret}} </p>
+            <p> <strong>Licence : </strong> {{entity.license}} </p>
+            <p> <strong>Garanties finacières : </strong> {{entity.financialGuarantees}} </p>
+            <p> <strong>Statut : </strong> {{entity.status}} </p>
+            <p> <strong>Capital social : </strong> {{entity.socialCapital}} </p>
+            <p> <strong>Dates d'exercice :</strong> {{entity.exerciseDate}} </p>
           </div>
           <div class="modal-header">
             <slot name="header">
@@ -98,11 +98,11 @@
             </slot>
           </div>
           <div class="modal-body">
-            <p> <strong>Banque: </strong> {{entity.bank}} </p>
-            <p> <strong>Adresse de la banque: </strong> {{entity.addressBank}}, {{entity.cityBank}}, {{entity.codePostalBank}} </p>
-            <p> <strong>Titulaire du compte</strong> {{entity.ownerCount}} </p>
-            <p> <strong>IBAN: </strong> {{entity.iban}} </p>
-            <p> <strong>Code BIC / SWIFT</strong> {{entity.codeBic}} </p>
+            <p> <strong>Banque : </strong> {{entity.bank}} </p>
+            <p> <strong>Adresse de la banque : </strong> {{entity.addressBank}}, {{entity.cityBank}}, {{entity.codePostalBank}} </p>
+            <p> <strong>Titulaire du compte :</strong> {{entity.ownerCount}} </p>
+            <p> <strong>IBAN : </strong> {{entity.iban}} </p>
+            <p> <strong>Code BIC / SWIFT :</strong> {{entity.codeBic}} </p>
           </div>
           <div class="modal-header">
             <slot name="header">
@@ -110,8 +110,8 @@
             </slot>
           </div>
           <div class="modal-body">
-            <p> <strong>Directeur d'entité</strong> {{entity.directorEntity}} </p>
-            <p> <strong>Utilisateurs rattachés: </strong> {{entity.usersAttachment}} </p>
+            <p> <strong>Directeur d'entité : </strong> {{entity.directorEntity}} </p>
+            <p> <strong>Utilisateurs rattachés : </strong> {{entity.usersAttachment}} </p>
           </div>
           <div class="modal-footer">
               <button class="btn btn-dark" @click="$emit('close')">

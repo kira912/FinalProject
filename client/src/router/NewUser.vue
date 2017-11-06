@@ -50,7 +50,7 @@
           </div>
 
           <div class="form-group">
-            <label for="enseigne" class="col-2 col-form-label">Email : </label>
+            <label for="enseigne" class="col-2 col-form-label">Email : (Champs obligatoire) </label>
             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon">@</div>
               <input type="email" class="form-control email" v-model="email">
@@ -153,7 +153,7 @@
           </div>
 
           <div class="form-group">
-          <label for="role" class="col-2 col-form-label">Droit d'accès</label>
+          <label for="role" class="col-2 col-form-label">Droit d'accès  : (Champs obligatoire)</label>
             <div class="col-10">
               <select class="form-control" v-model="role">
               <option disabled value="">Choisir un role</option>
@@ -239,7 +239,6 @@ export default {
         })
         .catch(err => {
           this.messageError = err.response.data.error;
-          console.error("Enregistrement erreur", err);
         });
     }
   }

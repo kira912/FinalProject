@@ -4,7 +4,18 @@
     <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" @click="sidebarToggle" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <h1 class="align">Esprit Voyages</h1>
+    <!-- <h1 class="align">Esprit Voyages</h1> -->
+      <auto-complete :options="users"   @select="onOptionSelect">
+    <template slot="item" scope="option">
+      <article class="media">
+      <p>
+        <strong>{{ option.firstname }}</strong>
+        {{ option.lastname }}
+        </p>
+        <img class="rounded-circle" :src="option.profilePic" width="5%" />
+      </article>
+    </template>
+  </auto-complete>
     <div class="text-xs-center">
     <img class="rounded-circle" :src="user.profilePic" alt="test" />
       <b-dropdown class="right-nav">
@@ -19,18 +30,29 @@
 </template>
 
 <script>
-import { logout, getSingleUser } from "@/api/auth";
+import AutoComplete from "@/components/AutoComplete";
+import { logout, getSingleUser, getUsers } from "@/api/auth";
 export default {
+  components: { AutoComplete },
   name: "header",
 
   data() {
     return {
       items: [{ link: "Profil" }],
-      user: []
+      user: [],
+      users: []
     };
   },
 
   methods: {
+    // Autocomplete
+    onOptionSelect(option) {
+      console.log("Selected option:", option);
+    },
+    onInput(value) {
+      this.isOpen = !!value;
+      this.highlightedPosition = 0;
+    },
     profileToggle(e) {
       e.preventDefault();
       document.body.classList.toggle("toggle");
@@ -58,6 +80,9 @@ export default {
   created() {
     getSingleUser(this.$root.user._id).then(user => {
       this.user = user;
+    });
+    getUsers().then(users => {
+      this.users = users;
     });
   }
 };
