@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- <h1 class="align">Esprit Voyages</h1> -->
-      <auto-complete :options="users"   @select="onOptionSelect">
+      <auto-complete class="tall-input" :options="users"   @select="onOptionSelect">
     <template slot="item" scope="option">
       <article class="media">
       <p>
@@ -103,6 +103,12 @@ export default {
 
 img {
   width: 5em;
+}
+
+.tall-input {
+  margin: 0 auto;
+  position: relative;
+  top: 9px;
 }
 </style>
 

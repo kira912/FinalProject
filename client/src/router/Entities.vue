@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-fluid">
   <modal-info v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :entity="modalEntity"></modal-info>
   <modal-delete v-if="isModalDeleteOpen" @close="isModalDeleteOpen = false" :entity="modalEntity"></modal-delete>
 

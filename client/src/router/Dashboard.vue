@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container-fluid">
   <widgets-admin v-if="admin"></widgets-admin>
   <widgets-users v-else-if="employe"></widgets-users>
   <classement-users :users="users"></classement-users>

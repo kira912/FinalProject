@@ -10,12 +10,12 @@
             </slot>
           </div>
           <div class="modal-body">
-            <p> <strong>Départ: </strong> {{ticket.start}}</p>
-            <p> <strong>:Arrivée </strong> {{ticket.end}} </p>
-            <p> <strong>Prix: </strong> {{ticket.price}} </p>
-            <p> <strong>Date: </strong> {{ticket.date}} </p>
-            <p> <strong>Catégorie: </strong> {{ticket.category}} </p>
-            <p> <strong>Clients: </strong> {{ticket.client}} </p>
+            <p> <strong>Départ : </strong> {{ticket.start}}</p>
+            <p> <strong>Arrivée : </strong> {{ticket.end}} </p>
+            <p> <strong>Prix : </strong> {{ticket.price}} </p>
+            <p> <strong>Date : </strong> {{ticket.date}} </p>
+            <p> <strong>Catégorie : </strong> {{ticket.category}} </p>
+            <p> <strong>Clients : </strong> {{ticket.client}} </p>
           </div>
           <div class="modal-footer">
             <button class="btn btn-dark"@click="$emit('close')">
@@ -43,7 +43,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-color: rgba(0, 0, 0, 0.5); */
   display: table;
   transition: opacity 0.3s ease;
 }

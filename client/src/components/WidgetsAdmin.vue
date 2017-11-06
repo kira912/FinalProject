@@ -35,7 +35,7 @@
   <div class="col-6 col-lg-3">
     <div class="card height">
       <div class="card-block p-1 clearfix">
-        <i class="fa fa-bell bg-danger p-1 font-2xl mr-1 float-left"></i>
+        <i class="fa fa-bell bg-info p-1 font-2xl mr-1 float-left"></i>
         <div class="h5 text-warning mb-0 mt-h">{{totalTicket}}</div>
         <div class="text-muted text-uppercase font-weight-bold font-xs">Voyageurs enregistrés</div>
       </div>

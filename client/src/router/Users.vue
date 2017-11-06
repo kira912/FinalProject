@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-fluid">
     <modal-info v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :user="modalUser"></modal-info>
     <modal-delete v-if="isModalDeleteOpen" @close="isModalDeleteOpen = false" :user="modalUser"></modal-delete>
     <b-button variant="dark" class="position" @click.prevent="$router.push('/user/new')">Créer un utilisateur</b-button>

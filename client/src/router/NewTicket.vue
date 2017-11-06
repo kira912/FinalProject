@@ -1,5 +1,5 @@
 <template>
-<div class="container-fluid">
+<div class="div-center">
   <h3>Enregistrement billet vendu</h3>
   <form @submit.prevent='newTicket'>
     <div class="form-group">
@@ -113,4 +113,10 @@ export default {
 
 <style>
 
+</style>
+<style scoped>
+.div-center,
+h2 {
+  margin-left: 15%;
+}
 </style>

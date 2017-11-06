@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-fluid">
     <button type="button" class="btn btn-dark" @click.prevent="$router.push('/ticket/new')">Créer un billet</button>
     <table class="table">
       <thead class="color">

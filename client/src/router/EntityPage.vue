@@ -1,6 +1,8 @@
 <template>
-<div>
-  <!-- {{messageError.message}} -->
+<div class="container-fluid">
+     <div v-if="messageError" class="alert alert-danger" role="alert">
+        {{messageError.message}}
+      </div> 
   <form>
     <h2>Données d'entité</h2>
     <div class="form-group">
@@ -25,13 +27,20 @@
     </div>
     
     <div class="form-inline">
-      <label for="address">Adresse</label>
-      <input type="text" v-model='entityInfo.address' class="form-control mx-sm-3">
+      <label for="address" class="col-2 col-form-label">Adresse</label>
+      <div class="col-10">      
+        <input type="text" v-model='entityInfo.address' class="form-control">
+      </div>        
+      <label for="postal" class="col-2 col-form-label">Code Postal</label>
+      <div class="col-10">
+        <input class="form-control" v-model='entityInfo.codePostal' type="text">
+      </div>  
       <label for="city" class="col-2 col-form-label">Ville</label>
-      <input class="form-control" v-model='entityInfo.city' type="text">
-      <label class="col-2 col-form-label">Code Postal</label>
-      <input class="form-control" v-model='entityInfo.codePostal' type="text">
+      <div class="col-10">
+        <input class="form-control" v-model='entityInfo.city' type="text">
+      </div>  
     </div>
+    <br>
 
     <div class="form-group">
       <label for="numberTel" class="col-2 col-form-label">Téléphone</label>
@@ -120,13 +129,20 @@
     </div>
 
     <div class="form-inline">
-      <label for="city">Adresse</label>
-      <input type="text" v-model='entityInfo.addressBank' class="form-control mx-sm-3">
+      <label for="address" class="col-2 col-form-label">Adresse</label>
+      <div class="col-10">      
+        <input type="text" v-model='entityInfo.addressBank' class="form-control">
+      </div>        
       <label for="postal" class="col-2 col-form-label">Code Postal</label>
-      <input class="form-control" v-model="entityInfo.codePostalBank" type="text">
+      <div class="col-10">
+        <input class="form-control" v-model='entityInfo.codePostalBank' type="text">
+      </div>  
       <label for="city" class="col-2 col-form-label">Ville</label>
-      <input class="form-control" v-model="entityInfo.cityBank" type="text">
+      <div class="col-10">
+        <input class="form-control" v-model='entityInfo.cityBank' type="text">
+      </div>  
     </div>
+    <br>
 
     <div class="form-group">
       <label for="owner" class="col-2 col-form-label">Titulaire de compte</label>
@@ -170,19 +186,25 @@
 </template>
 
 <script>
-import { editEntity, getSingleEntity } from "@/api/auth";
+import { editEntity, getSingleEntity, checkUser } from "@/api/auth";
 export default {
   data() {
     return {
+      messageError: null,
       entityInfo: {}
     };
   },
 
   methods: {
     editEntity() {
-      editEntity(this.$route.params.id, this.entityInfo).then(() => {
-        this.$router.push("/entities");
-      });
+      this.messageError = null;
+      editEntity(this.$route.params.id, this.entityInfo)
+        .then(() => {
+          this.$router.push("/entities");
+        })
+        .catch(err => {
+          this.messageError = err.response.data.error;
+        });
     }
   },
 
@@ -190,9 +212,15 @@ export default {
     checkUser(this.$root);
     if (!this.$root.user) this.$router.push("/404");
     getSingleEntity(this.$route.params.id).then(entityInfo => {
-      // debugger;
       this.entityInfo = entityInfo;
     });
   }
 };
 </script>
+
+<style scoped>
+.div-center,
+h2 {
+  margin-left: 15%;
+}
+</style>
