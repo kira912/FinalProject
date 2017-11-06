@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Entity = require("../models/entity");
 const User = require("../models/user");
 
-function connect(uri) {
+/* function connect(uri) {
   return mongoose.connect(uri, {
     useMongoClient: true
   });
-}
+} */
 
 function getIdFromName(array, name) {
   const el = array.find(el => el.name === name);
