@@ -95,8 +95,8 @@ function seedUsers(data) {
 function disconnect() {
   return mongoose.connection.close();
 }
-connect(process.env.MONGODB_URI)
-  .then(cleanup)
+// connect(process.env.MONGODB_URI)
+cleanup()
   .then(seedEntities)
   .then(seedUsers)
   .catch(err => {
