@@ -1,12 +1,13 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const Entity = require("../models/entity");
 const User = require("../models/user");
 
-/* function connect(uri) {
+function connect(uri) {
   return mongoose.connect(uri, {
     useMongoClient: true
   });
-} */
+}
 
 function getIdFromName(array, name) {
   const el = array.find(el => el.name === name);
@@ -95,8 +96,8 @@ function seedUsers(data) {
 function disconnect() {
   return mongoose.connection.close();
 }
-// connect(process.env.MONGODB_URI)
-cleanup()
+connect(process.env.MONGODB_URI)
+  .then(cleanup)
   .then(seedEntities)
   .then(seedUsers)
   .catch(err => {

@@ -17,11 +17,18 @@ ticketController.get("/", (req, res, next) => {
 ticketController.post("/", (req, res, next) => {
   const ticket = new Ticket({
     start: req.body.start,
+    startDate: req.body.startDate,
     end: req.body.end,
+    endDate: req.body.endDate,
     price: req.body.price,
-    date: req.body.date,
     category: req.body.category,
     client: req.body.client,
+    returnStart: req.body.returnStart,
+    returnStartDate: req.body.returnStartDate,
+    returnEnd: req.body.returnEnd,
+    returnEndDate: req.body.returnEndDate,
+    returnPrice: req.body.returnPrice,
+    returnCategory: req.body.returnCategory,
     seller: req.body.seller
   });
   ticket.save(err => {
@@ -63,10 +70,18 @@ ticketController.patch("/:id", (req, res, next) => {
   const updates = _.pick(
     req.body,
     "start",
+    "startDate",
     "end",
+    "endDate",
     "price",
     "date",
     "category",
+    "returnStart",
+    "returnStartDate",
+    "returnEnd",
+    "returnEndDate",
+    "returnPrice",
+    "returnCategory",
     "client"
   );
 

@@ -33,10 +33,8 @@ export default {
 
 <style scoped>
 li {
-  border: 1px solid black;
   text-align: center;
   margin: 10%;
-  background-color: #192b41;
   color: white;
   border-radius: 5px;
 }

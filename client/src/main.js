@@ -6,10 +6,6 @@ import App from "./App";
 import { checkUser } from "@/api/auth";
 import router from "./router";
 
-/* import Buefy from "buefy";
-import "buefy/lib/buefy.css";
-
-Vue.use(Buefy); */
 Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;

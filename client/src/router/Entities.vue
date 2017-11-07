@@ -85,10 +85,6 @@ export default {
 </script>
 
 <style scoped>
-.color {
-  background-color: #bdb76b;
-}
-
 button {
   border-radius: 5px;
 }

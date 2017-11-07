@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid">
     <button type="button" class="btn btn-dark" @click.prevent="$router.push('/ticket/new')">Créer un billet</button>
+    <br><br>
     <table class="table">
       <thead class="color">
         <tr>
@@ -47,10 +48,4 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.color {
-  background-color: #bdb76b;
-}
-</style>
 

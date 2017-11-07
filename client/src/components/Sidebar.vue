@@ -1,7 +1,6 @@
 <template>
-  <div class="sidebar background">
+  <div class="sidebar">
     <nav class="sidebar-nav">
-      <div slot="header"></div>
       <ul class="nav">
         <template v-for="(item, index) in navItems">
           <template v-if="item.title">
@@ -79,10 +78,6 @@ export default {
 <style scoped>
 .nav-link {
   cursor: pointer;
-}
-
-.background {
-  background-color: #192b41;
 }
 
 li {

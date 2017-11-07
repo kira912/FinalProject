@@ -1,163 +1,162 @@
 <template>
   <div>
-    <div class="div-center">
-     <div v-if="messageError" class="alert alert-danger" role="alert">
-        {{messageError.message}}
-      </div> 
-      <form @submit.prevent="submit">
-        <h2>Données personnelles</h2>
-          <fieldset class="form-group">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" v-model="civility" name="optionsRadios" value="option1">
-                Madame
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" v-model="civility" name="optionsRadios" value="option2">
-                Monsieur
-              </label>
-            </div>
-          </fieldset>
-
+    <form-wizard @on-complete="submit">
+      <tab-content title="Info perso">
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" v-model="civility" name="inlineRadioOptions" id="inlineRadio1" value="Madame"> Madame
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" v-model="civility" name="inlineRadioOptions" id="inlineRadio2" value="Monsieur"> Monsieur
+          </label>
+        </div>
+        <br><br>
+        <div class="form-inline">
           <div class="form-group">
-            <label for="lastName" class="col-2 col-form-label">Nom de famille : </label>
-            <div class="col-10">
+            <label for="lastName" class="col-5 col-form-label">Nom de famille : </label>
+            <div class="col-4">
               <input class="form-control" type="text" v-model="lastname">
             </div>
           </div>
-
           <div class="form-group">
-            <label for="name" class="col-2 col-form-label">Prénom : </label>
-            <div class="col-10">
+            <label for="name" class="col-5 col-form-label">Prénom : </label>
+            <div class="col-4">
               <input class="form-control" type="text" v-model="firstname">
             </div>
           </div>
-
           <div class="form-group">
-            <label for="birth" class="col-2 col-form-label">Date de naissance : </label>
-            <div class="col-10">
+            <label for="birth" class="col-7 col-form-label">Date de naissance : </label>
+            <div class="col-4">
               <input class="form-control" type="date" v-model="birthDate">
             </div>
           </div>
+        </div>
+        <br><br>
 
+        <div class="form-inline">
           <div class="form-group">
-            <label for="enseigne" class="col-2 col-form-label">Téléphone : </label>
-            <div class="col-10">
+            <label for="enseigne" class="col-5 col-form-label">Téléphone : </label>
+            <div class="col-4">
               <input class="form-control" type="text" v-model="telNumber">
             </div>
           </div>
-
           <div class="form-group">
-            <label for="enseigne" class="col-2 col-form-label">Email : (Champs obligatoire) </label>
-            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">@</div>
-              <input type="email" class="form-control email" v-model="email">
-            </div>
+            <label class="col-6 col-form-label">Email : *</label>
+              <div class="col-4">
+                <input type="email" class="form-control" v-model="email">
+              </div>
           </div>
-
-          <div class="form-inline">
-            <label for="city" class="col-2 col-form-label">Adresse : </label>
-            <div class="col-10">
-              <input type="text" v-model="address" class="form-control">
-            </div>  
-            <label for="postal" class="col-2 col-form-label">Code Postal : </label>
-            <div class="col-10">
-              <input class="form-control" type="text" v-model="codePostal">
-            </div>  
-            <label for="city" class="col-2 col-form-label">Ville : </label>
-            <div class="col-10">
-              <input class="form-control" type="text" v-model="city">
-            </div>  
-          </div>
-
           <div class="form-group">
-            <label for="email" class="col-2 col-form-label">Pays : </label>
-            <div class="col-10">
+            <label for="email" class="col-8 col-form-label">Pays : </label>
+            <div class="col-4">
               <input class="form-control" v-model="country" type="email">
             </div>
           </div>
-          <br>
-        <div class="col-sm">
-          <h2>Données professionnelles</h2>
-          
+        </div>
+        <br><br>
+
+        <div class="form-inline">
           <div class="form-group">
-            <label for="entity" class="col-2 col-form-label">Entité de rattachement : </label>
-            <div class="col-10">
+            <label for="city" class="col-4 col-form-label">Adresse : </label>
+            <div class="col-4">
+              <input type="text" v-model="address" class="form-control">
+            </div>  
+          </div>
+          <div class="form-group">  
+            <label for="postal" class="col-5 col-form-label">Code Postal : </label>
+            <div class="col-4">
+              <input class="form-control" type="text" v-model="codePostal">
+            </div> 
+          </div>
+          <div class="form-group">   
+            <label for="city" class="col-7 col-form-label">Ville : </label>
+            <div class="col-4">
+              <input class="form-control" type="text" v-model="city">
+            </div>
+          </div>  
+        </div>
+      </tab-content>
+      <tab-content title="Info pro">
+        <div class="form-inline">
+          <div class="form-group">
+            <label for="entity" class="sm-1 col-form-label">Entité de rattachement : </label>
+            <div class="col-4">
               <input class="form-control" type="text" v-model="entityAttachment">
             </div>
           </div>
-
           <div class="form-group">
-            <label for="function" class="col-2 col-form-label">Fonction (emploi) : </label>
-            <div class="col-10">
+            <label for="function" class="col-6 col-form-label">Fonction (emploi) : </label>
+            <div class="col-4">
               <input class="form-control" type="text" v-model="functionJob">
             </div> 
           </div>
-
           <div class="form-group">
-            <label for="contrat" class="col-2 col-form-label">Contrat de travail : </label>
-            <div class="col-10">
+            <label for="contrat" class="col-6 col-form-label">Contrat de travail : </label>
+            <div class="col-4">
               <input class="form-control" type="text" v-model="contract">
             </div>
           </div>
+        </div>
+        <br><br>
 
+        <div class="form-inline">
           <div class="form-group">
-            <label for="salary" class="col-2 col-form-label">Salaire annuel (brut) : </label>
-            <div class="col-10">
+            <label for="salary" class="sm-5 col-form-label">Salaire annuel (brut) : </label>
+            <div class="col-4">
               <input class="form-control" type="text" v-model="annualSalary" >
             </div>
           </div>
-
           <div class="form-group">
-            <label for="dateEnter" class="col-2 col-form-label">Date d'entrée dans l'entreprise : </label>
-            <div class="col-10">
+            <label for="dateEnter" class="sm-5 col-form-label">Date d'entrée dans l'entreprise : </label>
+            <div class="col-4">
               <input class="form-control" type="date" v-model="entryBusiness">
             </div>
           </div>
-
           <div class="form-group">
-            <label for="dateActive" class="col-2 col-form-label">Date de début d'activité : </label>
-            <div class="col-10">
+            <label for="dateActive" class="sm-4 col-form-label">Date de début d'activité : </label>
+            <div class="col-4">
               <input class="form-control" type="date" v-model="startActivity">
             </div>
           </div>
+        </div>
+        <br><br>
 
+        <div class="form-inline">
           <div class="form-group">
-            <label for="dateEnd" class="col-2 col-form-label">Date de fin de contrat : </label>
-            <div class="col-10">
+            <label for="dateEnd" class="col-4 col-form-label">Date de fin de contrat : </label>
+            <div class="col-4">
               <input class="form-control" type="text" v-model="endBusiness">
             </div>
           </div>
-
           <div class="form-group">
-            <label for="emailPro" class="col-2 col-form-label">Email professionnel : </label>
-            <div class="col-10">
+            <label for="emailPro" class="sm-5 col-form-label">Email professionnel : </label>
+            <div class="col-4">
               <input class="form-control" type="email" v-model="professionalEmail">
             </div>
           </div>
-
           <div class="form-group">
-            <label for="telPro" class="col-2 col-form-label">Téléphone professionnel : </label>
-            <div class="col-10">
+            <label for="telPro" class="sm-5 col-form-label">Téléphone professionnel : </label>
+            <div class="col-4">
               <input class="form-control" type="text" v-model='professionalNumber'>
             </div>
           </div>
-
+        </div>
+        <br><br>
+        <div class="form-inline">
           <div class="form-group">
-            <label class="col-2 col-form-label">Si directeur d'entité : </label>
-            <div class="col-10">
+            <label class="sm-6 col-form-label">Si directeur d'entité : </label>
+            <div class="col-4">
               <input class="form-control" type="text" v-model='directorEntity'>
             </div>
           </div>
-
           <div class="form-group">
-          <label for="role" class="col-2 col-form-label">Droit d'accès  : (Champs obligatoire)</label>
-            <div class="col-10">
+            <label for="role" class="col-8 col-form-label">Droit d'accès  : (Champs obligatoire)</label>
+            <div class="col-4">
               <select class="form-control" v-model="role">
-              <option disabled value="">Choisir un role</option>
-              <option>Directeur</option>
+                <option disabled value="">Choisir un role</option>
+                <option>Directeur</option>
                 <option>Manager</option>
                 <option>Vendeur</option>
                 <option>Prestataire</option>
@@ -165,15 +164,53 @@
             </div>
           </div>
         </div>
+      </tab-content>
+    </form-wizard>
+   <!--  <div class="div-center">
+     <div v-if="messageError" class="alert alert-danger" role="alert">
+        {{messageError.message}}
+      </div> 
+
+          <br>
+        <div class="col-sm">
+          <h2>Données professionnelles</h2>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
         <button type="button" @click.prevent="submit" class="btn btn-dark">Créer</button>
       </form>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
+import { FormWizard, TabContent } from "vue-form-wizard";
+import "vue-form-wizard/dist/vue-form-wizard.min.css";
 import { newUser, checkUser } from "@/api/auth";
 export default {
+  components: {
+    FormWizard,
+    TabContent
+  },
   data() {
     return {
       messageError: null,

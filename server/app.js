@@ -12,9 +12,9 @@ const config = require("./configs/auth");
 const history = require("express-history-api-fallback");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 
-mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
+// mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
 
-// mongoose.connect("mongodb://localhost/intranetData");
+mongoose.connect("mongodb://localhost/intranetData");
 
 const app = express();
 
@@ -65,7 +65,7 @@ const ticketRoute = require("./routes/ticket");
 const profileRoute = require("./routes/profile");
 const imagesRoute = require("./routes/images");
 
-app.use("/api", passport.authenticate("jwt", config.jwtSession), authRoute);
+app.use("/api", authRoute);
 app.use("/api/entities", entityRoute);
 app.use("/api/users", userRoute);
 app.use("/api/tickets", ticketRoute);

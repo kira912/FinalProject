@@ -27,10 +27,3 @@ export default {
 };
 </script>
 
-<style scoped>
-.classement {
-  background-color: #d8ffb2;
-}
-</style>
-
-

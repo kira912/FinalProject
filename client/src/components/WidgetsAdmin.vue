@@ -2,9 +2,9 @@
 <div class="row">
   <div class="col-6 col-lg-3">
     <div class="card height">
-      <div class="card-block p-1 clearfix max">
+      <div class="card-block p-1 clearfix">
         <i class="fa fa-user bg-primary p-1 font-2xl mr-1 float-left"></i>
-        <div class="h5 text-warning mb-0 mt-h">{{counterUsers}}</div>
+        <div class="h5 text-primary mb-0 mt-h">{{counterUsers}}</div>
         <div class="text-muted text-uppercase font-weight-bold font-xs">Utilisateurs enregistrés</div>
       </div>
     </div>
@@ -14,7 +14,7 @@
     <div class="card height">
       <div class="card-block p-1 clearfix">
         <i class="fa fa-plane bg-primary p-1 font-2xl mr-1 float-left"></i>
-        <div class="h5 text-warning mb-0 mt-h">{{counterEntities}}</div>
+        <div class="h5 text-primary mb-0 mt-h">{{counterEntities}}</div>
         <div class="text-muted text-uppercase font-weight-bold font-xs">Nombres total d'entitées</div>
       </div>
     </div>
@@ -26,7 +26,7 @@
         <i class="fa icon-pie-chart bg-info p-1 font-2xl mr-1 float-left"></i>
       <div class="h1 text-muted text-right mb-2">
       </div>
-        <div class="h5 text-warning mb-0 mt-h">{{totalBusiness}} €</div>
+        <div class="h5 text-primary mb-0 mt-h">{{totalBusiness}} €</div>
         <div class="text-muted text-uppercase font-weight-bold font-xs">Total du business enregistré (toutes entités / utilisateurs confondus)</div>
       </div>
     </div>
@@ -36,7 +36,7 @@
     <div class="card height">
       <div class="card-block p-1 clearfix">
         <i class="fa fa-bell bg-info p-1 font-2xl mr-1 float-left"></i>
-        <div class="h5 text-warning mb-0 mt-h">{{totalTicket}}</div>
+        <div class="h5 text-primary mb-0 mt-h">{{totalTicket}}</div>
         <div class="text-muted text-uppercase font-weight-bold font-xs">Voyageurs enregistrés</div>
       </div>
     </div>
@@ -88,9 +88,7 @@ export default {
 
 <style scoped>
 .height {
-  border: 3px solid black;
-  padding: 10%;
-  background-color: #5f686b;
+  padding: 9%;
 }
 </style>
 
