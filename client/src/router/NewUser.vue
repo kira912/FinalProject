@@ -4,14 +4,9 @@
                    :duration="5000"
                    :width="500"
                    animation-name="v-fade-left"
-                   position="top right"></notifications>
-
-    <notifications group="custom-template"
-                   :duration="5000"
-                   :width="500"
-                   animation-name="v-fade-left"
-                   position="top left">
+                   position="top right">
     </notifications>
+
     <form-wizard @on-complete="submit()" color="black">
 
 <!-- First step -->      

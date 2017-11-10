@@ -6,12 +6,6 @@
                    animation-name="v-fade-left"
                    position="top right">
     </notifications>
-    <notifications group="custom-template"
-                   :duration="5000"
-                   :width="500"
-                   animation-name="v-fade-left"
-                   position="top left">
-    </notifications>
     <div class="div-center">
       <form @submit.prevent='submit'>
         <h2>Données d'entité</h2>

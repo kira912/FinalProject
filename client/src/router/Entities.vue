@@ -101,8 +101,3 @@ export default {
 };
 </script>
 
-<style scoped>
-button {
-  border-radius: 5px;
-}
-</style>

@@ -1,5 +1,11 @@
 <template>
   <div class="container-fluid">
+    <notifications group="custom-template"
+                   :duration="5000"
+                   :width="500"
+                   animation-name="v-fade-left"
+                   position="top left">
+    </notifications>
     <button type="button" class="btn btn-dark" @click.prevent="$router.push('/ticket/new')">Créer un billet</button>
     <br><br>
     <table class="table">
@@ -36,7 +42,18 @@ export default {
     return {
       tickets: [],
       modalTicket: null,
-      isModalInfoOpen: false
+      isModalInfoOpen: false,
+      animation: {
+        enter: {
+          opacity: [1, 0],
+          translateX: [0, -300],
+          scale: [1, 0.2]
+        },
+        leave: {
+          opacity: 0,
+          height: 0
+        }
+      }
     };
   },
 

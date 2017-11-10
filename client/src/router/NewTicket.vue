@@ -1,5 +1,11 @@
 <template>
 <div>
+  <notifications v-if="messageError" group="custom-template"
+                   :duration="5000"
+                   :width="500"
+                   animation-name="v-fade-left"
+                   position="top right">
+  </notifications>
   <form-wizard @on-complete="newTicket" color="black">
   <h3 slot="title">Enregistrement billet vendu</h3>
     <tab-content title="Info client">
@@ -139,7 +145,19 @@ export default {
       returnPrice: "",
       returnCategory: "",
       seller: this.$root.user._id,
-      totalTicket: 1
+      totalTicket: 1,
+      messageError: null,
+      animation: {
+        enter: {
+          opacity: [1, 0],
+          translateX: [0, -300],
+          scale: [1, 0.2]
+        },
+        leave: {
+          opacity: 0,
+          height: 0
+        }
+      }
     };
   },
 
@@ -153,6 +171,7 @@ export default {
 
   methods: {
     newTicket() {
+      this.messageError = null;
       newTicket({
         start: this.start,
         dateStart: this.dateStart,
@@ -176,20 +195,33 @@ export default {
 
       editUserTotalTicket(this.$root.user._id, {
         totalTicket: this.totalTicket
-      }).then(() => {
-        this.$router.push("/tickets");
-      });
+      })
+        .then(() => {
+          setTimeout(() => {
+            this.showSuccess("custom-template");
+          }, 1000);
+          this.$router.push("/tickets");
+        })
+        .catch(err => {
+          this.messageError = err.response.data.error;
+          this.showError("custom-template", "error");
+        });
+    },
+    showSuccess(group, type = "") {
+      let title = `Nouveau billet crée !`;
+      let now = new Date();
+      let text = `Date ${now}`;
+      this.$notify({ group, title, text, type });
+    },
+    showError(group, type = "") {
+      let title = `Erreur lors de la création du billet !`;
+      let now = new Date();
+      let text = `Date ${now}`;
+      this.$notify({ group, title, text, type });
+    },
+    clean(group) {
+      this.$notify({ group, clean: true });
     }
   }
 };
 </script>
-
-<style>
-
-</style>
-<style scoped>
-.div-center,
-h2 {
-  margin-left: 15%;
-}
-</style>
