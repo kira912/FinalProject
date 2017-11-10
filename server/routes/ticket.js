@@ -1,25 +1,28 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const moment = require("moment");
 const ticketController = express.Router();
 const Ticket = require("../models/ticket");
 const _ = require("lodash");
 
 ticketController.get("/", (req, res, next) => {
-  Ticket.find((err, ticketsList) => {
-    if (err) {
-      res.json(err);
-    } else {
-      res.json(ticketsList);
-    }
-  });
+  Ticket.find("ticket created_at")
+    .sort({ created_at: -1 })
+    .exec((err, tickets) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(tickets);
+      }
+    });
 });
 
 ticketController.post("/", (req, res, next) => {
   const ticket = new Ticket({
     start: req.body.start,
-    startDate: req.body.startDate,
+    dateStart: req.body.dateStart,
     end: req.body.end,
-    endDate: req.body.endDate,
+    dateEnd: req.body.dateEnd,
     price: req.body.price,
     category: req.body.category,
     client: req.body.client,

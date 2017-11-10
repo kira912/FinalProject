@@ -1,85 +1,273 @@
 <template>
   <div>
-    <form-wizard @on-complete="submit">
+    <form-wizard @on-complete="submit"  color="black">
+
+<!-- First step -->      
+      <h2 slot="title">Enregistrement nouvel utilisateur</h2> 
       <tab-content title="Info perso">
-        <div class="form-check form-check-inline">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" v-model="civility" name="inlineRadioOptions" id="inlineRadio1" value="Madame"> Madame
-          </label>
-        </div>
-        <div class="form-check form-check-inline">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" v-model="civility" name="inlineRadioOptions" id="inlineRadio2" value="Monsieur"> Monsieur
-          </label>
-        </div>
-        <br><br>
-        <div class="form-inline">
-          <div class="form-group">
-            <label for="lastName" class="col-5 col-form-label">Nom de famille : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model="lastname">
-            </div>
+        <div class="container-fluid">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" v-model="civility" name="inlineRadioOptions" id="inlineRadio1" value="Madame"> Madame
+            </label>
           </div>
-          <div class="form-group">
-            <label for="name" class="col-5 col-form-label">Prénom : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model="firstname">
-            </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" v-model="civility" name="inlineRadioOptions" id="inlineRadio2" value="Monsieur"> Monsieur
+            </label>
           </div>
-          <div class="form-group">
-            <label for="birth" class="col-7 col-form-label">Date de naissance : </label>
-            <div class="col-4">
-              <input class="form-control" type="date" v-model="birthDate">
-            </div>
-          </div>
-        </div>
-        <br><br>
-
-        <div class="form-inline">
-          <div class="form-group">
-            <label for="enseigne" class="col-5 col-form-label">Téléphone : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model="telNumber">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-6 col-form-label">Email : *</label>
-              <div class="col-4">
-                <input type="email" class="form-control" v-model="email">
+          <br><br>
+          <div class="row">
+            <div role="group" class="form-row b-form-group form-group">
+              <label class="col-4-form-label col-12">
+                <span>Nom de famille</span>
+              </label>
+              <div class="col-7">
+                <input  type="text" v-model="lastname" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div><!---->
               </div>
-          </div>
-          <div class="form-group">
-            <label for="email" class="col-8 col-form-label">Pays : </label>
-            <div class="col-4">
-              <input class="form-control" v-model="country" type="email">
             </div>
-          </div>
-        </div>
-        <br><br>
-
-        <div class="form-inline">
-          <div class="form-group">
-            <label for="city" class="col-4 col-form-label">Adresse : </label>
-            <div class="col-4">
-              <input type="text" v-model="address" class="form-control">
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__247_">
+              <label class="col-4-form-label col-12" id="__BVID__247___BV_label_">
+                <span>Prénom</span>
+              </label>
+              <div class="col-8">
+                <input  type="text" v-model="firstname" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div><!---->
+              </div>
             </div>  
-          </div>
-          <div class="form-group">  
-            <label for="postal" class="col-5 col-form-label">Code Postal : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model="codePostal">
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__248_">
+              <label class="col-4-form-label col-12" id="__BVID__248___BV_label_">
+                <span>Date de naissance</span>
+              </label>
+              <div class="col-7">
+                <input  type="date" v-model="birthDate" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div><!---->
+              </div>
             </div> 
-          </div>
-          <div class="form-group">   
-            <label for="city" class="col-7 col-form-label">Ville : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model="city">
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__249_">
+              <label class="col-4-form-label col-12" id="__BVID__249___BV_label_">
+                <span>Téléphone</span>
+              </label>
+              <div class="col-7">
+                <input type="text" v-model="telNumber" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div><!---->
+              </div>
             </div>
-          </div>  
-        </div>
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
+                <span>Email *</span>
+              </label>
+              <div class="col-8">
+                <input type="email" v-model="email" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div><!---->
+              </div>
+            </div>                                      
+          </div>
+          
+          <div class="row"> 
+            <div role="group" class="form-row b-form-group form-group">
+              <label class="col-4-form-label col-12">
+                <span>Pays</span>
+              </label>
+              <div class="col-9">
+                <input type="text" v-model="country" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div><!---->
+              </div>
+            </div> 
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__247_">
+              <label class="col-4-form-label col-12" id="__BVID__247___BV_label_">
+                <span>Adresse</span>
+              </label>
+              <div class="col-8">
+                <input  type="text" v-model="address" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div><!---->
+              </div>
+            </div> 
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__251_">
+              <label class="col-4-form-label col-12" id="__BVID__251___BV_label_">
+                <span>Code Postal</span>
+              </label>
+              <div class="col-8">
+                <input type="text" v-model="codePostal" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div> 
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
+                <span>Ville</span>
+              </label>
+              <div class="col-8">
+                <input type="text" v-model="city" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div>                          
+          </div>
+        </div>  
       </tab-content>
+
+<!-- Second step -->      
       <tab-content title="Info pro">
-        <div class="form-inline">
+          <div class="row">
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
+                <span>Entité de rattachement</span>
+              </label>
+              <div class="col-7">
+                <input type="text" v-model="entityAttachment" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div>  
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
+                <span></span>
+              </label>
+              
+            </div> 
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
+                <span>Fonction (emploi)</span>
+              </label>
+              <div class="col-8">
+                <input type="text" v-model="functionJob" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div>                                   
+          <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
+                <span>Contrat de travail</span>
+              </label>
+              <div class="col-8">
+                <input type="text" v-model="contract" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
+                <span>Salaire annuel (brut)</span>
+              </label>
+              <div class="col-8">
+                <input type="text" v-model="annualSalary" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div>              
+          </div>
+
+          <div class="row">
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
+                <span>Entrée dans l'entreprise</span>
+              </label>
+              <div class="col-7">
+                <input type="date" v-model="entryBusiness" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div>       
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+                <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
+                  <span>Date de début d'activité </span>
+                </label>
+                <div class="col-7">
+                  <input type="text" v-model="startActivity" class="form-control">
+                  <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                    <span></span>
+                  </div>
+                </div>
+            </div> 
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-8" id="__BVID__250___BV_label_">
+                <span>Date fin de contrat </span>
+              </label>
+              <div class="col-7">
+                <input type="text" v-model="endBusiness" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-8" id="__BVID__250___BV_label_">
+                <span>Email professionnel </span>
+              </label>
+              <div class="col-7">
+                <input type="text" v-model="professionalEmail" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div>    
+          </div>
+          <div class="row">
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-8" id="__BVID__250___BV_label_">
+                <span>Téléphone professionnel </span>
+              </label>
+              <div class="col-7">
+                <input type="text" v-model="professionalNumber" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
+              <label class="col-4-form-label col-8" id="__BVID__250___BV_label_">
+                <span>Si directeur d'entité </span>
+              </label>
+              <div class="col-7">
+                <input type="text" v-model="directorEntity" class="form-control">
+                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="role" class="col-8 col-form-label">Droit d'accès  : (Champs obligatoire)</label>
+              <div class="col-9">
+                <select class="form-control" v-model="role">
+                  <option disabled value="">Choisir un role</option>
+                  <option>Directeur</option>
+                  <option>Manager</option>
+                  <option>Vendeur</option>
+                  <option>Prestataire</option>
+                </select>
+              </div>
+            </div>
+          </div>
+      </tab-content>
+    </form-wizard>
+
+
+
+
+ <!--        <div class="form-inline">
           <div class="form-group">
             <label for="entity" class="sm-1 col-form-label">Entité de rattachement : </label>
             <div class="col-4">
@@ -163,37 +351,11 @@
               </select>
             </div>
           </div>
-        </div>
-      </tab-content>
-    </form-wizard>
+        </div>  -->
    <!--  <div class="div-center">
      <div v-if="messageError" class="alert alert-danger" role="alert">
         {{messageError.message}}
       </div> 
-
-          <br>
-        <div class="col-sm">
-          <h2>Données professionnelles</h2>
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </div>
         <button type="button" @click.prevent="submit" class="btn btn-dark">Créer</button>

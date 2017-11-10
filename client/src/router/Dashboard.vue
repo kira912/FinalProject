@@ -1,13 +1,12 @@
 <template>
-<div class="container-fluid">
+<div class="container">
   <widgets-admin v-if="admin"></widgets-admin>
   <widgets-users v-else-if="employe"></widgets-users>
+  <widgets-manager v-else-if="manager"></widgets-manager>
   <classement-users :users="users"></classement-users>
-    <div class="container">
-          <div class="Chart">
+    <div class="Chart">
       <h1 style="text-align:center;">Linechart</h1>
       <line-charts :chart-data="datacollection"></line-charts>
-    </div>
     </div>
 
 </div>
@@ -17,6 +16,7 @@
 import LineCharts from "@/components/charts/LineCharts";
 import WidgetsAdmin from "@/components/WidgetsAdmin";
 import WidgetsUsers from "@/components/WidgetsUsers";
+import WidgetsManager from "@/components/WidgetsManager";
 import ClassementUsers from "@/components/ClassementUsers";
 import {
   getSingleUser,
@@ -29,6 +29,7 @@ export default {
   components: {
     WidgetsAdmin,
     WidgetsUsers,
+    WidgetsManager,
     ClassementUsers,
     LineCharts
   },
@@ -37,6 +38,7 @@ export default {
       navItems: [],
       admin: false,
       employe: false,
+      manager: false,
       keepFirst: false,
       users: [],
       entities: [],
@@ -60,11 +62,6 @@ export default {
             label: "Data One",
             backgroundColor: "#f87979",
             data: [this.getRandomInt(), this.getRandomInt()]
-          },
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [this.getRandomInt(), this.getRandomInt()]
           }
         ]
       };
@@ -81,6 +78,8 @@ export default {
         this.admin = true;
       } else if (user.role === "Vendeur" || user.role === "Directeur") {
         this.employe = true;
+      } else if (user.role === "Manager") {
+        this.manager = true;
       }
     });
     getUsers().then(users => {

@@ -43,7 +43,7 @@ userController.post("/", (req, res, next) => {
 
   const password = "ih";
 
-  user.save(err => {
+  User.register(user, password, err => {
     if (err) {
       // returns the error
       return next(err);
@@ -100,6 +100,8 @@ userController.patch("/:id", (req, res) => {
     "functionJob",
     "contract",
     "annualSalary",
+    "paidHolidaysIn",
+    "paidHolidaysOut",
     "entryBusiness",
     "startActivity",
     "endBusiness",
@@ -161,6 +163,21 @@ userController.patch("/:id/business", (req, res) => {
       }
     }
   );
+});
+
+userController.patch("/:id", (req, res) => {
+  let update = {
+    entityAttachment: entityAttachment._id
+  };
+  User.findByIdAndUpdate(req.params.id)
+    .populate("entityAttachment")
+    .exec(err, update => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(update);
+      }
+    });
 });
 
 userController.patch("/:id/ticket/new", (req, res) => {

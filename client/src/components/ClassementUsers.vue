@@ -17,11 +17,11 @@ export default {
     return {
       sortBy: "totalTicket",
       sortDesc: false,
-      fields: [
-        { key: "totalTicket", sortable: true },
-        { key: "totalBusiness", sortable: true },
-        { key: "firstname", sortable: true }
-      ]
+      fields: {
+        totalTicket: { label: 'Billets vendu', sortable: true },
+        totalBusiness: { label: "Chiffre d'affaire", sortable: true },
+        firstname: { label: "Prénom", sortable: true }
+      }
     };
   }
 };

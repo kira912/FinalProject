@@ -5,8 +5,10 @@ import BootstrapVue from "bootstrap-vue";
 import App from "./App";
 import { checkUser } from "@/api/auth";
 import router from "./router";
+import VueFormWizard from "vue-form-wizard";
 
 Vue.use(BootstrapVue);
+Vue.use(VueFormWizard);
 
 Vue.config.productionTip = false;
 /* eslint-disable no-new */

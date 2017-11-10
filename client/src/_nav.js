@@ -14,8 +14,12 @@ export default {
       url: "/users"
     },
     {
-      name: "Tickets",
+      name: "Billets",
       url: "/tickets"
+    },
+    {
+      name: "Ressources Humaines",
+      url: "/human-ressources"
     }
   ],
 

@@ -1,7 +1,7 @@
 <template>
 <div>
-  <h3>Enregistrement billet vendu</h3>
-  <form-wizard @on-complete="newTicket">
+  <form-wizard @on-complete="newTicket" color="black">
+  <h3 slot="title">Enregistrement billet vendu</h3>
     <tab-content title="Info client">
        WIP
     </tab-content>
@@ -16,7 +16,7 @@
         <div class="form-group">
           <label class="col-5 col-form-label">Date de départ: </label>
           <div class="col-4">
-            <input class="form-control" type="date" v-model="startDate">
+            <input class="form-control" type="date" v-model="dateStart">
           </div>
         </div> 
         <div class="form-group">
@@ -125,9 +125,9 @@ export default {
     return {
       user: null,
       start: "",
-      startDate: "",
+      dateStart: "",
       end: "",
-      endDate: "",
+      dateEnd: "",
       price: "",
       date: "",
       category: "",
@@ -155,9 +155,9 @@ export default {
     newTicket() {
       newTicket({
         start: this.start,
-        startDate: this.startDate,
+        dateStart: this.dateStart,
         end: this.end,
-        endStart: this.endStart,
+        dateEnd: this.dateEnd,
         price: this.price,
         date: this.date,
         category: this.category,

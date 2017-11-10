@@ -40,7 +40,9 @@ const userSchema = new Schema({
     type: Number,
     default: 0
   },
-  annualSalary: String,
+  annualSalary: Number,
+  paidHolidaysIn: Number,
+  paidHolidaysOut: Number,
   entryBusiness: String,
   startActivity: String,
   endBusiness: String,
@@ -68,6 +70,7 @@ const userSchema = new Schema({
     enum: ["Admin", "Directeur", "Manager", "Vendeur", "Prestataire", "Guest"],
     default: "Guest"
   }
+  // timestamps: { createdAt: "created_at", updateAt: "update_at" }
 });
 
 userSchema.plugin(passportLocalMongoose, {

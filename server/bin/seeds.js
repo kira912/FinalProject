@@ -53,6 +53,12 @@ function seedUsers(data) {
       entityAttachment: getIdFromName(entities, "entity1")
     },
     {
+      firstname: "manager",
+      email: "manager@gmail.com",
+      role: "Manager",
+      entityAttachment: getIdFromName(entities, "entity2")
+    },
+    {
       firstname: "user1",
       email: "user1@gmail.com",
       role: "Vendeur",

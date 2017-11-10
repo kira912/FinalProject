@@ -11,6 +11,7 @@ import UserPage from "./UserPage";
 import Tickets from "./Tickets";
 import NewTicket from "./NewTicket";
 import ProfilePage from "./ProfilePage";
+import HumanRessources from "./HumanRessources";
 import Page404 from "./Page404";
 
 Vue.use(Router);
@@ -66,6 +67,10 @@ const router = new Router({
     {
       path: "/profile/:id",
       component: ProfilePage
+    },
+    {
+      path: "/human-ressources",
+      component: HumanRessources
     },
     {
       path: "/404",

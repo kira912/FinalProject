@@ -13,7 +13,7 @@
             <p> <strong>Départ : </strong> {{ticket.start}}</p>
             <p> <strong>Arrivée : </strong> {{ticket.end}} </p>
             <p> <strong>Prix : </strong> {{ticket.price}} </p>
-            <p> <strong>Date : </strong> {{ticket.date}} </p>
+            <p> <strong>Date : </strong> {{ticket.dateStart}} </p>
             <p> <strong>Catégorie : </strong> {{ticket.category}} </p>
             <p> <strong>Clients : </strong> {{ticket.client}} </p>
           </div>

@@ -15,8 +15,8 @@
           <td> {{ticket.start}} </td>
           <td> {{ticket.end}} </td>
           <td>
-            <button class="btn btn-dark" @click="showModal = true">Détails</button>
-            <modal-info-ticket v-if="showModal" @close="showModal = false" :ticket="ticket"></modal-info-ticket>
+            <button class="btn btn-dark" @click="showModalInfo(ticket)">Détails</button>
+            <modal-info-ticket v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :ticket="modalTicket"></modal-info-ticket>
           </td>
         </tr>
       </tbody>
@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       tickets: [],
-      showModal: false
+      modalTicket: null,
+      isModalInfoOpen: false
     };
   },
 
@@ -45,6 +46,13 @@ export default {
     getTickets().then(tickets => {
       this.tickets = tickets;
     });
+  },
+
+  methods: {
+    showModalInfo(ticket) {
+      this.modalTicket = ticket;
+      this.isModalInfoOpen = true;
+    }
   }
 };
 </script>
