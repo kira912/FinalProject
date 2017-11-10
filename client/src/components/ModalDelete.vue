@@ -61,7 +61,7 @@ export default {
     },
     deleteEntity() {
       deleteEntity(this.entity._id).then(() => {
-        this.$router.push("/dashboard");
+        this.$router.push("/users");
       });
     }
   }

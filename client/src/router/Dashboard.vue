@@ -74,9 +74,9 @@ export default {
     checkUser(this.$root);
     if (!this.$root.user) this.$router.push("/404");
     getSingleUser(this.$root.user._id).then(user => {
-      if (user.role === "Admin") {
+      if (user.role === "Admin" || user.role === "Directeur") {
         this.admin = true;
-      } else if (user.role === "Vendeur" || user.role === "Directeur") {
+      } else if (user.role === "Vendeur") {
         this.employe = true;
       } else if (user.role === "Manager") {
         this.manager = true;

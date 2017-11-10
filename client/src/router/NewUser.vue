@@ -1,6 +1,18 @@
 <template>
   <div>
-    <form-wizard @on-complete="submit"  color="black">
+    <notifications v-if="messageError" group="custom-template"
+                   :duration="5000"
+                   :width="500"
+                   animation-name="v-fade-left"
+                   position="top right"></notifications>
+
+    <notifications group="custom-template"
+                   :duration="5000"
+                   :width="500"
+                   animation-name="v-fade-left"
+                   position="top left">
+    </notifications>
+    <form-wizard @on-complete="submit()" color="black">
 
 <!-- First step -->      
       <h2 slot="title">Enregistrement nouvel utilisateur</h2> 
@@ -262,116 +274,21 @@
             </div>
           </div>
       </tab-content>
+                  <!-- <el-button  slot="finish">Back</el-button> -->
+
     </form-wizard>
-
-
-
-
- <!--        <div class="form-inline">
-          <div class="form-group">
-            <label for="entity" class="sm-1 col-form-label">Entité de rattachement : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model="entityAttachment">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="function" class="col-6 col-form-label">Fonction (emploi) : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model="functionJob">
-            </div> 
-          </div>
-          <div class="form-group">
-            <label for="contrat" class="col-6 col-form-label">Contrat de travail : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model="contract">
-            </div>
-          </div>
-        </div>
-        <br><br>
-
-        <div class="form-inline">
-          <div class="form-group">
-            <label for="salary" class="sm-5 col-form-label">Salaire annuel (brut) : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model="annualSalary" >
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="dateEnter" class="sm-5 col-form-label">Date d'entrée dans l'entreprise : </label>
-            <div class="col-4">
-              <input class="form-control" type="date" v-model="entryBusiness">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="dateActive" class="sm-4 col-form-label">Date de début d'activité : </label>
-            <div class="col-4">
-              <input class="form-control" type="date" v-model="startActivity">
-            </div>
-          </div>
-        </div>
-        <br><br>
-
-        <div class="form-inline">
-          <div class="form-group">
-            <label for="dateEnd" class="col-4 col-form-label">Date de fin de contrat : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model="endBusiness">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="emailPro" class="sm-5 col-form-label">Email professionnel : </label>
-            <div class="col-4">
-              <input class="form-control" type="email" v-model="professionalEmail">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="telPro" class="sm-5 col-form-label">Téléphone professionnel : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model='professionalNumber'>
-            </div>
-          </div>
-        </div>
-        <br><br>
-        <div class="form-inline">
-          <div class="form-group">
-            <label class="sm-6 col-form-label">Si directeur d'entité : </label>
-            <div class="col-4">
-              <input class="form-control" type="text" v-model='directorEntity'>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="role" class="col-8 col-form-label">Droit d'accès  : (Champs obligatoire)</label>
-            <div class="col-4">
-              <select class="form-control" v-model="role">
-                <option disabled value="">Choisir un role</option>
-                <option>Directeur</option>
-                <option>Manager</option>
-                <option>Vendeur</option>
-                <option>Prestataire</option>
-              </select>
-            </div>
-          </div>
-        </div>  -->
-   <!--  <div class="div-center">
-     <div v-if="messageError" class="alert alert-danger" role="alert">
-        {{messageError.message}}
-      </div> 
-
-        </div>
-        <button type="button" @click.prevent="submit" class="btn btn-dark">Créer</button>
-      </form>
-    </div> -->
   </div>
 </template>
 
 <script>
-import { FormWizard, TabContent } from "vue-form-wizard";
+import { FormWizard, TabContent, ElButton } from "vue-form-wizard";
 import "vue-form-wizard/dist/vue-form-wizard.min.css";
 import { newUser, checkUser } from "@/api/auth";
 export default {
   components: {
     FormWizard,
-    TabContent
+    TabContent,
+    ElButton
   },
   data() {
     return {
@@ -397,7 +314,18 @@ export default {
       endBusiness: "",
       professionalEmail: "",
       professionalNumber: "",
-      role: ""
+      role: "",
+      animation: {
+        enter: {
+          opacity: [1, 0],
+          translateX: [0, -300],
+          scale: [1, 0.2]
+        },
+        leave: {
+          opacity: 0,
+          height: 0
+        }
+      }
     };
   },
   created() {
@@ -408,6 +336,7 @@ export default {
   methods: {
     submit() {
       this.messageError = null;
+
       newUser({
         firstname: this.firstname,
         lastname: this.lastname,
@@ -434,19 +363,33 @@ export default {
         role: this.role
       })
         .then(() => {
+          setTimeout(() => {
+            this.showSuccess("custom-template");
+          }, 1000);
           this.$router.push("/users");
         })
         .catch(err => {
           this.messageError = err.response.data.error;
+          this.showError("custom-template", "error");
         });
+    },
+    showSuccess(group, type = "") {
+      let title = `Nouvel utilisateur crée`;
+      let now = new Date();
+      let text = `Date: ${now}`;
+      this.$notify({ group, title, text, type });
+    },
+    showError(group, type = "") {
+      let title = `Erreur lors de la création !`;
+      let now = new Date();
+      let text = `Date ${now}`;
+      this.$notify({ group, title, text, type });
+    },
+    clean(group) {
+      this.$notify({ group, clean: true });
     }
   }
 };
 </script>
 
-<style scoped>
-.div-center,
-h2 {
-  margin-left: 15%;
-}
-</style>
+

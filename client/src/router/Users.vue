@@ -1,5 +1,11 @@
 <template>
   <div class="container-fluid">
+    <notifications group="custom-template"
+                   :duration="5000"
+                   :width="500"
+                   animation-name="v-fade-left"
+                   position="top left">
+    </notifications>
     <modal-info v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :user="modalUser"></modal-info>
     <modal-delete v-if="isModalDeleteOpen" @close="isModalDeleteOpen = false" :user="modalUser"></modal-delete>
     <b-button variant="dark" class="position" @click.prevent="$router.push('/user/new')">Créer un utilisateur</b-button>
@@ -35,6 +41,9 @@
         </tr>
       </tbody>
     </table>
+    <button @click="show('custom-template')">
+          show top left
+        </button>
   </div>
 </template>
 
@@ -54,7 +63,18 @@ export default {
       modalUser: null,
       currentUser: true,
       isModalInfoOpen: false,
-      isModalDeleteOpen: false
+      isModalDeleteOpen: false,
+      animation: {
+        enter: {
+          opacity: [1, 0],
+          translateX: [0, -300],
+          scale: [1, 0.2]
+        },
+        leave: {
+          opacity: 0,
+          height: 0
+        }
+      }
     };
   },
 
@@ -80,14 +100,17 @@ export default {
     showModalDelete(user) {
       this.modalUser = user;
       this.isModalDeleteOpen = true;
+    },
+    show(group, type = "") {
+      let title = `Nouvel utilisateur crée`;
+      let now = new Date();
+      let text = `Date: ${now}`;
+      this.$notify({ group, title, text, type });
+    },
+    clean(group) {
+      this.$notify({ group, clean: true });
     }
   }
 };
 </script>
 
-<style scoped>
-.position {
-  margin-top: 2em;
-}
-</style>
-    

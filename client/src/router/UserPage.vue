@@ -56,21 +56,6 @@
       <input type="text" id="address" v-model='userInfo.address' class="form-control col-md-2">
             <label class="col-2 col-form-label" for="address">address</label>
       <input type="text" id="address" v-model='userInfo.address' class="form-control col-md-2">
-<!-- 
-    <div class="form-inline">
-      <label for="address" class="col-2 col-form-label">Adresse</label>
-      <div class="col-10">      
-        <input type="text" v-model='userInfo.address' class="col-md-6">
-      </div>        
-      <label for="postal" class="col-2 col-form-label">Code Postal</label>
-      <div class="col-10">
-        <input class="form-control" v-model='userInfo.codePostal' type="text">
-      </div>  
-      <label for="city" class="col-2 col-form-label">Ville</label>
-      <div class="col-10">
-        <input class="form-control" v-model='userInfo.city' type="text">
-      </div>  
-    </div> -->
     <br>
 
     <div class="form-group">

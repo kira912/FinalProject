@@ -23,7 +23,7 @@
         <div class="card height">
           <div class="card-block p-1 clearfix">
             <i class="fa fa-user bg-primary p-1 font-2xl mr-1 float-left"></i>
-            <div class="h5 text-primary mb-0 mt-h">{{totalPaidVacationIn}}</div>
+            <div class="h5 text-primary mb-0 mt-h">{{currentUser.paidHolidaysIn}}</div>
             <div class="text-muted text-uppercase font-weight-bold font-xs">Total congés payés acquis</div>
           </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="card height">
           <div class="card-block p-1 clearfix">
             <i class="fa fa-user bg-primary p-1 font-2xl mr-1 float-left"></i>
-            <div class="h5 text-primary mb-0 mt-h">{{totalPaidVacationOut}}</div>
+            <div class="h5 text-primary mb-0 mt-h">{{currentUser.paidHolidaysOut}}</div>
             <div class="text-muted text-uppercase font-weight-bold font-xs">Total congés payés utilisés</div>
           </div>
         </div>
@@ -42,14 +42,13 @@
 </template>
 
 <script>
-import { getUsers } from "@/api/auth";
+import { getUsers, getSingleUser } from "@/api/auth";
 export default {
   data() {
     return {
+      currentUser: null,
       counterUsers: 0,
-      totalSalary: 0,
-      totalPaidVacationIn: 0,
-      totalPaidVacationOut: 0
+      totalSalary: 0
     };
   },
 
@@ -60,13 +59,10 @@ export default {
         if (user.annualSalary) {
           this.totalSalary += user.annualSalary;
         }
-        if (user.paidHolidaysIn) {
-          this.totalPaidVacationIn += user.paidHolidaysIn;
-        }
-        if (user.totalPaidHolidaysOut) {
-          this.totalPaidVacationOut += user.totalPaidHolidaysOut;
-        }
       });
+    });
+    getSingleUser(this.$root.user._id).then(user => {
+      this.currentUser = user;
     });
   }
 };

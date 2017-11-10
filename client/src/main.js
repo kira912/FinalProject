@@ -6,9 +6,11 @@ import App from "./App";
 import { checkUser } from "@/api/auth";
 import router from "./router";
 import VueFormWizard from "vue-form-wizard";
+import Notifications from "vue-notification";
 
 Vue.use(BootstrapVue);
 Vue.use(VueFormWizard);
+Vue.use(Notifications);
 
 Vue.config.productionTip = false;
 /* eslint-disable no-new */
