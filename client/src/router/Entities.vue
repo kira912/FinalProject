@@ -1,5 +1,11 @@
 <template>
   <div class="container-fluid">
+        <notifications group="custom-template"
+                   :duration="5000"
+                   :width="500"
+                   animation-name="v-fade-left"
+                   position="top left">
+    </notifications>
   <modal-info v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :entity="modalEntity"></modal-info>
   <modal-delete v-if="isModalDeleteOpen" @close="isModalDeleteOpen = false" :entity="modalEntity"></modal-delete>
 
@@ -53,7 +59,18 @@ export default {
       modalEntity: null,
       currentUser: true,
       isModalInfoOpen: false,
-      isModalDeleteOpen: false
+      isModalDeleteOpen: false,
+      animation: {
+        enter: {
+          opacity: [1, 0],
+          translateX: [0, -300],
+          scale: [1, 0.2]
+        },
+        leave: {
+          opacity: 0,
+          height: 0
+        }
+      }
     };
   },
 

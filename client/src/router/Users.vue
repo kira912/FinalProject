@@ -100,15 +100,6 @@ export default {
     showModalDelete(user) {
       this.modalUser = user;
       this.isModalDeleteOpen = true;
-    },
-    show(group, type = "") {
-      let title = `Nouvel utilisateur crée`;
-      let now = new Date();
-      let text = `Date: ${now}`;
-      this.$notify({ group, title, text, type });
-    },
-    clean(group) {
-      this.$notify({ group, clean: true });
     }
   }
 };

@@ -281,14 +281,13 @@
 </template>
 
 <script>
-import { FormWizard, TabContent, ElButton } from "vue-form-wizard";
+import { FormWizard, TabContent } from "vue-form-wizard";
 import "vue-form-wizard/dist/vue-form-wizard.min.css";
 import { newUser, checkUser } from "@/api/auth";
 export default {
   components: {
     FormWizard,
-    TabContent,
-    ElButton
+    TabContent
   },
   data() {
     return {

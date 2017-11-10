@@ -1,5 +1,17 @@
 <template>
   <div>
+    <notifications v-if="messageError" group="custom-template"
+                   :duration="5000"
+                   :width="500"
+                   animation-name="v-fade-left"
+                   position="top right">
+    </notifications>
+    <notifications group="custom-template"
+                   :duration="5000"
+                   :width="500"
+                   animation-name="v-fade-left"
+                   position="top left">
+    </notifications>
     <div class="div-center">
       <form @submit.prevent='submit'>
         <h2>Données d'entité</h2>
@@ -223,7 +235,18 @@ export default {
       codeBic: "",
       directorEntity: "",
       userAttachment: "",
-      messageError: null
+      messageError: null,
+      animation: {
+        enter: {
+          opacity: [1, 0],
+          translateX: [0, -300],
+          scale: [1, 0.2]
+        },
+        leave: {
+          opacity: 0,
+          height: 0
+        }
+      }
     };
   },
 
@@ -265,12 +288,24 @@ export default {
         userAttachment: this.userAttachment
       })
         .then(() => {
+          setTimeout(() => {
+            this.showSuccess("custom-template");
+          }, 1000);
           this.$router.push("/entities");
         })
         .catch(err => {
-          this.error = err.response.data.error;
-          console.error("Enregistrement erreur", err);
+          this.messageError = err.response.data.error;
+          this.showError("custom-template", "error");
         });
+    },
+    showSuccess(group, type = "") {
+      let title = `Nouvel entité crée`;
+      let now = new Date();
+      let text = `Date ${now}`;
+      this.$notify({ group, title, text, type });
+    },
+    clean(group) {
+      this.$notify({ group, clean: true });
     }
   }
 };
