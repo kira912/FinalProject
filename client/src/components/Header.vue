@@ -18,9 +18,9 @@
     </template>
   </auto-complete>
         <div class="d-flex align-items-start">
-    <img class="rounded-circle" :src="user.profilePic" alt="test" />
+    <img @click="goToProfile(user._id)" class="rounded-circle" :src="user.profilePic" alt="test" />
     <button class="navbar-toggler navbar-toggler-right navbar-brand" type="button" @click="asideToggle"><strong>&#9776;</strong></button>
-    <h3>Contacts</h3>
+    <h3>Timeline</h3>
     </div>
   </header>
 </template>
@@ -56,10 +56,6 @@ export default {
     sidebarToggle(e) {
       e.preventDefault();
       document.body.classList.toggle("sidebar-hidden");
-    },
-    sidebarMinimize(e) {
-      e.preventDefault();
-      document.body.classList.toggle("sidebar-minimized");
     },
     mobileSidebarToggle(e) {
       e.preventDefault();

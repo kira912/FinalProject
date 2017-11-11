@@ -1,42 +1,47 @@
 <template>
-  <aside class="aside-menu scroll">
-<!--    <b-list-group>
-          <b-list-group-item :to="'/profile/' + user._id" v-for="(user, index) in users" :key="user._id"> <h4>{{user.firstname}} </h4>
-          <img :src="user.profilePic" class="rounded-circle" width="30%"> 
-        </b-list-group-item>
-    </b-list-group> -->
-  <div v-for="(item, index) in timeline" :key="item._id" class="card">
-  <div class="card-block">
-    <p class="card-text">Nouvel utilisateur <strong> {{item.firstname}} </strong></p>
-    <p class="card-text">Crée le <strong> {{moment(item).format('dddd, MMMM Do YYYY, h:mm:ss a')}} </strong></p>
-    <b-button :to='"/profile/" + item._id'>Voir le profil</b-button>
-  </div>
-</div>
+  <aside class="aside-menu container">
+    <b-button @click="showTimelineUsers()">Utilisateur</b-button>
+    <b-button @click="showTimelineEntities()">Entités</b-button>
+    <timeline-creation-users v-if="isTimelineUsersOpen"></timeline-creation-users>
+    <timeline-creation-entities v-if="isTimelineEntitiesOpen"></timeline-creation-entities>
   </aside>
 </template>
 
 <script>
-import { getUsers, getTimeline } from "@/api/auth";
+import TimelineCreationUsers from "@/components/TimelineCreationUsers";
+import TimelineCreationEntities from "@/components/TimelineCreationEntities";
+import { getUsers } from "@/api/auth";
 export default {
+  components: {
+    TimelineCreationUsers,
+    TimelineCreationEntities
+  },
   name: "aside",
   data() {
     return {
       users: [],
-      timeline: []
+      currentUser: null,
+      isTimelineUsersOpen: false,
+      isTimelineEntitiesOpen: false
     };
   },
   created() {
     getUsers().then(users => {
       this.users = users;
     });
-    getTimeline().then(timeline => {
-      this.timeline = timeline;
-    });
   },
 
   methods: {
     goToProfile(_id) {
       this.$router.push("/profile/" + _id);
+    },
+    showTimelineUsers() {
+      this.isTimelineEntitiesOpen = false;
+      this.isTimelineUsersOpen = true;
+    },
+    showTimelineEntities() {
+      this.isTimelineUsersOpen = false;
+      this.isTimelineEntitiesOpen = true;
     }
   }
 };

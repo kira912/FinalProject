@@ -41,9 +41,6 @@
         </tr>
       </tbody>
     </table>
-    <button @click="show('custom-template')">
-          show top left
-        </button>
   </div>
 </template>
 

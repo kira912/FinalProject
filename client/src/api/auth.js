@@ -166,8 +166,20 @@ export function editTicket(id, ticketInfo) {
   });
 }
 
-export function getTimeline() {
-  return auth.get("/timeline").then(response => {
+export function getTimelineUsers() {
+  return auth.get("/timeline/users").then(response => {
+    return response.data;
+  });
+}
+
+export function getTimelineEntities() {
+  return auth.get("/timeline/entities").then(response => {
+    return response.data;
+  });
+}
+
+export function getTimelineTickets() {
+  return auth.get("/timeline/tickets").then(response => {
     return response.data;
   });
 }
