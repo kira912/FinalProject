@@ -5,49 +5,32 @@
           <img :src="user.profilePic" class="rounded-circle" width="30%"> 
         </b-list-group-item>
     </b-list-group> -->
-    <div role="tabpanel" aria-hidden="false" aria-expanded="true" class="tab-pane show fade active" id="__BVID__123_" aria-lablelledby="__BVID__123____BV_tab_button__" style="">
-      <div class="m-0 py-2 text-muted text-center bg-light text-uppercase callout">
-        <small><b>Action à réaliser</b></small>
-      </div>
-        <hr class="transparent mx-3 my-0"> 
-        <div class="m-0 py-3 callout callout-warning"> 
-          <div>Meeting with <strong>Lucas</strong>
-          </div> 
-        </div> 
-        <hr class="mx-3 my-0"> 
-        <div class="m-0 py-3 callout callout-info">
-          <div>Skype with <strong>Megan</strong>
-          </div> 
-        </div> 
-        <hr class="transparent mx-3 my-0"> 
-        <div class="m-0 py-2 text-muted text-center bg-light text-uppercase callout"><small><b>Tomorrow</b></small>
-        </div> <hr class="transparent mx-3 my-0"> 
-        <div class="m-0 py-3 callout callout-danger">
-          <div>New UI Project - <strong>deadline</strong>
-          </div> 
-        </div> 
-        <hr class="mx-3 my-0"> 
-        <div class="m-0 py-3 callout callout-success">
-          <div><strong>#10 Startups.Garden</strong> Meetup
-          </div> 
-        </div> 
- 
-    </div>
+  <div v-for="(item, index) in timeline" :key="item._id" class="card">
+  <div class="card-block">
+    <p class="card-text">Nouvel utilisateur <strong> {{item.firstname}} </strong></p>
+    <p class="card-text">Crée le <strong> {{moment(item).format('dddd, MMMM Do YYYY, h:mm:ss a')}} </strong></p>
+    <b-button :to='"/profile/" + item._id'>Voir le profil</b-button>
+  </div>
+</div>
   </aside>
 </template>
 
 <script>
-import { getUsers } from "@/api/auth";
+import { getUsers, getTimeline } from "@/api/auth";
 export default {
   name: "aside",
   data() {
     return {
-      users: []
+      users: [],
+      timeline: []
     };
   },
   created() {
     getUsers().then(users => {
       this.users = users;
+    });
+    getTimeline().then(timeline => {
+      this.timeline = timeline;
     });
   },
 

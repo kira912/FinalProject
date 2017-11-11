@@ -7,11 +7,12 @@ import { checkUser } from "@/api/auth";
 import router from "./router";
 import VueFormWizard from "vue-form-wizard";
 import Notifications from "vue-notification";
+import moment from "moment";
 
+Vue.prototype.moment = moment;
 Vue.use(BootstrapVue);
 Vue.use(VueFormWizard);
 Vue.use(Notifications);
-
 Vue.config.productionTip = false;
 /* eslint-disable no-new */
 new Vue({

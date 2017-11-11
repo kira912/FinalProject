@@ -56,12 +56,12 @@ export default {
   methods: {
     deleteUser() {
       deleteUser(this.user._id).then(() => {
-        this.$router.push("/dashboard");
+        this.$router.push("/users");
       });
     },
     deleteEntity() {
       deleteEntity(this.entity._id).then(() => {
-        this.$router.push("/users");
+        this.$router.push("/dashboard");
       });
     }
   }

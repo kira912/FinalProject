@@ -165,3 +165,9 @@ export function editTicket(id, ticketInfo) {
     return response.data;
   });
 }
+
+export function getTimeline() {
+  return auth.get("/timeline").then(response => {
+    return response.data;
+  });
+}
