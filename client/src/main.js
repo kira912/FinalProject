@@ -8,11 +8,14 @@ import router from "./router";
 import VueFormWizard from "vue-form-wizard";
 import Notifications from "vue-notification";
 import moment from "moment";
+import vuescroll from "vue-scroll";
 
 Vue.prototype.moment = moment;
 Vue.use(BootstrapVue);
 Vue.use(VueFormWizard);
 Vue.use(Notifications);
+Vue.use(vuescroll);
+
 Vue.config.productionTip = false;
 /* eslint-disable no-new */
 new Vue({

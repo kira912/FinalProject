@@ -1,5 +1,5 @@
 <template>
-  <aside class="aside-menu">
+  <aside class="aside-menu scroll">
 <!--    <b-list-group>
           <b-list-group-item :to="'/profile/' + user._id" v-for="(user, index) in users" :key="user._id"> <h4>{{user.firstname}} </h4>
           <img :src="user.profilePic" class="rounded-circle" width="30%"> 
@@ -43,10 +43,7 @@ export default {
 </script>
 
 <style scoped>
-li {
-  text-align: center;
-  margin: 10%;
-  color: white;
-  border-radius: 5px;
+.scroll {
+  overflow-y: auto;
 }
 </style>
