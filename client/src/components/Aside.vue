@@ -1,20 +1,24 @@
 <template>
-  <aside class="aside-menu container">
+  <aside class="aside-menu scroll container">
     <b-button @click="showTimelineUsers()">Utilisateur</b-button>
     <b-button @click="showTimelineEntities()">Entités</b-button>
+    <b-button @click="showTimelineTickets()">Billets</b-button>
     <timeline-creation-users v-if="isTimelineUsersOpen"></timeline-creation-users>
     <timeline-creation-entities v-if="isTimelineEntitiesOpen"></timeline-creation-entities>
+    <timeline-creation-tickets v-if="isTimelineTicketsOpen"></timeline-creation-tickets>
   </aside>
 </template>
 
 <script>
 import TimelineCreationUsers from "@/components/TimelineCreationUsers";
 import TimelineCreationEntities from "@/components/TimelineCreationEntities";
+import TimelineCreationTickets from "@/components/TimelineCreationTickets";
 import { getUsers } from "@/api/auth";
 export default {
   components: {
     TimelineCreationUsers,
-    TimelineCreationEntities
+    TimelineCreationEntities,
+    TimelineCreationTickets
   },
   name: "aside",
   data() {
@@ -22,7 +26,8 @@ export default {
       users: [],
       currentUser: null,
       isTimelineUsersOpen: false,
-      isTimelineEntitiesOpen: false
+      isTimelineEntitiesOpen: false,
+      isTimelineTicketsOpen: false
     };
   },
   created() {
@@ -42,6 +47,11 @@ export default {
     showTimelineEntities() {
       this.isTimelineUsersOpen = false;
       this.isTimelineEntitiesOpen = true;
+    },
+    showTimelineTickets() {
+      this.isTimelineUsersOpen = false;
+      this.isTimelineEntitiesOpen = false;
+      this.isTimelineTicketsOpen = true;
     }
   }
 };
