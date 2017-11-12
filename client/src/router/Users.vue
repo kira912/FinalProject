@@ -8,7 +8,7 @@
     </notifications>
     <modal-info v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :user="modalUser"></modal-info>
     <modal-delete v-if="isModalDeleteOpen" @close="isModalDeleteOpen = false" :user="modalUser"></modal-delete>
-    <b-button variant="dark" class="position" @click.prevent="$router.push('/user/new')">Créer un utilisateur</b-button>
+    <b-button variant="dark" v-if="currentUser.role === 'Admin' || currentUser.role === 'Directeur'" class="position" @click.prevent="$router.push('/user/new')">Créer un utilisateur</b-button>
     <br><br>
     <table class="table">
       <thead class="color">

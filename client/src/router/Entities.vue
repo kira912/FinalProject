@@ -9,7 +9,7 @@
   <modal-info v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :entity="modalEntity"></modal-info>
   <modal-delete v-if="isModalDeleteOpen" @close="isModalDeleteOpen = false" :entity="modalEntity"></modal-delete>
 
-    <b-button variant="dark" @click.prevent="$router.push('/entity/new')">Créer une entité</b-button>    
+    <b-button variant="dark" v-if="currentUser.role === 'Admin'" @click.prevent="$router.push('/entity/new')">Créer une entité</b-button>    
     <br><br>
     <table class="table">
       <thead class="color">

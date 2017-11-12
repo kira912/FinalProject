@@ -12,6 +12,9 @@ import Tickets from "./Tickets";
 import NewTicket from "./NewTicket";
 import ProfilePage from "./ProfilePage";
 import HumanRessources from "./HumanRessources";
+import DirectoryUsersPage from "./DirectoryUsersPage";
+import PersonnalSpace from "./PersonnalSpace";
+import EditProfile from "./EditProfile";
 import Page404 from "./Page404";
 
 Vue.use(Router);
@@ -71,6 +74,18 @@ const router = new Router({
     {
       path: "/human-ressources",
       component: HumanRessources
+    },
+    {
+      path: "/directory-users",
+      component: DirectoryUsersPage
+    },
+    {
+      path: "/perso",
+      component: PersonnalSpace
+    },
+    {
+      path: "/perso/:id",
+      component: EditProfile
     },
     {
       path: "/404",

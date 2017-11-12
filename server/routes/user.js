@@ -115,8 +115,8 @@ userController.patch("/:id", (req, res) => {
     "emailUrgence",
     "bloodGroup",
     "allergies",
-    "bank",
 
+    "bank",
     "addressBank",
     "codePostalBank",
     "cityBank",

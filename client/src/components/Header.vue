@@ -17,11 +17,12 @@
       </article>
     </template>
   </auto-complete>
-        <div class="d-flex align-items-start">
+  <div class="d-flex align-items-start">
     <img @click="goToProfile(user._id)" class="rounded-circle" :src="user.profilePic" alt="test" />
+    <b-button @click="goToEspacePerso(user._id)">Espace personnel</b-button>
     <button class="navbar-toggler navbar-toggler-right navbar-brand" type="button" @click="asideToggle"><strong>&#9776;</strong></button>
     <h3>Timeline</h3>
-    </div>
+  </div>
   </header>
 </template>
 
@@ -65,8 +66,8 @@ export default {
       e.preventDefault();
       document.body.classList.toggle("aside-menu-hidden");
     },
-    goToProfile(_id) {
-      this.$router.push("/profile/" + _id);
+    goToEspacePerso(_id) {
+      this.$router.push("/perso");
     }
   },
   created() {

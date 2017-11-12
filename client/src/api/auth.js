@@ -183,3 +183,11 @@ export function getTimelineTickets() {
     return response.data;
   });
 }
+
+// Profile
+
+export function editProfile(id, profileInfo) {
+  return auth.patch("/profile/" + id, profileInfo).then(response => {
+    return response.data;
+  });
+}

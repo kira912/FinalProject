@@ -7,19 +7,16 @@
                :fields="fields">
       </b-table>
   </div>
-</div>
+</div> 
 </template>
 
 <script>
 export default {
-  props: ["users"],
   data() {
     return {
-      sortBy: "totalTicket",
+      sortBy: "firstname",
       sortDesc: false,
       fields: {
-        totalTicket: { label: "Billets vendu", sortable: true },
-        totalBusiness: { label: "Chiffre d'affaire", sortable: true },
         firstname: { label: "Prénom", sortable: true }
       }
     };
@@ -27,3 +24,6 @@ export default {
 };
 </script>
 
+<style>
+
+</style>

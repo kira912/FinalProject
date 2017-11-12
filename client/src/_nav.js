@@ -20,13 +20,18 @@ export default {
     {
       name: "Ressources Humaines",
       url: "/human-ressources"
+    },
+    {
+      name: "Test",
+      url: "/test"
+      // role: "Manager"
     }
-  ],
+  ]
 
-  methods: {
+  /*   methods: {
     logout() {
       logout(this.$root);
       this.$router.push("/");
     }
-  }
+  } */
 };
