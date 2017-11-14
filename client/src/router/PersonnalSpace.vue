@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid">
     <b-button variant="dark" @click="goToEdit($root.user._id)">Editer profil</b-button>
+    <b-button variant="dark" @click="goToTimeWork($root.user._id)">Saisie présences</b-button>
     <div class="d-flex justify-content-center">
       <div class="card" style="width: 20rem;">
         <div v-if="$root.user._id === user._id">
@@ -75,6 +76,9 @@ export default {
     },
     goToEdit(id) {
       this.$router.push("/perso/" + id);
+    },
+    goToTimeWork(id) {
+      this.$router.push("/perso/" + id + "/time-work");
     }
   },
   created() {

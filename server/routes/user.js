@@ -103,6 +103,9 @@ userController.patch("/:id", (req, res) => {
     "paidHolidaysIn",
     "paidHolidaysOut",
     "entryBusiness",
+    "dayWorked",
+    "dayWorkedTimeStart",
+    "dayWorkedTimeEnd",
     "startActivity",
     "endBusiness",
     "professionalEmail",
@@ -163,6 +166,41 @@ userController.patch("/:id/business", (req, res) => {
       }
     }
   );
+});
+
+userController.patch("/:id/worked", (req, res) => {
+  const update = _.pick(
+    req.body,
+    "dayWorked",
+    "dayWorkedTimeStart",
+    "dayWorkedTimeEnd"
+  );
+  User.findByIdAndUpdate(
+    req.params.id,
+    {
+      $push: update
+    },
+    {
+      new: true
+    },
+    (err, user) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(user);
+      }
+    }
+  );
+});
+
+userController.get("/:id/time-info", (req, res) => {
+  User.findById(req.params.id, "dayWorked dayWorkedTimeStart dayWorkedTimeEnd")
+    .then(info => {
+      res.json(info);
+    })
+    .catch(err => {
+      res.json(err);
+    });
 });
 
 userController.patch("/:id", (req, res) => {

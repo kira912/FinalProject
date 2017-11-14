@@ -9,7 +9,7 @@
     <button type="button" class="btn btn-dark" @click.prevent="$router.push('/ticket/new')">Créer un billet</button>
     <br><br>
     <table class="table">
-      <thead class="color">
+      <thead>
         <tr>
           <th>Départ</th>
           <th>Arrivée</th>

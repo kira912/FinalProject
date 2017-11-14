@@ -106,6 +106,12 @@ export function getSingleUser(id) {
   });
 }
 
+export function getTimeWorked(id) {
+  return auth.get("/users/" + id + "/time-info").then(response => {
+    return response.data;
+  });
+}
+
 export function editUser(id, userInfo) {
   return auth.patch("/users/" + id, userInfo).then(response => {
     return response.data;
@@ -126,6 +132,12 @@ export function editUserTotalTicket(id, editTicket) {
     .then(response => {
       return response.data;
     });
+}
+
+export function editTimeWorked(id, timeInfo) {
+  return auth.patch("/users/" + id + "/worked", timeInfo).then(response => {
+    return response.data;
+  });
 }
 
 export function newUser(userInfo) {
