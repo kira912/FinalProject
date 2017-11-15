@@ -8,11 +8,12 @@
       <h1 style="text-align:center;">Linechart</h1>
       <line-charts :chart-data="datacollection"></line-charts>
     </div>
-
+    <date-picker v-model="time1" range lang="fr" format="dd-MM-yyyy" :shortcuts="shortcuts"></date-picker>
 </div>
 </template>
 
 <script>
+import DatePicker from "vue2-datepicker";
 import LineCharts from "@/components/charts/LineCharts";
 import WidgetsAdmin from "@/components/WidgetsAdmin";
 import WidgetsUsers from "@/components/WidgetsUsers";
@@ -31,10 +32,31 @@ export default {
     WidgetsUsers,
     WidgetsManager,
     ClassementUsers,
-    LineCharts
+    LineCharts,
+    DatePicker
   },
+
   data() {
     return {
+      time1: "",
+      time2: "",
+      shortcuts: [
+        {
+          text: "Aujourd'hui",
+          start: new Date(),
+          end: new Date()
+        },
+        {
+          text: "Hier",
+          start: new Date(new Date().setDate(new Date().getDate() - 1)),
+          end: new Date(new Date().setDate(new Date().getDate() - 1))
+        },
+        {
+          text: "Cette semaine",
+          start: new Date(new Date().setDate(new Date().getDate() - 7)),
+          end: new Date()
+        }
+      ],
       navItems: [],
       admin: false,
       employe: false,

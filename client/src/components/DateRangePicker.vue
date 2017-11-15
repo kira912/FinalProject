@@ -1,11 +1,21 @@
 <template>
   <div>
-    <select @change="(event) => {
+    <select class="form-control" v-model="selectedRangeTypes" @change="(event) => {
       dateRangeChanged(event.target.value) }">
       <option v-for="(option, value) in rangeTypeOptions" :value="value">
         {{ option }}
       </option>
     </select>
+    <div v-if="selectedRangeTypes === 'custom'">
+      <label>
+        Du:
+        <input type="date" class="form-control" v-model="fromPickedDate">
+      </label>
+      <label>
+        Au:
+        <input type="date" class="form-control" v-model="toPickedDate">
+      </label>
+    </div>
   </div>
 </template>
 
@@ -14,8 +24,25 @@ import moment from "moment";
 export default {
   data() {
     return {
-      from: [Date],
-      to: [Date],
+      props: {
+        value: {
+          type: Object,
+          validator: function(value) {
+            if (value === null) {
+              return true;
+            }
+
+            return (
+              "from" in value &&
+              value.hasOwnProperty("from") &&
+              "to" in value &&
+              value.hasOwnProperty("to") &&
+              typeof value.from === "Date" &&
+              typeof value.to === "Date"
+            );
+          }
+        }
+      },
       rangeTypeOptions: {
         yesterday: "Hier",
         today: "Aujourd'hui",
@@ -24,14 +51,26 @@ export default {
         thisMonth: "Mois actuel",
         lastMonth: "Dernier mois",
         last3Months: "3 derniers mois",
-        last6Months: "6 derniers mois"
-      }
+        last6Months: "6 derniers mois",
+        custom: "Choisir dates"
+      },
+      selectedRangeTypes: null,
+      fromPickedDate: null,
+      toPickedDate: null
     };
   },
+  mounted() {
+    this.updateComponentWithValue(this.value);
+  },
+  watch: {
+    value: function(newValue) {
+      this.updateComponentWithValue(newValue);
+    }
+  },
 
-  mrthods: {
+  methods: {
     calculateRangeForType(rangeType) {
-      switch (value.rangeType) {
+      switch (this.value.rangeType) {
         case "yesterday":
           return {
             from: moment()
@@ -49,7 +88,7 @@ export default {
               .startOf("day")
               .toDate(),
             to: moment()
-              .startOf("day")
+              .endOf("day")
               .toDate()
           };
         case "thisWeek":
@@ -58,7 +97,7 @@ export default {
               .startOf("week")
               .toDate(),
             to: moment()
-              .startOf("week")
+              .endOf("week")
               .toDate()
           };
         case "lastWeek":
@@ -69,7 +108,7 @@ export default {
               .toDate(),
             to: moment()
               .subtract(1, "week")
-              .startOf("week")
+              .endOf("week")
               .toDate()
           };
         case "thisMonth":
@@ -78,7 +117,7 @@ export default {
               .startOf("month")
               .toDate(),
             to: moment()
-              .startOf("month")
+              .endOf("month")
               .toDate()
           };
         case "lastMonth":
@@ -89,7 +128,7 @@ export default {
               .toDate(),
             to: moment()
               .subtract(1, "month")
-              .startOf("month")
+              .endOf("month")
               .toDate()
           };
         case "last3Months":
@@ -100,7 +139,7 @@ export default {
               .toDate(),
             to: moment()
               .subtract(3, "month")
-              .startOf("month")
+              .endOf("month")
               .toDate()
           };
         case "last6Months":
@@ -111,15 +150,26 @@ export default {
               .toDate(),
             to: moment()
               .subtract(6, "month")
-              .startOf("month")
+              .endOf("month")
               .toDate()
           };
         default:
           return null;
       }
     },
+    updateComponentWithValue(newValue) {
+      if (newValue === null) {
+        this.selectedRangeTypes = null;
+        this.fromPickedDate = null;
+        this.toPickedDate = null;
+      } else {
+        this.selectedRangeTypes = "custom";
+        this.fromPickedDate = newValue.from;
+        this.toPickedDate = newValue.to;
+      }
+    },
     dateRangeChanged(rangeType) {
-      let dateRange = this.calculateRangeForType(rangeType);
+      var dateRange = this.calculateRangeForType(rangeType);
 
       this.$emit("input", dateRange);
     }
