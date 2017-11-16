@@ -34,7 +34,7 @@ export default {
   name: "sidebar",
   data() {
     return {
-      currentUser: null
+      currentUser: []
     };
   },
 

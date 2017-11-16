@@ -3,16 +3,20 @@
   <widgets-admin v-if="admin"></widgets-admin>
   <widgets-users v-else-if="employe"></widgets-users>
   <widgets-manager v-else-if="manager"></widgets-manager>
+  <date-picker v-model="time1" range lang="fr" format="dd-MM-yyyy" :shortcuts="shortcuts"></date-picker>
+  <p v-if="moment(currentUser.updatedAt).format('DD MM YYYY') === moment(time1[0]).format('DD MM YYYY')">
+    {{currentUser.totalTicket}}
+  </p>
   <classement-users :users="users"></classement-users>
     <div class="Chart">
       <h1 style="text-align:center;">Linechart</h1>
       <line-charts :chart-data="datacollection"></line-charts>
     </div>
-    <date-picker v-model="time1" range lang="fr" format="dd-MM-yyyy" :shortcuts="shortcuts"></date-picker>
 </div>
 </template>
 
 <script>
+import moment from "moment";
 import DatePicker from "vue2-datepicker";
 import LineCharts from "@/components/charts/LineCharts";
 import WidgetsAdmin from "@/components/WidgetsAdmin";
@@ -39,7 +43,6 @@ export default {
   data() {
     return {
       time1: "",
-      time2: "",
       shortcuts: [
         {
           text: "Aujourd'hui",
@@ -55,9 +58,14 @@ export default {
           text: "Cette semaine",
           start: new Date(new Date().setDate(new Date().getDate() - 7)),
           end: new Date()
+        },
+        {
+          text: "La semaine dernière",
+          start: new Date(new Date().setDate(new Date().getDate() - 14)),
+          end: new Date(new Date().setDate(new Date().getDate() - 7))
         }
       ],
-      navItems: [],
+      currentUser: [],
       admin: false,
       employe: false,
       manager: false,
@@ -96,6 +104,8 @@ export default {
     checkUser(this.$root);
     if (!this.$root.user) this.$router.push("/404");
     getSingleUser(this.$root.user._id).then(user => {
+      this.currentUser = user;
+
       if (user.role === "Admin" || user.role === "Directeur") {
         this.admin = true;
       } else if (user.role === "Vendeur") {
@@ -113,6 +123,11 @@ export default {
     getTickets().then(tickets => {
       this.tickets = tickets;
     });
+  },
+  filters: {
+    moment: function(date) {
+      return moment(date).format("DD MM YYYY");
+    }
   }
 };
 </script>
