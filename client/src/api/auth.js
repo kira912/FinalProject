@@ -152,6 +152,40 @@ export function deleteUser(id) {
   });
 }
 
+// Profile
+
+export function editProfile(id, profileInfo) {
+  return auth.patch("/profile/" + id, profileInfo).then(response => {
+    return response.data;
+  });
+}
+
+// Vacation
+
+export function getVacation() {
+  return auth.get("/vacation").then(response => {
+    return response.data;
+  });
+}
+
+export function getSingleVacation(id) {
+  return auth.get("/vacation/" + id).then(response => {
+    return response.data;
+  });
+}
+
+export function requestVacation(vacationInfo) {
+  return auth.post("/vacation", vacationInfo).then(response => {
+    return response.data;
+  });
+}
+
+export function editVacationUser(id) {
+  return auth.patch("/users/" + id + "/vacation").then(response => {
+    return response.data;
+  });
+}
+
 // Tickets
 
 export function getTickets() {
@@ -192,14 +226,6 @@ export function getTimelineEntities() {
 
 export function getTimelineTickets() {
   return auth.get("/timeline/tickets").then(response => {
-    return response.data;
-  });
-}
-
-// Profile
-
-export function editProfile(id, profileInfo) {
-  return auth.patch("/profile/" + id, profileInfo).then(response => {
     return response.data;
   });
 }

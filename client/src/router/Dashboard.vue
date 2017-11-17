@@ -4,9 +4,9 @@
   <widgets-users v-else-if="employe"></widgets-users>
   <widgets-manager v-else-if="manager"></widgets-manager>
   <date-picker v-model="time1" range lang="fr" format="dd-MM-yyyy" :shortcuts="shortcuts"></date-picker>
-  <p v-if="moment(currentUser.updatedAt).format('DD MM YYYY') === moment(time1[0]).format('DD MM YYYY')">
-    {{currentUser.totalTicket}}
-  </p>
+  <div v-if="moment(currentUser.updatedAt).format('DD MM YYYY') === moment(time1[0]).format('DD MM YYYY')">
+    <widgets class="row d-flex justify-content-around" :data="currentUser.totalBusiness" text="Total du business enregistré (total de votre compte)"></widgets>
+  </div>
   <classement-users :users="users"></classement-users>
     <div class="Chart">
       <h1 style="text-align:center;">Linechart</h1>
@@ -17,6 +17,7 @@
 
 <script>
 import moment from "moment";
+import Widgets from "@/components/Widgets";
 import DatePicker from "vue2-datepicker";
 import LineCharts from "@/components/charts/LineCharts";
 import WidgetsAdmin from "@/components/WidgetsAdmin";
@@ -37,7 +38,8 @@ export default {
     WidgetsManager,
     ClassementUsers,
     LineCharts,
-    DatePicker
+    DatePicker,
+    Widgets
   },
 
   data() {

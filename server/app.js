@@ -65,6 +65,7 @@ const ticketRoute = require("./routes/ticket");
 const profileRoute = require("./routes/profile");
 const imagesRoute = require("./routes/images");
 const timelineRoute = require("./routes/timeline");
+const paidVacation = require("./routes/paidVacation");
 
 app.use("/api", authRoute);
 app.use("/api/entities", entityRoute);
@@ -73,6 +74,7 @@ app.use("/api/tickets", ticketRoute);
 app.use("/api/profile", profileRoute);
 app.use("/api/images", imagesRoute);
 app.use("/api/timeline", timelineRoute);
+app.use("/api/vacation", paidVacation);
 
 app.get(
   "/api/secret",

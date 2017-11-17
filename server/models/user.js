@@ -52,7 +52,7 @@ const userSchema = new Schema(
     endBusiness: String,
     professionalEmail: String,
     professionalNumber: Number,
-
+    requestVacation: [String],
     firstnameUrgence: String,
     lastnameUrgence: String,
     linkUser: String,
