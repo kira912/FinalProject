@@ -33,8 +33,11 @@
               </div>
               <div class="form-group">
                 <label>Pays* </label>
-                <div class="col-7">
-                  <v-select v-model="country" :options="countries"></v-select>
+                <div class="col-7"> 
+                  <b-select v-model="country" expanded>  
+					          <option disabled value="">Selectionner un pays</option>
+					          <option v-for="option in options" :value="option">{{option}}</option>
+			          	</b-select>
                 </div>
               </div> 
             </div>     
@@ -258,6 +261,7 @@ import {
   editUserBusiness,
   checkUser
 } from "@/api/auth";
+import { listCountries } from "@/api/countries";
 export default {
   components: {
     FormWizard,
@@ -268,6 +272,7 @@ export default {
   data() {
     return {
       currentUser: [],
+      options: listCountries(),
       geographicalArea: "",
       dateDeparture: "",
       returnDate: "",

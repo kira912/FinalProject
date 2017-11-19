@@ -3,7 +3,7 @@
     <ul>
       <li><a variant="primary" @click="showTimelineUsers()">Utilisateur</a></li>
       <li><a variant="primary" @click="showTimelineEntities()">Entités</a></li>
-      <li><a variant="primary" @click="showTimelineTickets()">Billets</a></li>
+      <li><a variant="primary" @click="showTimelineTickets()">Commandes</a></li>
       <li><a variant="primary" @click="showContactsAside()">Contacts</a></li>
     </ul>
     <timeline-creation-users v-if="isTimelineUsersOpen"></timeline-creation-users>

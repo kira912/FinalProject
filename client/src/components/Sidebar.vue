@@ -11,7 +11,7 @@
       <router-link class="color" to="/entities">Entités</router-link>
     </li>
     <li class="item">
-      <router-link class="color" to="/tickets">Billets</router-link>
+      <router-link class="color" to="/tickets">Commande</router-link>
     </li>
     <li class="item">
       <router-link class="color" to="/human-ressources">Ressources Humaines</router-link>
