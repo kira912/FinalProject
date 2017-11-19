@@ -42,8 +42,14 @@ const userSchema = new Schema(
       default: 0
     },
     annualSalary: Number,
-    paidHolidaysIn: Number,
-    paidHolidaysOut: Number,
+    paidHolidaysIn: {
+      type: Number,
+      default: 0
+    },
+    paidHolidaysOut: {
+      type: Number,
+      default: 0
+    },
     entryBusiness: String,
     startActivity: String,
     dayWorkedTimeStart: [String],

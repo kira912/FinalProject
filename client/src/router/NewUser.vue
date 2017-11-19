@@ -6,246 +6,198 @@
                    animation-name="v-fade-left"
                    position="top right">
     </notifications>
-
-    <form-wizard @on-complete="submit()" color="black">
-
-<!-- First step -->      
-      <h2 slot="title">Enregistrement nouvel utilisateur</h2> 
-      <tab-content title="Info perso">
+    <form-wizard @on-complete="submit()" color="grey">
+      <h3 slot="title">Enregistrement nouvel utilisateur</h3>
+      <tab-content title="Données perso ">
         <div class="container-fluid">
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" v-model="civility" name="inlineRadioOptions" id="inlineRadio1" value="Madame"> Madame
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" v-model="civility" name="inlineRadioOptions" id="inlineRadio2" value="Monsieur"> Monsieur
-            </label>
-          </div>
-          <br><br>
           <div class="row">
-            <div role="group" class="form-row b-form-group form-group">
-              <label class="col-4-form-label col-12">
-                <span>Nom de famille</span>
-              </label>
-              <div class="col-7">
-                <input  type="text" v-model="lastname" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div><!---->
+            <div class="col">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" v-model="civility" name="inlineRadioOptions" id="inlineRadio1" value="Madame"> Madame
+                </label>
               </div>
-            </div>
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__247_">
-              <label class="col-4-form-label col-12" id="__BVID__247___BV_label_">
-                <span>Prénom</span>
-              </label>
-              <div class="col-8">
-                <input  type="text" v-model="firstname" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div><!---->
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" v-model="civility" name="inlineRadioOptions" id="inlineRadio2" value="Monsieur"> Monsieur
+                </label>
               </div>
-            </div>  
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__248_">
-              <label class="col-4-form-label col-12" id="__BVID__248___BV_label_">
-                <span>Date de naissance</span>
-              </label>
-              <div class="col-7">
-                <input  type="date" v-model="birthDate" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div><!---->
+              <div class="form-group">
+                <label>Prénom : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="firstname">
+                </div>  
               </div>
-            </div> 
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__249_">
-              <label class="col-4-form-label col-12" id="__BVID__249___BV_label_">
-                <span>Téléphone</span>
-              </label>
-              <div class="col-7">
-                <input type="text" v-model="telNumber" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div><!---->
-              </div>
-            </div>
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
-                <span>Email *</span>
-              </label>
-              <div class="col-8">
-                <input type="email" v-model="email" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div><!---->
-              </div>
-            </div>                                      
-          </div>
-          
-          <div class="row"> 
-            <div role="group" class="form-row b-form-group form-group">
-              <label class="col-4-form-label col-12">
-                <span>Pays</span>
-              </label>
-              <div class="col-9">
-                <input type="text" v-model="country" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div><!---->
-              </div>
-            </div> 
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__247_">
-              <label class="col-4-form-label col-12" id="__BVID__247___BV_label_">
-                <span>Adresse</span>
-              </label>
-              <div class="col-8">
-                <input  type="text" v-model="address" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div><!---->
-              </div>
-            </div> 
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__251_">
-              <label class="col-4-form-label col-12" id="__BVID__251___BV_label_">
-                <span>Code Postal</span>
-              </label>
-              <div class="col-8">
-                <input type="text" v-model="codePostal" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
+              <div class="form-group">
+                <label>Nom : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="lastname">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>Date de naissance : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="birthDate">
+                </div>
+              </div> 
+            </div>     
+
+            <div class="col">
+              <div class="form-group">
+                <label >Téléphone : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="telNumber">
                 </div>
               </div>
-            </div> 
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
-                <span>Ville</span>
-              </label>
-              <div class="col-8">
-                <input type="text" v-model="city" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
+              <div class="form-group">
+                <label>Email* : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="email">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label >Nationalité : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="nationality">
                 </div>
               </div>
-            </div>                          
+              <div class="form-group">
+                <label >Pays : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="country">
+                </div>
+              </div>         
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label >Adresse : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="address">
+                </div>
+              </div>
+              <div class="form-group">
+                <label >Code postal : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="codePostal">
+                </div>
+              </div>
+              <div class="form-group">
+                <label >Ville : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="city">
+                </div>
+              </div>
+            </div>
           </div>
-        </div>  
+        </div>
       </tab-content>
 
-<!-- Second step -->      
+      <tab-content title="Données pro">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>Entité de rattachement: </label>
+                <div class="col-7">
+                 <input class="form-control" type="text" v-model="entityAttachment">
+                </div>  
+              </div>
+              <div class="form-group">
+                <label>Fonction : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="functionJob">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>Contrat de travail : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="contract">
+                </div>
+              </div> 
+            </div>     
+            <div class="col">
+              <div class="form-group">
+                <label >Salaire annuel (brut) : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="annualSalary">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Entrée dans l'entreprise : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="entryBusiness">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>Date de début d'activité : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="startActivity">
+                </div>
+              </div>         
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label >Date de fin de contrat : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="endBusiness">
+                </div>
+              </div>
+              <div class="form-group">
+                <label >Email professionnel : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="professionalEmail">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Téléphone professionnel : </label>
+                <div class="col-7">
+                  <input class="form-control" type="date" v-model="professionalNumber">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tab-content>
+
+      <tab-content title="Attribution">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>Directeur entité: </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="directorEntity">
+                </div>  
+              </div>
+              <div class="form-group">
+                <label>Role : </label>
+                <div class="col-7">
+                  <select class="form-control" v-model="role">
+                    <option disabled value="">Choisir un role</option>
+                    <option>Directeur</option>
+                    <option>Manager</option>
+                    <option>Vendeur</option>
+                    <option>Prestataire</option>
+                  </select> 
+                </div>
+              </div> 
+            </div>     
+          </div>
+        </div>
+      </tab-content>
+    </form-wizard>
+
+
+
+
+
+
+    <!-- <form-wizard @on-complete="submit()" color="black">
+
       <tab-content title="Info pro">
           <div class="row">
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
-                <span>Entité de rattachement</span>
-              </label>
-              <div class="col-7">
-                <input type="text" v-model="entityAttachment" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div>
-              </div>
-            </div>  
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
-                <span></span>
-              </label>
-              
-            </div> 
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
-                <span>Fonction (emploi)</span>
-              </label>
-              <div class="col-8">
-                <input type="text" v-model="functionJob" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div>
-              </div>
-            </div>                                   
-          <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
-                <span>Contrat de travail</span>
-              </label>
-              <div class="col-8">
-                <input type="text" v-model="contract" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div>
-              </div>
-            </div>
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
-                <span>Salaire annuel (brut)</span>
-              </label>
-              <div class="col-8">
-                <input type="text" v-model="annualSalary" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div>
-              </div>
-            </div>              
-          </div>
-
-          <div class="row">
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
-                <span>Entrée dans l'entreprise</span>
-              </label>
-              <div class="col-7">
-                <input type="date" v-model="entryBusiness" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div>
-              </div>
-            </div>       
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-                <label class="col-4-form-label col-12" id="__BVID__250___BV_label_">
-                  <span>Date de début d'activité </span>
-                </label>
-                <div class="col-7">
-                  <input type="text" v-model="startActivity" class="form-control">
-                  <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                    <span></span>
-                  </div>
-                </div>
-            </div> 
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-8" id="__BVID__250___BV_label_">
-                <span>Date fin de contrat </span>
-              </label>
-              <div class="col-7">
-                <input type="text" v-model="endBusiness" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div>
-              </div>
-            </div>
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-8" id="__BVID__250___BV_label_">
-                <span>Email professionnel </span>
-              </label>
-              <div class="col-7">
-                <input type="text" v-model="professionalEmail" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div>
-              </div>
-            </div>    
-          </div>
-          <div class="row">
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-8" id="__BVID__250___BV_label_">
-                <span>Téléphone professionnel </span>
-              </label>
-              <div class="col-7">
-                <input type="text" v-model="professionalNumber" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div>
-              </div>
-            </div>
-            <div role="group" class="form-row b-form-group form-group" id="__BVID__250_">
-              <label class="col-4-form-label col-8" id="__BVID__250___BV_label_">
+            <div role="group" class="form-row b-form-group form-group">
+              <label class="col-4-form-label col-8">
                 <span>Si directeur d'entité </span>
               </label>
               <div class="col-7">
@@ -269,9 +221,7 @@
             </div>
           </div>
       </tab-content>
-                  <!-- <el-button  slot="finish">Back</el-button> -->
-
-    </form-wizard>
+    </form-wizard> -->
   </div>
 </template>
 

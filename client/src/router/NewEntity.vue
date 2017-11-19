@@ -6,194 +6,210 @@
                    animation-name="v-fade-left"
                    position="top right">
     </notifications>
-    <div class="div-center">
-      <form @submit.prevent='submit'>
-        <h2>Données d'entité</h2>
-        <div class="form-group">
-          <label for="name" class="col-2 col-form-label">Nom de l'entité</label>
-          <div class="col-10">
-            <input class="form-control" v-model='name' type="text">
+    <form-wizard @on-complete="submit()" color="grey">
+      <h3 slot="title">Enregistrement entité</h3>
+      <tab-content title="Données de l'entité">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>Nom : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="name">
+                </div>  
+              </div>
+              <div class="form-group">
+                <label>Type : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="typeEntity">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>Enseigne : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="enseign">
+                </div>
+              </div> 
+            </div>     
+
+            <div class="col">
+              <div class="form-group">
+                <label >Adresse : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="address">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Code postal : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="codePostal">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label >Ville : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="city">
+                </div>
+              </div>         
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label >Téléphone : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="numberTel">
+                </div>
+              </div>
+              <div class="form-group">
+                <label >Email : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="email">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div class="form-group">
-          <label for="type" class="col-2 col-form-label">Type d'entité</label>
-          <div class="col-10">
-            <input class="form-control" v-model='typeEntity' type="text">
+      </tab-content>
+
+      <tab-content title="Données juridique">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>RCS: </label>
+                <div class="col-7">
+                 <input class="form-control" type="text" v-model="rcs">
+                </div>  
+              </div>
+              <div class="form-group">
+                <label>TVA Intracommunautaire : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="tvaIntra">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>SIREN : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="Siren">
+                </div>
+              </div> 
+            </div>     
+            <div class="col">
+              <div class="form-group">
+                <label >SIRET : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="siret">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>License : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="license">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label >Garanties financières : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="financialGuarantees">
+                </div>
+              </div>         
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label >Status : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="statut">
+                </div>
+              </div>
+              <div class="form-group">
+                <label >Capital social : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="socialCapital">
+                </div>
+              </div>
+              <div class="form-group">
+                <label >Date d'exercice : </label>
+                <div class="col-7">
+                  <input class="form-control" type="date" v-model="exerciseDate">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </tab-content>
 
-        <div class="form-group">
-          <label for="rattachement" class="col-2 col-form-label">Entité de rattachement</label>
-          <div class="col-10">
-            <input class="form-control" v-model='entityAttachment' type="text">
+      <tab-content title="Données bancaires">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>Banque: </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="bank">
+                </div>  
+              </div>
+              <div class="form-group">
+                <label>Titulaire du compte : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="ownerCount">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>IBAN : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="iban">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Code BIC / SWIFT: </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="codeBic">
+                </div>
+              </div> 
+            </div>     
+            <div class="col">
+              <div class="form-group">
+                <label>Adresse : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="addressBank">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>Code postal : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="codePostalBank">
+                </div>
+              </div>        
+              <div class="form-group">
+                <label>Ville: </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="cityBank">
+                </div>  
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="form-group">
-          <label for="enseigne" class="col-2 col-form-label">Enseigne</label>
-          <div class="col-10">
-            <input class="form-control" v-model='enseign' type="text">
+      </tab-content>
+        <tab-content title="Données de gestion">
+          <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>Directeur d'entité: </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="directorEntity">
+                </div>  
+              </div>
+              <div class="form-group">
+                <label>Utilisateurs de rattachement : </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="userAttachment">
+                </div>
+              </div> 
+            </div>     
           </div>
         </div>
-        <br>
-
-        <div class="form-inline">
-          <label for="address" class="col-2 col-form-label">Adresse</label>
-          <div class="col-10">      
-            <input type="text" v-model='address' class="form-control">
-          </div>        
-          <label for="postal" class="col-2 col-form-label">Code Postal</label>
-          <div class="col-10">
-            <input class="form-control" v-model='codePostal' type="text">
-          </div>  
-          <label for="city" class="col-2 col-form-label">Ville</label>
-          <div class="col-10">
-            <input class="form-control" v-model='city' type="text">
-          </div>  
-        </div>
-        <br>
-
-        <div class="form-group">
-          <label for="numberTel" class="col-2 col-form-label">Téléphone</label>
-          <div class="col-10">
-            <input class="form-control" v-model='telNumber' type="tel">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="email" class="col-2 col-form-label">Email</label>
-          <div class="col-10">
-            <input class="form-control" v-model='email' type="email">
-          </div>
-        </div>
-
-        <h2>Données juridique </h2>
-        <div class="form-group">
-          <label for="rcs" class="col-2 col-form-label">RCS</label>
-          <div class="col-10">
-            <input class="form-control" v-model='rcs' type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="tva" class="col-2 col-form-label">TVA Intracommunautaire</label>
-          <div class="col-10">
-            <input class="form-control" v-model='tvaIntra' type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="siren" class="col-2 col-form-label">SIREN</label>
-          <div class="col-10">
-            <input class="form-control" v-model='siren' type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="siret" class="col-2 col-form-label">SIRET</label>
-          <div class="col-10">
-            <input class="form-control" v-model='siret' type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="license" class="col-2 col-form-label">License</label>
-          <div class="col-10">
-            <input class="form-control" v-model='license' type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="guaranties" class="col-2 col-form-label">Garanties financières</label>
-          <div class="col-10">
-            <input class="form-control" v-model='financialGuarantees' type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="statut" class="col-2 col-form-label">Statut</label>
-          <div class="col-10">
-            <input class="form-control" v-model='statut' type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="capital" class="col-2 col-form-label">Capital social</label>
-          <div class="col-10">
-            <input class="form-control" v-model='socialCapital' type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="dateExercise" class="col-2 col-form-label">Dates d'exercice</label>
-          <div class="col-10">
-            <input class="form-control" v-model='exerciseDate' type="date">
-          </div>
-        </div>
-
-        <h2>Données bancaires</h2>
-        <div class="form-group">
-          <label for="bank" class="col-2 col-form-label">Banque</label>
-          <div class="col-10">
-            <input class="form-control" v-model='bank' type="text">
-          </div>
-        </div>
-
-        <div class="form-inline">
-          <label for="city" class="col-2 col-form-label">Adresse</label>
-          <div class="col-10">
-            <input type="text" v-model='addressBank' class="form-control">
-          </div>    
-          <label for="postal" class="col-2 col-form-label">Code Postal</label>
-          <div class="col-10">  
-          <input class="form-control" v-model="codePostalBank" type="text">
-          </div> 
-          <label for="city" class="col-2 col-form-label">Ville</label>
-          <div class="col-10">
-            <input class="form-control" v-model="cityBank" type="text">
-          </div>  
-        </div>
-
-        <div class="form-group">
-          <label for="owner" class="col-2 col-form-label">Titulaire de compte</label>
-          <div class="col-10">
-            <input class="form-control" v-model="ownerCount" type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="iban" class="col-2 col-form-label">IBAN</label>
-          <div class="col-10">
-            <input class="form-control" v-model='iban' type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="codeBic" class="col-2 col-form-label">Code BIC / SWIFT</label>
-          <div class="col-10">
-            <input class="form-control" v-model="codeBic" type="text">
-          </div>
-        </div>
-        <br>
-
-        <h2>Données de gestion</h2>
-        <div class="form-group">
-          <label for="director" class="col-2 col-form-label">Directeur d'entité</label>
-          <div class="col-10">
-            <input class="form-control" v-model="directorEntity" type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="userAttachment" class="col-2 col-form-label">Utilisateurs rattachés</label>
-          <div class="col-10">
-            <input class="form-control" v-model="userAttachment" type="text">
-          </div>
-        </div>
-        <button type="button" @click='submit' class="btn btn-dark">Créer</button>
-      </form> 
-    </div>
+      </tab-content>
+    </form-wizard>
   </div>
 </template>
 

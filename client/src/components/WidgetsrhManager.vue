@@ -46,7 +46,7 @@ import { getUsers, getSingleUser } from "@/api/auth";
 export default {
   data() {
     return {
-      currentUser: null,
+      currentUser: [],
       counterUsers: 0,
       totalSalary: 0
     };

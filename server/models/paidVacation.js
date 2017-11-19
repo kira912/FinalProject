@@ -10,7 +10,7 @@ const paidVacationSchema = new Schema({
   },
   status: {
     type: String,
-    enum: ["En attente", "Validé"],
+    enum: ["En attente", "Validé", "Refusé"],
     default: "En attente"
   }
 });

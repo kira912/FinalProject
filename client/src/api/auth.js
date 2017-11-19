@@ -180,8 +180,8 @@ export function requestVacation(vacationInfo) {
   });
 }
 
-export function editVacationUser(id) {
-  return auth.patch("/users/" + id + "/vacation").then(response => {
+export function editRequestVacation(id, infoRequest) {
+  return auth.patch("/vacation/" + id, infoRequest).then(response => {
     return response.data;
   });
 }

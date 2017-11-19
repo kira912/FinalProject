@@ -14,6 +14,23 @@ userController.get("/", (req, res, next) => {
     });
 });
 
+userController.get("/:id", (req, res) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({
+      message: "Specified id is not valid"
+    });
+    return;
+  }
+
+  User.findById(req.params.id)
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
 userController.post("/", (req, res, next) => {
   const user = new User({
     email: req.body.email,
@@ -52,23 +69,6 @@ userController.post("/", (req, res, next) => {
       success: true
     });
   });
-});
-
-userController.get("/:id", (req, res) => {
-  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-    res.status(400).json({
-      message: "Specified id is not valid"
-    });
-    return;
-  }
-
-  User.findById(req.params.id)
-    .then(user => {
-      res.json(user);
-    })
-    .catch(err => {
-      res.json(err);
-    });
 });
 
 userController.patch("/:id", (req, res) => {

@@ -28,7 +28,7 @@ import { getSingleUser } from "@/api/auth";
 export default {
   data() {
     return {
-      currentUser: true
+      currentUser: []
     };
   },
 

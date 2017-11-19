@@ -16,7 +16,7 @@
     <b-button variant="dark" @click="submit()">Valider</b-button>
       </form>
     <br>
-          <table class="table">
+    <table class="table">
       <thead class="color">
         <tr>
           <th>Jour travaillés</th>

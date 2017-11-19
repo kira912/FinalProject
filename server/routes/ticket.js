@@ -19,20 +19,29 @@ ticketController.get("/", (req, res, next) => {
 
 ticketController.post("/", (req, res, next) => {
   const ticket = new Ticket({
-    start: req.body.start,
-    dateStart: req.body.dateStart,
-    end: req.body.end,
-    dateEnd: req.body.dateEnd,
-    price: req.body.price,
-    category: req.body.category,
-    client: req.body.client,
-    returnStart: req.body.returnStart,
-    returnStartDate: req.body.returnStartDate,
-    returnEnd: req.body.returnEnd,
-    returnEndDate: req.body.returnEndDate,
-    returnPrice: req.body.returnPrice,
-    returnCategory: req.body.returnCategory,
-    seller: req.body.seller
+    seller: req.body.seller,
+    geographicalArea: req.body.geographicalArea,
+    dateDeparture: req.body.dateDeparture,
+    returnDate: req.body.returnDate,
+    country: req.body.country,
+    typology: req.body.typology,
+    suppliers: req.body.suppliers,
+    bookingDate: req.body.bookingDate,
+    gestourOrder: req.body.gestourOrder,
+    businessVolume: req.body.businessVolume,
+    insurance: req.body.insurance,
+
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    customerEmail: req.body.customerEmail,
+    mobileClient: req.body.mobileClient,
+    numberPax: req.body.numberPax,
+    recruitement: req.body.recruitement,
+    origin: req.body.origin,
+    crmProducts: req.body.crmProducts,
+    crmPersonal: req.body.crmPersonal,
+    crmOptIn: req.body.crmOptIn,
+    remarks: req.body.remarks
   });
   ticket.save(err => {
     if (err) {
@@ -72,20 +81,28 @@ ticketController.patch("/:id", (req, res, next) => {
 
   const updates = _.pick(
     req.body,
-    "start",
-    "startDate",
-    "end",
-    "endDate",
-    "price",
-    "date",
-    "category",
-    "returnStart",
-    "returnStartDate",
-    "returnEnd",
-    "returnEndDate",
-    "returnPrice",
-    "returnCategory",
-    "client"
+    "geographicalArea",
+    "dateDeparture",
+    "returnDate",
+    "country",
+    "typology",
+    "suppliers",
+    "bookingDate",
+    "gestourOrder",
+    "businessVolume",
+    "insurance",
+
+    "firstname",
+    "lastname",
+    "customerEmail",
+    "mobileClient",
+    "numberPax",
+    "recruitement",
+    "origin",
+    "crmProducts",
+    "crmPersonal",
+    "crmOptIn",
+    "remarks"
   );
 
   Ticket.findByIdAndUpdate(

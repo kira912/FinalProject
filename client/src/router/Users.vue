@@ -27,16 +27,16 @@
           <td> {{user.firstname}} </td>
           <td> {{user.lastname}} </td>
           <td>
-            <b-button variant="dark" @click="showModalInfo(user)">Détails</b-button>
+            <b-button variant="info" @click="showModalInfo(user)">Détails</b-button>
           </td>
           <td>
-            <b-button v-if="currentUser.role === 'Admin'"  variant="dark"
+            <b-button v-if="currentUser.role === 'Admin'"  variant="warning"
               @click.prevent='goToEdit(user._id)'
               >Editer
             </b-button>
           </td>
           <td>
-            <b-button v-if="currentUser.role === 'Admin'" id="show-modal-delete" @click="showModalDelete(user)" variant="dark">Supprimer</b-button>
+            <b-button v-if="currentUser.role === 'Admin'" id="show-modal-delete" @click="showModalDelete(user)" variant="danger">Supprimer</b-button>
           </td>
         </tr>
       </tbody>

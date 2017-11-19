@@ -28,16 +28,16 @@
           <td> {{entity.name}} </td>
           <td> {{entity.typeEntity}} </td>
           <td>
-            <b-button class="btn btn-dark" @click="showModalInfo(entity)">Détails</b-button>
+            <b-button variant="info" @click="showModalInfo(entity)">Détails</b-button>
           </td>
           <td>
             <b-button v-if="currentUser.role === 'Admin'" type="button" 
                     @click.prevent='goToEdit(entity._id)'
-                    class="button btn-dark">Editer
+                    variant="warning">Editer
                     </b-button>
           </td>
           <td>
-            <b-button v-if="currentUser.role === 'Admin'" id="show-modal-delete" @click="showModalDelete(entity)" class="btn btn-dark">Supprimer</b-button>
+            <b-button v-if="currentUser.role === 'Admin'" id="show-modal-delete" @click="showModalDelete(entity)" variant="danger">Supprimer</b-button>
           </td>
         </tr>
       </tbody>

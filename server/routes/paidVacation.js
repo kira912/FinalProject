@@ -63,7 +63,7 @@ vacationController.patch("/:id", (req, res) => {
   Vacation.findByIdAndUpdate(
     req.params.id,
     {
-      $push: updates
+      $set: updates
     },
     {
       new: true
@@ -73,6 +73,30 @@ vacationController.patch("/:id", (req, res) => {
         res.json(err);
       } else {
         res.json(vacation);
+      }
+    }
+  );
+});
+
+vacationController.delete("/:id", (req, res) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({
+      message: "Specified id not valid"
+    });
+    return;
+  }
+
+  Vacation.remove(
+    {
+      _id: req.params.id
+    },
+    err => {
+      if (err) {
+        res.json(err);
+      } else {
+        return res.json({
+          message: "Paid vacation has been removed"
+        });
       }
     }
   );
