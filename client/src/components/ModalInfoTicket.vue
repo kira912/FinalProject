@@ -6,16 +6,62 @@
         <div class="modal-container">
           <div class="modal-header">
             <slot name="header">
-            <h5>Données du billet</h5>
+            <h5>Vendeur</h5>
             </slot>
           </div>
           <div class="modal-body">
-            <p> <strong>Départ : </strong> {{ticket.start}}</p>
-            <p> <strong>Arrivée : </strong> {{ticket.end}} </p>
-            <p> <strong>Prix : </strong> {{ticket.price}} </p>
-            <p> <strong>Date : </strong> {{ticket.dateStart}} </p>
-            <p> <strong>Catégorie : </strong> {{ticket.category}} </p>
-            <p> <strong>Clients : </strong> {{ticket.client}} </p>
+            <p><strong>Vendeur : </strong> {{ticket.seller}} </p>
+          </div>
+          <div class="modal-header">
+            <slot name="header">
+            <h5>Voyage</h5>
+            </slot>
+          </div>
+          <div class="modal-body">
+            <p> <strong>Date de départ : </strong> {{ticket.dateDetarture}}</p>
+            <p> <strong>Date de retour : </strong> {{ticket.returnDate}} </p>
+            <p> <strong>Zone géographique : </strong> {{ticket.geographicalArea}} </p>
+            <p> <strong>Pays : </strong> {{ticket.country}} </p>
+          </div>
+          <div class="modal-header">
+            <slot name="header">
+            <h5>Type de vente et Fournisseurs</h5>
+            </slot>
+          </div>
+          <div class="modal-body">
+            <p> <strong>Typologie : </strong> {{ticket.typology}}</p>
+            <p> <strong>Fournisseurs : </strong> {{ticket.suppliers}} </p>
+            <p> <strong>Zone géographique : </strong> {{ticket.geographicalArea}} </p>
+            <p> <strong>Pays : </strong> {{ticket.country}} </p>
+          </div>
+          <div class="modal-header">
+            <slot name="header">
+            <h5>Vente</h5>
+            </slot>
+          </div>
+          <div class="modal-body">
+            <p> <strong>Date de réservation : </strong> {{ticket.bookingDate}}</p>
+            <p> <strong>Commande Gestour : </strong> {{ticket.gestourOrder}} </p>
+            <p> <strong>Volume d'affaires : </strong> {{ticket.businessVolume}} </p>
+            <p> <strong>Assurance : </strong> {{ticket.insurance}} </p>
+          </div>
+          <div class="modal-header">
+            <slot name="header">
+            <h5>Client</h5>
+            </slot>
+          </div>
+          <div class="modal-body">
+            <p> <strong>Nom de famille : </strong> {{ticket.lastname}}</p>
+            <p> <strong>Prénom : </strong> {{ticket.firstname}} </p>
+            <p> <strong>Email du client : </strong> {{ticket.customerEmail}} </p>
+            <p> <strong>Mobile du client : </strong> {{ticket.mobileClient}} </p>
+            <p> <strong>Nombres de Pax : </strong> {{ticket.numberPax}} </p>
+            <p> <strong>Recrutement : </strong> {{ticket.recruitement}} </p>
+            <p> <strong>Provenance : </strong> {{ticket.origin}} </p>
+            <p> <strong>CRM - Produits : </strong> {{ticket.crmProducts}} </p>
+            <p> <strong>CRM - Perso : </strong> {{ticket.crmPersonal}} </p>
+            <p> <strong>CRM - Opt-in : </strong> {{ticket.crmOptIn}} </p>
+            <p> <strong>Remarques : </strong> {{ticket.remarks}} </p>
           </div>
           <div class="modal-footer">
             <button class="btn btn-dark"@click="$emit('close')">

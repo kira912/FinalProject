@@ -48,7 +48,7 @@
               <div class="form-group">
                 <label>Typologie* </label>
                 <div class="col-7">
-                  <b-dropdown id="ddown1" text="Dropdown Button" class="m-md-2">
+                  <b-dropdown id="ddown1" text="Dropdown Button" v-model="typology" class="m-md-2">
                     <b-dropdown-item>Billeterie</b-dropdown-item>
                     <b-dropdown-item>Tourisme</b-dropdown-item>
                     <b-dropdown-item>Business</b-dropdown-item>
@@ -94,130 +94,157 @@
                   </b-form-checkbox-group>
                 </div>
               </div> 
-              <div class="form-group">
-                <label>Zone géopgraphique* </label>
-                <b-form-radio-group v-model="geographicalArea">
-                  <b-form-radio value="longHaul">Long courrier</b-form-radio>
-                  <b-form-radio value="mediumHaul">Moyen courrier</b-form-radio>
-                </b-form-radio-group>
-              </div>
-              <div class="form-group">
-                <label>Pays* </label>
-                <div class="col-7">
-                  <v-select v-model="country" :options="countries"></v-select>
-                </div>
-              </div> 
             </div>     
           </div>
         </div>
       </tab-content>
 
-
-
-
-
-
-    <!-- <tab-content title="Info client">
-       WIP
-    </tab-content>
-    <tab-content title="Billet Allé">
-      <div class="form-inline">
-        <div class="form-group">
-          <label class="col-2 col-form-label">Départ: </label>
-          <div class="col-4">
-            <input class="form-control" type="text" v-model="start">
+      <tab-content title="Vente">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>Date de réservation* </label>
+                <div class="col-7">
+                  <input class="form-control" type="date" v-model="bookingDate">
+                </div>  
+              </div>
+              <div class="form-group">
+                <label>Commande Gestour* </label>
+                <div class="col-7">
+                  <input class="form-control" type="number" v-model="gestourOrder">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>Volume d'affaires* </label>
+                <div class="col-7">
+                  <input class="form-control" type="number" v-model="businessVolume">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>Assurance* </label>
+                <div class="col-7">
+                  <b-dropdown text="Selectionner" v-model="insurance" class="m-md-2">
+                    <b-dropdown-item>April voyage</b-dropdown-item>
+                    <b-dropdown-item>Mondial assistance</b-dropdown-item>
+                    <b-dropdown-item>Non</b-dropdown-item>
+                  </b-dropdown>
+                </div>
+              </div>
+            </div>     
           </div>
         </div>
-        <div class="form-group">
-          <label class="col-5 col-form-label">Date de départ: </label>
-          <div class="col-4">
-            <input class="form-control" type="date" v-model="dateStart">
-          </div>
-        </div> 
-        <div class="form-group">
-          <label class="col-5 col-form-label">Prix: </label>
-          <div class="col-4">
-            <input class="form-control" type="text" v-model="price">
-          </div>
-        </div>      
-      </div>
-      <br>
+      </tab-content>
 
-      <div class="form-inline">
-        <div class="form-group">
-          <label>Arrivée : </label>
-          <div class="col-2">
-            <input class="form-control" type="text" v-model="end">
+      <tab-content title="Client">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>Nom de famille* </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="lastname">
+                </div>  
+              </div>
+              <div class="form-group">
+                <label>Prénom* </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="firstname">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>Email du client* </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="customerEmail">
+                </div>
+              </div> 
+              <div class="form-group">
+                <label>Mobile du client* </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="mobileClient">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Nombres de Pax* </label>
+                <div class="col-7">
+                  <input class="form-control" type="number" v-model="numberPax">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Recrutement* </label>
+                <div class="col-7">
+                  <b-form-radio-group stacked v-model="recruitement">
+                  <b-form-radio value="true">Oui</b-form-radio>
+                  <b-form-radio value="false">Non</b-form-radio>
+                </b-form-radio-group>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Provenance * </label>
+                <div class="col-7">
+                  <b-form-radio-group stacked v-model="origin">
+                  <b-form-radio value="Agence">Agence</b-form-radio>
+                  <b-form-radio value="Partenariat">Partenariat</b-form-radio>
+                  <b-form-radio value="Relationnel">Relationnel</b-form-radio>
+                  <b-form-radio value="Téléphone">Téléphone</b-form-radio>
+                  <b-form-radio value="Web">Web</b-form-radio>
+                </b-form-radio-group>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>CRM - Produits *</label>
+                <div class="col-7">
+                  <b-form-checkbox-group stacked v-model="crmProducts">
+                  <b-form-checkbox value="Billeterie">Billeterie</b-form-checkbox>
+                  <b-form-checkbox value="Circuits">Circuits</b-form-checkbox>
+                  <b-form-checkbox value="Clubs">Clubs</b-form-checkbox>
+                  <b-form-checkbox value="Croisières">Croisières</b-form-checkbox>
+                  <b-form-checkbox value="Prestations terrestres">Prestations terrestres</b-form-checkbox>
+                  <b-form-checkbox value="Séjours">Séjours</b-form-checkbox>
+                  <b-form-checkbox value="Sur-mesure">Sur-mesure</b-form-checkbox>
+                  <b-form-checkbox value="Week-ends">Week-ends</b-form-checkbox>
+                  <b-form-checkbox value="Autre">Autre :</b-form-checkbox>
+                </b-form-checkbox-group>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>CRM - Perso *</label>
+                <div class="col-7">
+                  <b-form-checkbox-group stacked v-model="crmPersonal">
+                  <b-form-checkbox value="Couple">Couple</b-form-checkbox>
+                  <b-form-checkbox value="Famille">Famille</b-form-checkbox>
+                  <b-form-checkbox value="Senior">Senior</b-form-checkbox>
+                  <b-form-checkbox value="Single">Single</b-form-checkbox>
+                  <b-form-checkbox value="Tribus">Tribus</b-form-checkbox>
+                  <b-form-checkbox value="Autre">Autre : </b-form-checkbox>
+                </b-form-checkbox-group>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>CRM - Opt-in *</label>
+                <div class="col-7">
+                  <b-form-checkbox-group stacked v-model="crmOptIn">
+                  <b-form-checkbox value="Email">Email</b-form-checkbox>
+                  <b-form-checkbox value="Mailing">Mailing</b-form-checkbox>
+                  <b-form-checkbox value="Phoning">Phoning</b-form-checkbox>
+                  <b-form-checkbox value="SMS">SMS</b-form-checkbox>
+                  <b-form-checkbox value="Autre">Autre : </b-form-checkbox>
+                </b-form-checkbox-group>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Remarques </label>
+                <div class="col-7">
+                  <input class="form-control" type="text" v-model="remarks">
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="role" class="col-5 col-form-label">Catégorie</label>
-          <div class="col-4">
-            <select class="form-control" v-model="category">
-              <option disabled value="">Choisir une catégories</option>
-              <option>Classe économique </option>
-              <option>Premium économique</option>
-              <option>Classe affaires</option>
-              <option>Première classe</option>
-            </select>
-          </div>
-        </div>  
-        <div class="form-group">
-          <label class="col-7 col-form-label">Client: </label>
-          <div class="col-4">
-            <input class="form-control" type="text" v-model="client">
-          </div>
-        </div>          
-      </div>
-    
-    </tab-content>
+        </div>     
+      </tab-content>
+    </form-wizard>
+  </div>
 
-    <tab-content title="Billet retour">
-      <div class="form-inline">
-        <div class="form-group">
-          <label class="col-2 col-form-label">Départ: </label>
-          <div class="col-4">
-            <input class="form-control" type="text" v-model="returnStart">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-5 col-form-label">Date de départ: </label>
-          <div class="col-4">
-            <input class="form-control" type="date" v-model="returnStartDate">
-          </div>
-        </div> 
-        <div class="form-group">
-          <label class="col-5 col-form-label">Prix: </label>
-          <div class="col-4">
-            <input class="form-control" type="text" v-model="returnPrice">
-          </div>
-        </div>      
-      </div>
-      <br>
-
-      <div class="form-inline">
-      <div class="form-group">
-        <label>Arrivée : </label>
-        <div class="col-2">
-          <input class="form-control" type="text" v-model="returnEnd">
-        </div>
-      </div>
-      <div class="form-group">
-      <label for="role" class="col-5 col-form-label">Catégorie</label>
-        <div class="col-4">
-          <select class="form-control" v-model="returnCategory">
-          <option disabled value="">Choisir une catégories</option>
-          <option>Classe économique </option>
-            <option>Premium économique</option>
-            <option>Classe affaires</option>
-            <option>Première classe</option>
-          </select>
-        </div>
-      </div>  
-    </div>     
-   </tab-content> -->
-</form-wizard>
-</div>
 </template>
 
 <script>
@@ -240,7 +267,7 @@ export default {
 
   data() {
     return {
-      user: null,
+      currentUser: [],
       geographicalArea: "",
       dateDeparture: "",
       returnDate: "",
@@ -259,9 +286,9 @@ export default {
       numberPax: "",
       recruitement: "",
       origin: "",
-      crmProducts: "",
-      crmPersonal: "",
-      crmOptIn: "",
+      crmProducts: [""],
+      crmPersonal: [""],
+      crmOptIn: [""],
       remarks: "",
       seller: this.$root.user._id,
       totalTicket: 1,
@@ -284,7 +311,7 @@ export default {
     checkUser(this.$root);
     if (!this.$root.user) this.$router.push("/404");
     getSingleUser(this.$root.user._id).then(user => {
-      this.user = user;
+      this.currentUser = user;
     });
   },
 
@@ -292,21 +319,28 @@ export default {
     newTicket() {
       this.messageError = null;
       newTicket({
-        start: this.start,
-        dateStart: this.dateStart,
-        end: this.end,
-        dateEnd: this.dateEnd,
-        price: this.price,
-        date: this.date,
-        category: this.category,
-        client: this.client,
-        returnStart: this.returnStart,
-        returnStartDate: this.returnStartDate,
-        returnEnd: this.returnEnd,
-        returnEndDate: this.returnEndDate,
-        returnPrice: this.returnPrice,
-        returnCategory: this.returnCategory,
-        seller: this.seller
+        geographicalArea: this.geographicalArea,
+        dateDeparture: this.dateDeparture,
+        returnDate: this.returnDate,
+        country: this.country,
+        typology: this.typology,
+        suppliers: this.suppliers,
+        bookingDate: this.bookingDate,
+        gestourOrder: this.gestourOrder,
+        businessVolume: this.businessVolume,
+        insurance: this.insurance,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        customerEmail: this.customerEmail,
+        mobileClient: this.mobileClient,
+        numberPax: this.numberPax,
+        recruitement: this.recruitement,
+        origin: this.origin,
+        crmProducts: this.crmProducts,
+        crmPersonal: this.crmPersonal,
+        crmOptIn: this.crmOptIn,
+        remarks: this.remarks,
+        seller: this.$root.user._id
       });
       editUserBusiness(this.$root.user._id, {
         totalBusiness: this.price

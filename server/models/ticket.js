@@ -23,7 +23,7 @@ const ticketSchema = new Schema(
     customerEmail: String,
     mobileClient: String,
     numberPax: Number,
-    recruitement: String,
+    recruitement: Boolean,
     origin: String,
     crmProducts: [String],
     crmPersonal: [String],

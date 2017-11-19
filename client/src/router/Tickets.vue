@@ -18,8 +18,8 @@
       </thead>
       <tbody v-for='(ticket, index) in tickets' :key='ticket._id'>
         <tr>
-          <td> {{ticket.start}} </td>
-          <td> {{ticket.end}} </td>
+          <td> {{ticket.firstname}} </td>
+          <td> {{ticket.lastname}} </td>
           <td>
             <button class="btn btn-dark" @click="showModalInfo(ticket)">Détails</button>
             <modal-info-ticket v-if="isModalInfoOpen" @close="isModalInfoOpen = false" :ticket="modalTicket"></modal-info-ticket>
