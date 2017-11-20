@@ -28,7 +28,7 @@
         <div class="col">
           <h3>Après-midi</h3>
           <div class="form-group">
-            <label>Heure de début(après-mide)</label>
+            <label>Heure de début(après-midi)</label>
             <div class="col-4">
               <input type="time" v-model="timeInfo.dayAbsenceTimeStartPM" class="form-control">
             </div>
