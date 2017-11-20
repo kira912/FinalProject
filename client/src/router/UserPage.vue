@@ -205,7 +205,8 @@
 </template>
 
 <script>
-import { editUser, getSingleUser, checkUser } from "@/api/auth";
+import { editUser, getSingleUser } from "@/api/users";
+import { checkUser } from "@/api/auth";
 export default {
   data() {
     return {

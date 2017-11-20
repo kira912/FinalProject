@@ -214,7 +214,8 @@
 </template>
 
 <script>
-import { newEntity, checkUser } from "@/api/auth";
+import { checkUser } from "@/api/auth";
+import { newEntity } from "@/api/entities";
 export default {
   data() {
     return {

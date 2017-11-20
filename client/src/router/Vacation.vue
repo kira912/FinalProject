@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { requestVacation, getVacation } from "@/api/auth";
+import { requestVacation, getVacation } from "@/api/vacations";
 export default {
   data() {
     return {

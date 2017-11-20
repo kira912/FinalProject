@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { getSingleUser } from "@/api/auth";
+import { getSingleUser } from "@/api/users";
 export default {
   data() {
     return {

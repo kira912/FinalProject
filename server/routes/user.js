@@ -168,12 +168,27 @@ userController.patch("/:id/business", (req, res) => {
   );
 });
 
+userController.get("/:id/time-info", (req, res) => {
+  User.findById(
+    req.params.id,
+    "dayWorked dayWorkedTimeStartAM dayWorkedTimeEndAM dayWorkedTimeStartPM dayWorkedTimeEndPM"
+  )
+    .then(info => {
+      res.json(info);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
 userController.patch("/:id/worked", (req, res) => {
   const update = _.pick(
     req.body,
     "dayWorked",
-    "dayWorkedTimeStart",
-    "dayWorkedTimeEnd"
+    "dayWorkedTimeStartAM",
+    "dayWorkedTimeEndAM",
+    "dayWorkedTimeStartPM",
+    "dayWorkedTimeEndPM"
   );
   User.findByIdAndUpdate(
     req.params.id,
@@ -193,14 +208,44 @@ userController.patch("/:id/worked", (req, res) => {
   );
 });
 
-userController.get("/:id/time-info", (req, res) => {
-  User.findById(req.params.id, "dayWorked dayWorkedTimeStart dayWorkedTimeEnd")
+userController.get("/:id/absences", (req, res) => {
+  User.findById(
+    req.params.id,
+    "dayAbsenceTimeStartAM dayAbsenceTimeEndAM  dayAbsenceTimeStartPM dayAbsenceTimeEndPM dayAbsence"
+  )
     .then(info => {
       res.json(info);
     })
     .catch(err => {
       res.json(err);
     });
+});
+
+userController.patch("/:id/absences", (req, res) => {
+  const updates = _.pick(
+    req.body,
+    "dayAbsenceTimeStartAM",
+    "dayAbsenceTimeEndAM",
+    "dayAbsenceTimeStartPM",
+    "dayAbsenceTimeEndPM",
+    "dayAbsence"
+  );
+  User.findByIdAndUpdate(
+    req.params.id,
+    {
+      $push: updates
+    },
+    {
+      new: true
+    },
+    (err, info) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(info);
+      }
+    }
+  );
 });
 
 userController.patch("/:id", (req, res) => {

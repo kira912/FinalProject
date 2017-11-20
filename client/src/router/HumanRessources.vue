@@ -40,12 +40,9 @@
 import WidgetsrhManager from "@/components/WidgetsrhManager";
 import WidgetsrhUsers from "@/components/WidgetsrhUsers";
 import UsersDirectories from "@/components/UsersDirectories";
-import {
-  getSingleUser,
-  getVacation,
-  editRequestVacation,
-  checkUser
-} from "@/api/auth";
+import { getSingleUser } from "@/api/users";
+import { getVacation, editRequestVacation } from "@/api/vacations";
+import { checkUser } from "@/api/auth";
 export default {
   components: {
     WidgetsrhManager,

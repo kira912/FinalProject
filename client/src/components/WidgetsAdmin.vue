@@ -45,7 +45,8 @@
 </template>
 
 <script>
-import { getUsers, getEntities } from "@/api/auth";
+import { getEntities } from "@/api/entities";
+import { getUsers } from "@/api/users";
 export default {
   name: "widgetsAdmin",
 

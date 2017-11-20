@@ -28,7 +28,7 @@
 </template>
 <script>
 import SidebarFooter from "./SidebarFooter";
-import { getSingleUser } from "@/api/auth";
+import { getSingleUser } from "@/api/users";
 
 export default {
   name: "sidebar",

@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { editProfile } from "@/api/auth";
+import { editProfile } from "@/api/users";
 export default {
   data() {
     return {

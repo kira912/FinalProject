@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { getUsers } from "@/api/auth";
+import { getUsers } from "@/api/users";
 import ModalInfo from "@/components/ModalInfo";
 export default {
   components: {

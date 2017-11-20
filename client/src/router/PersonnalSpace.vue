@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <b-button variant="dark" @click="goToEdit($root.user._id)">Editer profil</b-button>
     <b-button variant="dark" @click="goToTimeWork($root.user._id)">Saisie présences</b-button>
+    <b-button variant="dark" @click="goToAbsences($root.user._id)">Saisie des absences</b-button>
     <b-button variant="dark" @click="goToRequestVacation($root.user._id)">Demande de congés</b-button>
     <div class="d-flex justify-content-center">
       <div class="card" style="width: 20rem;">
@@ -35,7 +36,8 @@
 
 <script>
 import axios from "axios";
-import { getSingleUser, editUser, checkUser } from "@/api/auth";
+import { checkUser } from "@/api/auth";
+import { getSingleUser, editUser } from "@/api/users";
 export default {
   data() {
     return {
@@ -83,6 +85,9 @@ export default {
     },
     goToRequestVacation(id) {
       this.$router.push("/perso/" + id + "/vacation");
+    },
+    goToAbsences(id) {
+      this.$router.push("/perso/" + id + "/absence");
     }
   },
   created() {

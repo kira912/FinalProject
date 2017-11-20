@@ -34,7 +34,8 @@
 
 <script>
 import axios from "axios";
-import { getSingleUser, editUser, checkUser } from "@/api/auth";
+import { checkUser } from "@/api/auth";
+import { getSingleUser, editUser } from "@/api/users";
 export default {
   data() {
     return {

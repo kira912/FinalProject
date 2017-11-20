@@ -186,7 +186,8 @@
 </template>
 
 <script>
-import { editEntity, getSingleEntity, checkUser } from "@/api/auth";
+import { editEntity, getSingleEntity } from "@/api/entities";
+import { checkUser } from "@/api/auth";
 export default {
   data() {
     return {

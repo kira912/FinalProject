@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { getUsers } from "@/api/auth";
+import { getUsers } from "@/api/users";
 export default {
   data() {
     return {

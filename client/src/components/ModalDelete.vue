@@ -47,7 +47,8 @@
 </template>
 
 <script>
-import { deleteUser, deleteEntity } from "@/api/auth";
+import { deleteUser } from "@/api/users";
+import { deleteEntity } from "@/api/entities";
 export default {
   name: "modalDelete",
 

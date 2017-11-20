@@ -52,9 +52,16 @@ const userSchema = new Schema(
     },
     entryBusiness: String,
     startActivity: String,
-    dayWorkedTimeStart: [String],
-    dayWorkedTimeEnd: [String],
+    dayWorkedTimeStartAM: [String],
+    dayWorkedTimeEndAM: [String],
+    dayWorkedTimeStartPM: [String],
+    dayWorkedTimeEndPM: [String],
     dayWorked: [String],
+    dayAbsenceTimeStartAM: [String],
+    dayAbsenceTimeEndAM: [String],
+    dayAbsenceTimeStartPM: [String],
+    dayAbsenceTimeEndPM: [String],
+    dayAbsence: [String],
     endBusiness: String,
     professionalEmail: String,
     professionalNumber: Number,
@@ -77,14 +84,7 @@ const userSchema = new Schema(
 
     role: {
       type: String,
-      enum: [
-        "Admin",
-        "Directeur",
-        "Manager",
-        "Vendeur",
-        "Prestataire",
-        "Guest"
-      ],
+      enum: ["Admin", "Directeur", "Manager", "Vendeur", "Prestataire"],
       default: "Guest"
     }
   },

@@ -28,7 +28,7 @@
 
 <script>
 import AutoComplete from "@/components/AutoComplete";
-import { getSingleUser, getUsers } from "@/api/auth";
+import { getSingleUser, getUsers } from "@/api/users";
 export default {
   components: { AutoComplete },
   name: "header",

@@ -1,6 +1,6 @@
 import Line from "./Line";
 import reactiveData from "./reactiveData";
-import { getUsers } from "@/api/auth";
+import { getUsers } from "@/api/users";
 export default {
   extends: Line,
   mixins: [reactiveData],

@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { getUsers, getSingleUser } from "@/api/auth";
+import { getUsers, getSingleUser } from "@/api/users";
 export default {
   data() {
     return {

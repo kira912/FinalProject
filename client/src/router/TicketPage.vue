@@ -58,7 +58,8 @@
 </template>
 
 <script>
-import { editTicket, checkUser } from "@/api/auth";
+import { checkUser } from "@/api/auth";
+import { editTicket } from "@/api/tickets";
 export default {
   data() {
     return {

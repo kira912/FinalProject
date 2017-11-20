@@ -254,13 +254,13 @@
 import vSelect from "vue-select";
 import { FormWizard, TabContent } from "vue-form-wizard";
 import "vue-form-wizard/dist/vue-form-wizard.min.css";
+import { newTicket } from "@/api/tickets";
 import {
-  newTicket,
   getSingleUser,
   editUserTotalTicket,
-  editUserBusiness,
-  checkUser
-} from "@/api/auth";
+  editUserBusiness
+} from "@/api/users";
+import { checkUser } from "@/api/auth";
 import { listCountries } from "@/api/countries";
 export default {
   components: {

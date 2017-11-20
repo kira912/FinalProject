@@ -186,49 +186,14 @@
         </div>
       </tab-content>
     </form-wizard>
-
-
-
-
-
-
-    <!-- <form-wizard @on-complete="submit()" color="black">
-
-      <tab-content title="Info pro">
-          <div class="row">
-            <div role="group" class="form-row b-form-group form-group">
-              <label class="col-4-form-label col-8">
-                <span>Si directeur d'entité </span>
-              </label>
-              <div class="col-7">
-                <input type="text" v-model="directorEntity" class="form-control">
-                <div role="alert"  aria-live="assertive" aria-atomic="true" class="invalid-feedback" style="display: none;">
-                  <span></span>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="role" class="col-8 col-form-label">Droit d'accès  : (Champs obligatoire)</label>
-              <div class="col-9">
-                <select class="form-control" v-model="role">
-                  <option disabled value="">Choisir un role</option>
-                  <option>Directeur</option>
-                  <option>Manager</option>
-                  <option>Vendeur</option>
-                  <option>Prestataire</option>
-                </select>
-              </div>
-            </div>
-          </div>
-      </tab-content>
-    </form-wizard> -->
   </div>
 </template>
 
 <script>
 import { FormWizard, TabContent } from "vue-form-wizard";
 import "vue-form-wizard/dist/vue-form-wizard.min.css";
-import { newUser, checkUser } from "@/api/auth";
+import { checkUser } from "@/api/auth";
+import { newUser } from "@/api/users";
 export default {
   components: {
     FormWizard,

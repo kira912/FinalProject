@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { getTimelineEntities } from "@/api/auth";
+import { getTimelineEntities } from "@/api/timeline";
 export default {
   data() {
     return {

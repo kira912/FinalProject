@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { getTimelineTickets } from "@/api/auth";
+import { getTimelineTickets } from "@/api/timeline";
 export default {
   data() {
     return {

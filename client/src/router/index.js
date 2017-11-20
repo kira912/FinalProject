@@ -17,6 +17,7 @@ import PersonnalSpace from "./PersonnalSpace";
 import EditProfile from "./EditProfile";
 import TimeWork from "./TimeWork";
 import Vacation from "./Vacation";
+import Absence from "./Absence";
 import Page404 from "./Page404";
 
 Vue.use(Router);
@@ -96,6 +97,10 @@ const router = new Router({
     {
       path: "/perso/:id/vacation",
       component: Vacation
+    },
+    {
+      path: "/perso/:id/absence",
+      component: Absence
     },
     {
       path: "/404",

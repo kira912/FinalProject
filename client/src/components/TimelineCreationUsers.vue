@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { getTimelineUsers } from "@/api/auth";
+import { getTimelineUsers } from "@/api/timeline";
 export default {
   data() {
     return {

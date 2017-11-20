@@ -45,7 +45,8 @@
 </template>
 
 <script>
-import { getUsers, getSingleUser, checkUser } from "@/api/auth";
+import { checkUser } from "@/api/auth";
+import { getUsers, getSingleUser } from "@/api/users";
 import ModalDelete from "@/components/ModalDelete";
 import ModalInfo from "@/components/ModalInfo";
 export default {

@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { getSingleUser, getUsers } from "@/api/auth";
+import { getSingleUser, getUsers } from "@/api/users";
 export default {
   name: "widgetsusers",
 

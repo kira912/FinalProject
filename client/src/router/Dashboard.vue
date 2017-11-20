@@ -24,13 +24,10 @@ import WidgetsAdmin from "@/components/WidgetsAdmin";
 import WidgetsUsers from "@/components/WidgetsUsers";
 import WidgetsManager from "@/components/WidgetsManager";
 import ClassementUsers from "@/components/ClassementUsers";
-import {
-  getSingleUser,
-  getUsers,
-  getEntities,
-  getTickets,
-  checkUser
-} from "@/api/auth";
+import { checkUser } from "@/api/auth";
+import { getSingleUser, getUsers } from "@/api/users";
+import { getEntities } from "@/api/entities";
+import { getTickets } from "@/api/tickets";
 export default {
   components: {
     WidgetsAdmin,

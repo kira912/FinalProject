@@ -32,7 +32,8 @@
 
 <script>
 import ModalInfoTicket from "@/components/ModalInfoTicket";
-import { getTickets, checkUser } from "@/api/auth";
+import { checkUser } from "@/api/auth";
+import { getTickets } from "@/api/tickets";
 export default {
   components: {
     ModalInfoTicket

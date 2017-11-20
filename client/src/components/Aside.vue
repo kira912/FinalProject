@@ -18,7 +18,7 @@ import TimelineCreationUsers from "@/components/TimelineCreationUsers";
 import TimelineCreationEntities from "@/components/TimelineCreationEntities";
 import TimelineCreationTickets from "@/components/TimelineCreationTickets";
 import ContactsAside from "@/components/ContactsAside";
-import { getUsers } from "@/api/auth";
+import { getUsers } from "@/api/users";
 export default {
   components: {
     TimelineCreationUsers,
