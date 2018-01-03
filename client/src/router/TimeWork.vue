@@ -47,6 +47,7 @@
     <table class="table">
       <thead class="color">
         <tr>
+          <th>Index</th>
           <th>Jour travaillé</th>
           <th>Matin</th>
           <th>Matin</th>
@@ -56,6 +57,8 @@
       </thead>
       <tbody v-for="(item, index) in userInfo.dayWorked" :key="index">
         <tr>
+          <td> {{index + 1}} </td>
+          <p v-if="index % 7 === 0"> {{counterWeeks++}} </p>
           <td> {{userInfo.dayWorked[index]}} </td>
           <td> {{userInfo.dayWorkedTimeStartAM[index]}} </td>
           <td> {{userInfo.dayWorkedTimeEndAM[index]}} </td>
@@ -73,12 +76,14 @@ export default {
   data() {
     return {
       counterDays: 0,
+      counterWeeks: 0,
       userInfo: [],
       timeInfo: {}
     };
   },
   created() {
     getTimeWorked(this.$route.params.id).then(infoTime => {
+      // debugger;
       this.userInfo = infoTime;
       infoTime.dayWorked.forEach(day => {
         this.counterDays++;
@@ -87,9 +92,7 @@ export default {
   },
   methods: {
     submit() {
-      editTimeWorked(this.$route.params.id, this.timeInfo).then(() => {
-        this.$router.push("/perso/" + this.$root.user._id + "/time-work");
-      });
+      editTimeWorked(this.$route.params.id, this.timeInfo).then(() => {});
     }
   }
 };
