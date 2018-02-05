@@ -49,7 +49,7 @@ export default {
   },
 
   methods: {
-    login() {
+    login () {
       this.messageError = null;
       login(this.username, this.password, this.$root)
         .then(() => {

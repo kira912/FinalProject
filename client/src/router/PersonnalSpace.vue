@@ -1,9 +1,11 @@
 <template>
   <div class="container-fluid">
-    <b-button variant="dark" @click="goToEdit($root.user._id)">Editer profil</b-button>
-    <b-button variant="dark" @click="goToTimeWork($root.user._id)">Saisie présences</b-button>
-    <b-button variant="dark" @click="goToAbsences($root.user._id)">Saisie des absences</b-button>
-    <b-button variant="dark" @click="goToRequestVacation($root.user._id)">Demande de congés</b-button>
+    <div class="center">
+      <b-button variant="dark" @click="goToEdit($root.user._id)">Editer profil</b-button>
+      <b-button variant="dark" @click="goToTimeWork($root.user._id)">Saisie présences</b-button>
+      <b-button variant="dark" @click="goToAbsences($root.user._id)">Saisie des absences</b-button>
+      <b-button variant="dark" @click="goToRequestVacation($root.user._id)">Demande de congés</b-button>
+    </div>
     <div class="d-flex justify-content-center">
       <div class="card" style="width: 20rem;">
         <div v-if="$root.user._id === user._id">
@@ -99,3 +101,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.center {
+  margin-left: 28%;
+}
+</style>
