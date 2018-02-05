@@ -11,6 +11,7 @@ import moment from "moment";
 import vuescroll from "vue-scroll";
 
 Vue.prototype.moment = moment;
+moment.locale("fr");
 Vue.use(BootstrapVue);
 Vue.use(VueFormWizard);
 Vue.use(Notifications);

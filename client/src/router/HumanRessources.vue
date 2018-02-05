@@ -7,8 +7,7 @@
       <collapse-button type="Documents publics" content="Réglement Intérieur"></collapse-button>
       <collapse-button type="Documents privés" content="Fiche de paie"></collapse-button>
     </div>
-    <full-calendar :events="fcEvents" locale="fr"
-      @changeMonth="changeMonth"
+    <full-calendar :events="demoEvents" lang="fr"
       @eventClick="eventClick"
       @dayClick="dayClick"
       @moreClick="moreClick"></full-calendar>
@@ -17,6 +16,7 @@
       <table class="table" v-if="currentUser.role === 'Manager' || currentUser.role === 'Admin'">
       <thead class="color">
         <tr>
+          <th>Demandeur</th>
           <th>Date de début</th>
           <th>Date de fin</th>
           <th>Satuts</th>
@@ -24,6 +24,7 @@
       </thead>
       <tbody v-for="(request, index) in allRequestVacation" :key="request._id">
         <tr>
+          <td> {{request.owner}} </td>
           <td> {{request.start}} </td>
           <td> {{request.end}} </td>
           <td> {{request.status}} </td>
@@ -56,13 +57,6 @@ import { getSingleUser } from "@/api/users";
 import { getVacation, editRequestVacation } from "@/api/vacations";
 import { checkUser } from "@/api/auth";
 
-let demoEvents = [
-  {
-    title: "Sunny Out of Office",
-    start: "2016-08-25",
-    end: "2017-07-27"
-  }
-];
 export default {
   components: {
     WidgetsrhManager,
@@ -74,7 +68,23 @@ export default {
 
   data() {
     return {
-      fcEvents: demoEvents,
+      demoEvents: [
+        {
+          title: "Test event",
+          start: "2018-02-8",
+          end: "2018-02-10"
+        },
+        {
+          title: "Test event 1",
+          start: "2018-02-14",
+          end: "2018-02-20"
+        },
+        {
+          title: "Test event 2",
+          start: "2018-02-14",
+          end: "2018-02-15"
+        }
+      ],
       currentUser: [],
       toggleSuccess: false,
       successStatus: "Validé",
@@ -116,6 +126,16 @@ export default {
     refuseRequest(id) {
       editRequestVacation(id, { status: this.refuseStatus });
       this.toggleSuccess = false;
+    },
+
+    eventClick(event, jsEvent, pos) {
+      console.log("eventClick", event, jsEvent, pos);
+    },
+    dayClick(day, jsEvent) {
+      console.log("dayClick", day, jsEvent);
+    },
+    moreClick(day, events, jsEvent) {
+      console.log("moreCLick", day, events, jsEvent);
     }
   }
 };
