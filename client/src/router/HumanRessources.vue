@@ -7,6 +7,12 @@
       <collapse-button type="Documents publics" content="Réglement Intérieur"></collapse-button>
       <collapse-button type="Documents privés" content="Fiche de paie"></collapse-button>
     </div>
+    <full-calendar :events="fcEvents" locale="fr"
+      @changeMonth="changeMonth"
+      @eventClick="eventClick"
+      @dayClick="dayClick"
+      @moreClick="moreClick"></full-calendar>
+
     <div>
       <table class="table" v-if="currentUser.role === 'Manager' || currentUser.role === 'Admin'">
       <thead class="color">
@@ -41,6 +47,7 @@
 </template>
 
 <script>
+import FullCalendar from "vue-fullcalendar";
 import WidgetsrhManager from "@/components/WidgetsrhManager";
 import WidgetsrhUsers from "@/components/WidgetsrhUsers";
 import UsersDirectories from "@/components/UsersDirectories";
@@ -48,16 +55,26 @@ import CollapseButton from "@/components/CollapseButton";
 import { getSingleUser } from "@/api/users";
 import { getVacation, editRequestVacation } from "@/api/vacations";
 import { checkUser } from "@/api/auth";
+
+let demoEvents = [
+  {
+    title: "Sunny Out of Office",
+    start: "2016-08-25",
+    end: "2017-07-27"
+  }
+];
 export default {
   components: {
     WidgetsrhManager,
     WidgetsrhUsers,
     UsersDirectories,
-    CollapseButton
+    CollapseButton,
+    "full-calendar": require("vue-fullcalendar")
   },
 
   data() {
     return {
+      fcEvents: demoEvents,
       currentUser: [],
       toggleSuccess: false,
       successStatus: "Validé",
